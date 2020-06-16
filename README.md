@@ -16,10 +16,10 @@ This association works towards fulfilling the needs of Indian Students at Northw
 
 ## *Mockup of Home Screen:*
 
-![ISA_Home](/Documentation/mock-ups/Home_latest.jpg "Philadelphia's Magic Gardens")
+![ISA_Home](/Documentation/Assets/Home_latest.jpg "Philadelphia's Magic Gardens")
 
 ## *ER Diagram:*
 
-![ER_Diagram](/Documentation/mock-ups/ER_Diagram_picture.png "ER Diagram")
+![ER_Diagram](/Documentation/Assets/ER_Diagram_picture.png "ER Diagram")
 
 These are only mock-ups and are subject to change during the actual implementation of the application.
