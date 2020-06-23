@@ -52,6 +52,7 @@ h2 {
   background-repeat: no-repeat;
   background-position: top center;
   background-size: cover;
+  opacity: 0.5;
 }
 label {
   font-size: .85rem;
