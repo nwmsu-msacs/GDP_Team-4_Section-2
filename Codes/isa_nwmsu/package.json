@@ -1,0 +1,60 @@
+{
+  "name": "isa_nwmsu",
+  "version": "0.1.0",
+  "private": true,
+  "author": "Bhavya Deepthi",
+  "bugs": {
+    "url": "https://github.com/MAHALAKSHMIKONGARI/GDP_Team-4_Section-2/issues"
+  },
+  "contributors": [
+    "Bharat Reddy <S537359@nwmissouri.edu> (https://github.com/bharat-reddy-male)",
+    "Bhavya Deepthi <S536778@nwmissouri.edu> (https://github.com/Bhavya-123)",
+    "Mahalakshmi Kongari <S536979@nwmissouri.edu> (https://github.com/MAHALAKSHMIKONGARI)",
+    "Jyothsna Mathi <S536775@nwmissouri.edu> (https://github.com/jyothsna5268)",
+    "Jeevan Reddy Mure <S536980@nwmissouri.edu> (https://github.com/jeevanreddymure)",
+    "Dheeraj Edupuganti <S537151@nwmissouri.edu> (https://github.com/Dheeraj0327)"
+  ],
+  "dependencies": {
+    "@testing-library/jest-dom": "^4.2.4",
+    "@testing-library/react": "^9.5.0",
+    "@testing-library/user-event": "^7.2.1",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "react-scripts": "3.4.1"
+  },
+  "license": "MIT",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/MAHALAKSHMIKONGARI/GDP_Team-4_Section-2"
+  },
+  "homepage": "",
+  "keywords": [
+    "Express.js",
+    "JavaScript",
+    "Node.js",
+    "app",
+    "web"
+  ],
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
+}
