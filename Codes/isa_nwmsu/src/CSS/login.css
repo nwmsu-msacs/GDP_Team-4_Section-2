@@ -96,3 +96,9 @@ body{
     width: 100%;
     background-size: cover;
 }
+
+h1{
+  background: fixed;
+  background-color: rgb(137, 139, 0);
+  text-align: center;
+}
