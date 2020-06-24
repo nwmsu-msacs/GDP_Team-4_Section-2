@@ -145,3 +145,9 @@ body{
     /* background-position: center; */
     background-size: cover;
 }
+h1{
+  background: fixed;
+  background-color: darkblue;
+  text-align: center;
+  
+}
