@@ -2,16 +2,29 @@ const mongoose = require('mongoose');
 const bcrypt = require('bcrypt');
 
 const RegistrationSchema = new mongoose.Schema({
-    username :{
+    User_Name :{
         type : String,
         required : true,
-        min : 4,
-        max : 20
+        min : 22,
+        max : 22
     },
-    email:{
+    First_Name :{
+        type : String,
+        required : true,
+        min : 1,
+        max : 100
+    },
+    Last_Name :{
+        type : String,
+        required : true,
+        min : 1,
+        max : 100
+    },
+
+    Gender :{
         type: String,
-        required:true,
-        unique:true
+        enum: ['Male', 'Female'],
+        required : true
     },
     password :{
         type : String,
