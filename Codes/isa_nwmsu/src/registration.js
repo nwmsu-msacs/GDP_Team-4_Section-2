@@ -28,23 +28,37 @@ function Registration() {
                     </div>
                     <div class="signup__overlay "></div>
                 </div>
-                <div class="container__child signup__form " >
+                <div class="container__child signup__form signup__overlay" >
                     <form action="#">
                         <div class="form-group">
-                            <label for="username">Username</label>
-                            <input class="form-control" type="text" name="username" id="username" placeholder="james.bond" required />
+                            <label for="username" >Username(SID)</label>
+                            <input class="form-control" type="text" name="username" id="username" placeholder="SXXXXXX@nwmissouri.edu" required />
                         </div>
                         <div class="form-group">
-                            <label for="email">Email</label>
-                            <input class="form-control" type="text" name="email" id="email" placeholder="james.bond@spectre.com" required />
+                            <label for="firstname">First Name</label>
+                            <input class="form-control" type="text" name="firstname" id="firstname" placeholder="First Name" required />
                         </div>
+                        <div class="form-group">
+                            <label for="lastname">Last Name</label>
+                            <input class="form-control" type="text" name="lastname" id="lastname" placeholder="Last Name" required />
+                        </div>
+                        <div class="form-group">
+                            <label for="gender">Gender</label>&nbsp;
+
+                            <input class="form-control" type="radio" name="gender" id="gender" value="male"  required />
+                            <label for="male">Male</label>
+                            
+                            <input class="form-control" type="radio" name="gender" id="gender" value="female"  required />
+                            <label for="female">Female</label>
+                        </div>
+                        
                         <div class="form-group">
                             <label for="password">Password</label>
-                            <input class="form-control" type="password" name="password" id="password" placeholder="********" required />
+                            <input class="form-control" type="password" name="password" id="password" placeholder="Password" required />
                         </div>
                         <div class="form-group">
                             <label for="passwordRepeat">Repeat Password</label>
-                            <input class="form-control" type="password" name="passwordRepeat" id="passwordRepeat" placeholder="********" required />
+                            <input class="form-control" type="password" name="passwordRepeat" id="passwordRepeat" placeholder="Re-enter Password" required />
                         </div><br />
                         <div class="form-group">
                             <input class="btn btn--form" type="submit" value="Register" /><br />
