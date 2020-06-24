@@ -12,13 +12,13 @@ const RegistrationSchema = new mongoose.Schema({
         type : String,
         required : true,
         min : 1,
-        max : 100
+        max : 200
     },
     Last_Name :{
         type : String,
         required : true,
         min : 1,
-        max : 100
+        max : 200
     },
 
     Gender :{
@@ -26,7 +26,7 @@ const RegistrationSchema = new mongoose.Schema({
         enum: ['Male', 'Female'],
         required : true
     },
-    password :{
+    Password :{
         type : String,
         required: true,
         min: 8,
