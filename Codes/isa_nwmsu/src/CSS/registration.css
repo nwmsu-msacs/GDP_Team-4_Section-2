@@ -9,7 +9,7 @@ a,
 .signup__container {
   position: absolute;
   top: 50%;
-  right: 0;
+  right:0;
   left: 0;
   margin-right: auto;
   margin-left: auto;
@@ -84,13 +84,15 @@ h2 {
 }
 .signup__form {
   height: 30em;
-  /* background-color: #111; */
+   background-color: #00FFFF;
   /* padding: 2.5rem; */
   /* background:grey; */
   position: relative;
   display: flex;
   flex-wrap: wrap;
   align-items: center;
+ 
+  
   
   background-repeat: no-repeat;
   background-position: top center;
@@ -99,7 +101,7 @@ h2 {
 label {
   font-size: .85rem;
   text-transform: uppercase;
-  color:white;
+  color:black;
 }
 .form-group{
     padding-left: 2em;
