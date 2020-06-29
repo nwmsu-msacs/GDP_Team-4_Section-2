@@ -56,7 +56,7 @@ class Login extends Component {
       <div className="container">
         <div style={{ marginTop: "2rem" }} className="row">
           <div className="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
-            <a href="/home">Go back to home</a>
+            <a href="/">Go back to home</a>
             <div className="col s12" style={{ paddingLeft: "11.250px" }}>
               <h4>
                 <b>Login</b>
