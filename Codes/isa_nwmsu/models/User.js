@@ -10,16 +10,10 @@ const UserSchema = new Schema({
     type: String,
     required: true
   },
-  male:{
-    type: Boolean,
-    default:true,
-    required: true,
-  },
-  female:{
-      type:Boolean,
-      default: false,
-      required: true
-  },
+  // gender:{
+  //   type: String,
+  //   required: true,
+  // },
   password: {
     type: String,
     required: true

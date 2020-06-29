@@ -102,6 +102,7 @@ class Login extends Component {
                   {errors.passwordincorrect}
                 </span>
               </div>
+              <div className="col s12"><a href ="/forgotPassword">Forgot Password?</a></div>
               <div className="col s12" style={{ paddingLeft: "11.250px" }}>
                 <button
                   style={{

@@ -10,8 +10,7 @@ class Register extends Component {
         this.state = {
             name: "",
             email: "",
-            male:true,
-            female: false,
+            // gender: "Male",
             password: "",
             password2: "",
             errors: {}
@@ -34,18 +33,25 @@ class Register extends Component {
     onChange = e => {
         this.setState({ [e.target.id]: e.target.value });
     };
+
+    // onRadioChange = (e) => {
+    //     this.setState({
+    //       gender: e.target.value
+    //     });
+    //   }
+
     onSubmit = e => {
         e.preventDefault();
         const newUser = {
             name: this.state.name,
             email: this.state.email,
-            male: this.state.male,
-            female: this.state.female,
+            // gender: this.state.gender,
             password: this.state.password,
             password2: this.state.password2
 
         };
         this.props.registerUser(newUser, this.props.history);
+        // console.log(this.state.gender);
     };
     render() {
         const { errors } = this.state;
@@ -93,36 +99,26 @@ class Register extends Component {
                             </div>
 
 
-                            <div className="col s12">
+                            {/* <div className="col s12">
                                 <label>Gender&nbsp;&nbsp;</label>
                                 <label htmlFor="male">
-                                    <input class="with-gap"  onChange={this.onChange}
-                                    value={this.state.male}
-                                    error={errors.male}
-                                    id="male"
+                                    <input class="with-gap"  onChange={this.onRadioChange}
+                                    value="Male"
                                     name="gender"
-                                    value="male"
-                                    type="radio" checked
-                                    className={classnames("", {
-                                        invalid: errors.male
-                                    })} />
+                                    type="radio" checked = {this.state.gender === "Male"}
+                                     />
                                     <span>Male</span>
                                 </label>
                                 &nbsp;&nbsp;
                                 <label>
-                                <input class="with-gap"  onChange={this.onChange}
-                                    value={this.state.female}
-                                    error={errors.female}
-                                    id="female"
+                                <input class="with-gap"  onChange={this.onRadioChange}
+                                    value="Female"
                                     name="gender"
-                                    value="female"
-                                    type="radio" 
-                                    className={classnames("", {
-                                        invalid: errors.female
-                                    })} />
+                                    type="radio" checked = {this.state.gender === "Female"}
+                                     />
                                     <span>Female</span>
                                 </label>
-                            </div>
+                            </div> */}
 
                             <div className="input-field col s12">
                                 <label htmlFor="password">Password</label>

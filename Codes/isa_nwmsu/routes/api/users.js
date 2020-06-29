@@ -26,9 +26,8 @@ router.post("/register", (req, res) => {
         const newUser = new User({
           name: req.body.name,
           email: req.body.email,
+          // gender: req.body.gender,
           password: req.body.password,
-          male: req.body.male,
-          female: req.body.female
         });
   // Hash password before saving in database
         bcrypt.genSalt(10, (err, salt) => {
@@ -92,6 +91,24 @@ router.post("/login", (req, res) => {
             .json({ passwordincorrect: "Password incorrect" });
         }
       });
+    });
+  });
+
+
+  //forgotpassword
+  router.post("/forgotPassword", (req, res) => {
+    // Form validation
+  const { errors, isValid } = validateForgotPasswordInput(req.body);
+  // Check validation
+    if (!isValid) {
+      return res.status(400).json(errors);
+    }
+  User.findOne({ email: req.body.email }).then(user => {
+      if (!user) {
+        return res.status(400).json({ email: "Email doesn't exists" });
+      } else {
+        return res.status(200).json({email: "Email exists"});
+      }
     });
   });
 
