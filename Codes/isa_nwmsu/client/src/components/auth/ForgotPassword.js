@@ -1,35 +1,73 @@
-import React, { Component } from "react";
-import { Link } from "react-router-dom";
-import PropTypes from "prop-types";
-import { connect } from "react-redux";
-import { loginUser } from "../../actions/authActions";
+import React, { Component } from 'react';
+
+import axios from 'axios';
 import classnames from "classnames";
+
+const title = {
+  pageTitle: 'Forgot Password Screen',
+};
 
 class ForgotPassword extends Component {
   constructor() {
     super();
+
     this.state = {
-      email: "",
+      email: '',
+      showError: false,
+      messageFromServer: '',
+      showNullError: false,
       errors: {}
     };
   }
 
-  onSubmit = e => {
-    e.preventDefault();
-
-    const userData = {
-      email: this.state.email,
-    };
-
-    this.props.forgotPassword(userData);
+  onChange = name => (event) => {
+    this.setState({
+      [name]: event.target.value,
+    });
   };
 
-  onChange = e => {
-    this.setState({ [e.target.id]: e.target.value });
+  sendEmail = async (e) => {
+    e.preventDefault();
+    const { email } = this.state;
+    if (email === '') {
+      this.setState({
+        showError: false,
+        messageFromServer: '',
+        showNullError: true,
+      });
+    } else {
+      try {
+        const response = await axios.post(
+          'http://localhost:5000/api/users/forgotPassword',
+          {
+            email: this.state.email,
+          },
+        );
+        console.log(response.data);
+        if (response.data === 'recovery email sent') {
+          this.setState({
+            showError: false,
+            messageFromServer: 'recovery email sent',
+            showNullError: false,
+          });
+        }
+      } catch (error) {
+        console.error(error.response.data);
+        if (error.response.data === 'email not in database') {
+          this.setState({
+            showError: true,
+            messageFromServer: '',
+            showNullError: false,
+          });
+        }
+      }
+    }
   };
 
   render() {
-    const { errors } = this.state;
+    const {
+      email, messageFromServer, showNullError, showError, errors
+    } = this.state;
 
     return (
       <div className="container">
@@ -41,26 +79,43 @@ class ForgotPassword extends Component {
                 <b>Retrieve your password here..</b>
               </h5>
             </div>
-            <form noValidate onSubmit={this.onSubmit}>
+            <form noValidate onSubmit={this.sendEmail}>
               <div className="input-field col s12">
-              <label htmlFor="email">Email</label>
+                {/* <label htmlFor="email">Email</label> */}
                 <input
-                  onChange={this.onChange}
-                  value={this.state.email}
+                  onChange={this.onChange('email')}
+                  value={email}
                   error={errors.email}
                   id="email"
                   type="email"
+                  placeholder="Email Address"
                   className={classnames("", {
                     invalid: errors.email || errors.emailnotfound
                   })}
                 />
-                
+
                 <span className="red-text">
-                  {errors.email}
-                  {errors.emailnotfound}
+                  {showNullError && (
+                    <div>
+                      <p>The email address is required</p>
+                    </div>
+                  )}
+                  {showError && (
+                    <div>
+                      <p>
+                        That email address isn&apos;t recognized. Please try again or&nbsp;
+                        <a href="/register">Register</a> for a new account.
+                      </p>
+                    </div>
+                  )}
+                  {messageFromServer === 'recovery email sent' && (
+                    <div>
+                      <h3>Password Reset Email Successfully Sent!</h3>
+                    </div>
+                  )}
                 </span>
               </div>
-              
+
               <div className="col s12" style={{ paddingLeft: "11.250px" }}>
                 <button
                   style={{
@@ -81,6 +136,5 @@ class ForgotPassword extends Component {
     );
   }
 }
-
 
 export default ForgotPassword;

@@ -1,15 +1,20 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
+import image from "./assets/isa.jpg"
 class Landing extends Component {
   render() {
     return (
-      <div style={{ height: "75vh" }} className="container valign-wrapper">
+
+      <div style={{ height: "75vh" }} className="container valign-wrapper" >
+
         <div className="row">
+
           <div className="col s12 center-align">
+            
             <h4>
               Welcome to Indian Student Association
             </h4>
-            
+
             <br />
             <div className="col s6">
               <Link
