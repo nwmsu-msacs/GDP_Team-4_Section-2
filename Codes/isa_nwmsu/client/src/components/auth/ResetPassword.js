@@ -12,6 +12,7 @@ const title = {
     pageTitle: 'Password Reset Screen',
 };
 
+
 class ResetPassword extends Component {
     constructor() {
         super();

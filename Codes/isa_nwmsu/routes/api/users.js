@@ -79,7 +79,12 @@ router.post("/register", (req, res) => {
   });
 });
 
+<<<<<<< HEAD
 // @route POST api/users/login
+=======
+
+  // @route POST api/users/login
+>>>>>>> ba3da6c534b3125c9a34fa3610b51f9b2a291dd7
 // @desc Login user and return JWT token
 // @access Public
 router.post("/login", (req, res) => {
