@@ -13,6 +13,7 @@ class ForgotPassword extends Component {
       errors: {}
     };
   }
+  
 
   onSubmit = e => {
     e.preventDefault();
