@@ -138,9 +138,5 @@ class ForgotPassword extends Component {
   }
 }
 
-<<<<<<< HEAD
-export default ForgotPassword;
-=======
 
 export default ForgotPassword;
->>>>>>> ba3da6c534b3125c9a34fa3610b51f9b2a291dd7
