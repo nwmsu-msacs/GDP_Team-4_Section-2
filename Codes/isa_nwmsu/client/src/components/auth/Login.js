@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { loginUser } from "../../actions/authActions";
+import image from "../layout/assets/carousel_image4.jpg"
 import classnames from "classnames";
 
 class Login extends Component {
@@ -52,9 +53,11 @@ class Login extends Component {
     const { errors } = this.state;
 
     return (
-      <div className="container">
-        <div style={{ marginTop: "2rem" }} className="row">
-          <div className="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
+      <div >
+        <div style={{ height: "100vh",  backgroundImage: `url(${image})`, backgroundRepeat:"no-repeat",backgroundSize:"cover"}} className="row">
+          <div className="col-md-6" ></div>
+          <div className=" col-md-3" style={{marginTop: "3rem",borderRadius:"5%", marginBottom: "10rem", boxShadow:"0px 0px 10px 10px #303030", backgroundColor:"white",}}>
+          <div className="mainbox col-md-12" style={{marginTop: "1rem"}}>
             <a href="/">Go back to home</a>
             <div className="col s12" style={{ paddingLeft: "11.250px" }}>
               <h4>
@@ -117,6 +120,7 @@ class Login extends Component {
                 </button>
               </div>
             </form>
+          </div>
           </div>
         </div>
       </div>

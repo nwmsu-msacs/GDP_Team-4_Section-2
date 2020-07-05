@@ -6,7 +6,7 @@ class Landing extends Component {
     return (
 
       
-      <div style={{ height: "90vh", 
+      <div style={{ height: "100vh", 
                     backgroundImage: `url(${image})`, 
                     backgroundRepeat: "no-repeat", 
                     backgroundSize:"cover", 
