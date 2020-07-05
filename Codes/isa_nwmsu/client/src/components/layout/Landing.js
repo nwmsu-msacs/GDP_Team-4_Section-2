@@ -1,17 +1,29 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
-import image from "./assets/isa.jpg"
+import image from "./assets/carousel_image4.jpg"
 class Landing extends Component {
   render() {
     return (
 
-      <div style={{ height: "75vh" }} className="container valign-wrapper" >
+      
+      <div style={{ height: "90vh", 
+                    backgroundImage: `url(${image})`, 
+                    backgroundRepeat: "no-repeat", 
+                    backgroundSize:"cover", 
+                    alignItems :"center",
+                    display: "flex",
+                    justifyContent: "center",
+                    }}  >
+        {/*new UI*/}
+        
 
+
+        {/*old UI*/}
         <div className="row">
 
           <div className="col s12 center-align">
             
-            <h4>
+            <h4 style={{color:"white"}}>
               Welcome to Indian Student Association
             </h4>
 

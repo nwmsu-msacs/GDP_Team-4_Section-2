@@ -15,7 +15,7 @@ class Navbar extends Component {
                             <li class="nav-item ">
                                 <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
                             </li>
-                            <li class="nav-item dropdown">
+                            <li class="nav-item px-3 dropdown">
                                 <a class="nav-link dropdown-toggle" href="/" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                     Events
         </a>
@@ -24,7 +24,7 @@ class Navbar extends Component {
                                     <a class="dropdown-item" href="/developmentInProgress">Past Events</a>
                                 </div>
                             </li>
-                            <li class="nav-item dropdown">
+                            <li class="nav-item px-3 dropdown">
                                 <a class="nav-link dropdown-toggle" href="/" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                     Services
         </a>
@@ -36,7 +36,7 @@ class Navbar extends Component {
                                     <a class="dropdown-item" href="/developmentInProgress">Volunteer</a>
                                 </div>
                             </li>
-                            <li class="nav-item dropdown">
+                            <li class="nav-item px-3 dropdown">
                                 <a class="nav-link dropdown-toggle" href="/" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                     Help
         </a>
