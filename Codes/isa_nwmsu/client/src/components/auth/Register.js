@@ -4,6 +4,7 @@ import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { registerUser } from "../../actions/authActions";
 import classnames from "classnames";
+import image from "../layout/assets/carousel_image4.jpg"    
 class Register extends Component {
     constructor() {
         super();
@@ -56,10 +57,12 @@ class Register extends Component {
     render() {
         const { errors } = this.state;
         return (
-            <div className="container">
-                <div style={{ marginTop: "2rem" }} className="row">
-                    <div className="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
-                        <a href="/">Go back to home</a>
+            <div>
+                <div style={{ height: "110vh",  backgroundImage: `url(${image})`, backgroundRepeat:"no-repeat",backgroundSize:"cover"}} className="row">
+                <div className="col-md-6" ></div>
+                <div className=" col-md-3" style={{marginTop: "3rem",borderRadius:"5%", marginBottom: "4rem", boxShadow:"0px 0px 10px 10px #303030", backgroundColor:"white",}}>
+                <div className="mainbox col-md-12" style={{marginTop: "1rem"}}>
+                        <a href="/" style={{ paddingLeft: "11.250px" }}>Home</a>
                         <div className="col s12" style={{ paddingLeft: "11.250px" }}>
                             <h4>
                                 <b>Register</b>
@@ -68,7 +71,7 @@ class Register extends Component {
                         </div>
                         <form noValidate onSubmit={this.onSubmit}>
                             <div className="input-field col s12">
-                                <label htmlFor="name">Name</label>
+                            <label htmlFor="name">Name</label>
                                 <input
                                     onChange={this.onChange}
                                     value={this.state.name}
@@ -169,6 +172,7 @@ class Register extends Component {
                             </div>
                         </form>
                     </div>
+                </div>
                 </div>
             </div>
         );

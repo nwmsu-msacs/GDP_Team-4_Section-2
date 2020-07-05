@@ -58,7 +58,7 @@ class Login extends Component {
           <div className="col-md-6" ></div>
           <div className=" col-md-3" style={{marginTop: "3rem",borderRadius:"5%", marginBottom: "10rem", boxShadow:"0px 0px 10px 10px #303030", backgroundColor:"white",}}>
           <div className="mainbox col-md-12" style={{marginTop: "1rem"}}>
-            <a href="/">Go back to home</a>
+            <a href="/" style={{ paddingLeft: "11.250px" }}>Home</a>
             <div className="col s12" style={{ paddingLeft: "11.250px" }}>
               <h4>
                 <b>Login</b>

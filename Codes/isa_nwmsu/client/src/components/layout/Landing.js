@@ -23,7 +23,7 @@ class Landing extends Component {
 
           <div className="col s12 center-align">
             
-            <h4 style={{color:"white"}}>
+            <h4 style={{color:"white", textShadow: "5px 5px 5px black"}}>
               Welcome to Indian Student Association
             </h4>
 
