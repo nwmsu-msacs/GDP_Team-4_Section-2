@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 import axios from 'axios';
 import classnames from "classnames";
-
+import image from "../layout/assets/carousel_image4.jpg"
 const title = {
   pageTitle: 'Forgot Password Screen',
 };
@@ -71,10 +71,12 @@ class ForgotPassword extends Component {
     } = this.state;
 
     return (
-      <div className="container">
-        <div style={{ marginTop: "2rem" }} className="row">
-          <div className="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
-            <a href="/login">Back to login</a>
+      <div style={{ height: "100vh",  backgroundImage: `url(${image})`, backgroundRepeat:"no-repeat",backgroundSize:"cover"}} className="row">
+          <div className="col-md-6" ></div>
+          <div className=" col-md-3" style={{marginTop: "7rem",borderRadius:"5%", marginBottom: "12rem", boxShadow:"0px 0px 10px 10px #303030", backgroundColor:"white",}}>
+          <div className="mainbox col-md-12" style={{marginTop: "1rem"}}>
+          <p style={{ display:"inline-flex"}}><i class="material-icons" style={{color:"#0080ff", opacity:"90%", paddingLeft: "11.250px"}}>home</i><a href="/" >&nbsp;Home</a></p>
+        
             <div className="col s12" style={{ paddingLeft: "11.250px" }}>
               <h5>
                 <b>Retrieve your password here..</b>
@@ -82,14 +84,13 @@ class ForgotPassword extends Component {
             </div>
             <form noValidate onSubmit={this.sendEmail}>
               <div className="input-field col s12">
-                {/* <label htmlFor="email">Email</label> */}
+                <label htmlFor="email">Email</label>
                 <input
                   onChange={this.onChange('email')}
                   value={email}
                   error={errors.email}
                   id="email"
                   type="email"
-                  placeholder="Email Address"
                   className={classnames("", {
                     invalid: errors.email || errors.emailnotfound
                   })}
@@ -110,8 +111,8 @@ class ForgotPassword extends Component {
                     </div>
                   )}
                   {messageFromServer === 'recovery email sent' && (
-                    <div>
-                      <h3>Password Reset Email Successfully Sent!</h3>
+                    <div style={{height:"2rem"}}>
+                      <p style={{fontSize:"12px"}}>Password Reset Email Successfully Sent! Check Email for further instructions</p>
                     </div>
                   )}
                 </span>
@@ -122,7 +123,7 @@ class ForgotPassword extends Component {
                   style={{
                     width: "200px",
                     borderRadius: "3px",
-                    marginTop: "1rem"
+                    // marginTop: "1rem"
                   }}
                   type="submit"
                   className="btn btn-large waves-effect waves-light hoverable blue accent-3"

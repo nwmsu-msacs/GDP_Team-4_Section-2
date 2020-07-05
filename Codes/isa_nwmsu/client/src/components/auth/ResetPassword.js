@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import axios from 'axios';
-
+import image from "../layout/assets/carousel_image4.jpg"
 
 const loading = {
     margin: '1em',
@@ -119,51 +119,56 @@ class ResetPassword extends Component {
         }
         return (
             
-            <div className="container">
-                <div style={{ marginTop: "2rem" }} className="row">
-          <div className="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
-          <a href="/">Go Back Home</a>
+            <div style={{ height: "100vh",  backgroundImage: `url(${image})`, backgroundRepeat:"no-repeat",backgroundSize:"cover"}} className="row">
+          <div className="col-md-6" ></div>
+          <div className=" col-md-3" style={{marginTop: "7rem",borderRadius:"5%", marginBottom: "13rem", boxShadow:"0px 0px 10px 10px #303030", backgroundColor:"white",}}>
+          <div className="mainbox col-md-12" style={{marginTop: "1rem"}}>
+          <p style={{ display:"inline-flex"}}><i class="material-icons" style={{color:"#0080ff", opacity:"90%", paddingLeft: "11.250px" }}>home</i><a href="/">&nbsp;Home</a></p>
+          <div className="col s12" >
                 <h5>
                 <b>Enter your new password..</b>
               </h5>
-                <div className="input-field col s12">
+                </div>
                 <form noValidate onSubmit={this.updatePassword}>
-                    {/* <label htmlFor="password">Password</label> */}
+                <div className="input-field col s12">
+                    <label htmlFor="password">Password</label>
                     <input
                         onChange={this.handleChange('password')}
                         value={password}
                         id="password"
                         type="password"
-                        placeholder="enter new password"
-                    />
+                    /></div>
+                    <div className="col s12" >
                     <button
                         style={{
                             width: "250px",
                             borderRadius: "3px",
                             letterSpacing: "1.5px",
-                            marginTop: "1rem"
+                            // marginTop: "1rem"
                         }}
                         type="submit"
                         className="btn btn-large waves-effect waves-light hoverable blue accent-3"
                     >
                         Update Password
                 </button>
+                </div>
+                
                 </form>
 
                 {updated && (
                     <div>
-                        <p>
+                        <p style={{color: "green", fontSize:"12px",paddingLeft: "11.250px" }}>
                             Your password has been successfully reset, please try logging in
                             again.
             </p>
-                        <p> <a href="/login">Login</a></p>
+                        <p  style={{ paddingLeft: "11.250px"}}> <a href="/login">Login</a></p>
                     </div>
                 )}
                 
             </div>
             </div>
             </div>
-            </div>
+            
         );
     }
 }

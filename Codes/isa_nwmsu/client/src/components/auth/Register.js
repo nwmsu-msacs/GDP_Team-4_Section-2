@@ -4,7 +4,8 @@ import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { registerUser } from "../../actions/authActions";
 import classnames from "classnames";
-import image from "../layout/assets/carousel_image4.jpg"    
+import image from "../layout/assets/carousel_image4.jpg";   
+import home from "../layout/assets/home.svg"; 
 class Register extends Component {
     constructor() {
         super();
@@ -60,9 +61,9 @@ class Register extends Component {
             <div>
                 <div style={{ height: "110vh",  backgroundImage: `url(${image})`, backgroundRepeat:"no-repeat",backgroundSize:"cover"}} className="row">
                 <div className="col-md-6" ></div>
-                <div className=" col-md-3" style={{marginTop: "3rem",borderRadius:"5%", marginBottom: "4rem", boxShadow:"0px 0px 10px 10px #303030", backgroundColor:"white",}}>
+                <div className=" col-md-3" style={{marginTop: "3rem",borderRadius:"5%", marginBottom: "3rem", boxShadow:"0px 0px 10px 10px #303030", backgroundColor:"white",}}>
                 <div className="mainbox col-md-12" style={{marginTop: "1rem"}}>
-                        <a href="/" style={{ paddingLeft: "11.250px" }}>Home</a>
+                        <p style={{ display:"inline-flex"}}><i class="material-icons" style={{color:"#0080ff", opacity:"90%",paddingLeft: "11.250px"}}>home</i><a href="/">&nbsp;Home</a></p>
                         <div className="col s12" style={{ paddingLeft: "11.250px" }}>
                             <h4>
                                 <b>Register</b>
