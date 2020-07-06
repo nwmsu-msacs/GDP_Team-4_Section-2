@@ -13,7 +13,9 @@ import PrivateRoute from "./components/private-routes/PrivateRoute";
 import Home from "./components/home/home";
 import ForgotPassword from "./components/auth/ForgotPassword";
 import ResetPassword from "./components/auth/ResetPassword";
-import developmentInProgress from "./components/developmentInProgress"
+import developmentInProgress from "./components/developmentInProgress";
+import ContactUs from "./components/help/ContactUs";
+// import { route } from "../../routes/api/users";
 // Check for token to keep user logged in
 if (localStorage.jwtToken) {
   // Set auth token header auth
@@ -45,6 +47,7 @@ class App extends Component {
             <Route exact path="/forgotPassword" component={ForgotPassword} />
             <Route exact path="/reset/:token" component={ResetPassword} />
             <Route exact path="/developmentInProgress" component={developmentInProgress}/>
+            <Route exact path="/contact" component={ContactUs}/>
             <Switch>
               <PrivateRoute exact path="/home" component={Home} />
             </Switch>

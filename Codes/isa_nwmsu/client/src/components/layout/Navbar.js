@@ -41,7 +41,7 @@ class Navbar extends Component {
                                     Help
         </a>
                                 <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                                    <a class="dropdown-item" href="/developmentInProgress">Contact Us</a>
+                                    <a class="dropdown-item" href="/contact">Contact Us</a>
                                     <a class="dropdown-item" href="/developmentInProgress">FAQ?</a>
                                     <a class="dropdown-item" href="/developmentInProgress">Alumni</a>
                                 </div>
