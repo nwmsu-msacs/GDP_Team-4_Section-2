@@ -1,12 +1,12 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
-
+import IsaLogo from "../layout/assets/ISA.png"
 class Navbar extends Component {
     render() {
         return (
             <div className="navbar-fixed">
                 <nav class="navbar navbar-expand-lg " style={{backgroundColor:"#0099FF"}}>
-                    <a class="navbar-brand" href="#">ISA</a>
+                    <a class="navbar-brand" href="#"><img src={IsaLogo} style={{height:"1.5em",}}></img></a>
                     {/* <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
                     </button> */}
