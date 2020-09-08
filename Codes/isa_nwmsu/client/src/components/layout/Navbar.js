@@ -21,7 +21,7 @@ class Navbar extends Component {
         </a>
                                 <div class="dropdown-menu" style={{borderRadius:"15%"}} aria-labelledby="navbarDropdownMenuLink">
                                     <a class="dropdown-item" href="/developmentInProgress">Upcoming Events</a>
-                                    <a class="dropdown-item" href="/developmentInProgress">Past Events</a>
+                                    <a class="dropdown-item" href="/pastevents">Past Events</a>
                                 </div>
                             </li>
                             <li class="nav-item px-3 dropdown">

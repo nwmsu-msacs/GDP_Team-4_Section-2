@@ -16,6 +16,7 @@ import ResetPassword from "./components/auth/ResetPassword";
 import developmentInProgress from "./components/developmentInProgress";
 import ContactUs from "./components/help/ContactUs";
 import Faq from "./components/help/Faq"
+import PastEvents from './components/events/pastevents';
 // import { route } from "../../routes/api/users";
 // Check for token to keep user logged in
 if (localStorage.jwtToken) {
@@ -50,6 +51,7 @@ class App extends Component {
             <Route exact path="/developmentInProgress" component={developmentInProgress}/>
             <Route exact path="/contact" component={ContactUs}/>
             <Route exact path="/faq" component={Faq}/>
+            <Route exact path="/pastevents" component={PastEvents}/>
             <Switch>
               <PrivateRoute exact path="/home" component={Home} />
             </Switch>
