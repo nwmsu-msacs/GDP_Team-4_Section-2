@@ -38,7 +38,7 @@ const rendereventslist=
     return (
         <div className="ui divided list" key={event.eventname}>
             <div className="item" >
-                <img className="ui medium image"  src={event.imagepath}/>
+                <img className="ui large image"  src={event.imagepath}/>
                 <div className="content">
                 <a className="header" >{event.eventname}</a>
                 <hr/>
