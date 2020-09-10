@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
+import Navbar from "../layout/Navbar";
+
 
 class Faq extends Component {
     constructor() {
@@ -13,7 +15,9 @@ class Faq extends Component {
         const { errors } = this.state;
 
         return (
-            <div><br/>
+            <div>
+              <Navbar/>
+              <br/>
             
             <div class="container">
 

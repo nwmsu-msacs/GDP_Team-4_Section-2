@@ -3,6 +3,7 @@ import holyimage from '../../assets/carousel_image1.jpg';
 import diwaliimage from '../../assets/carousel_image2.jpg';
 import independenceimage from '../../assets/carousel_image3.jpg';
 import Indiannightimage from '../../assets/carousel_image4.jpg';
+import Navbar from "../layout/Navbar";
 
 
 const eventslist=
@@ -36,6 +37,8 @@ const rendereventslist=
     eventslist.map((event)=>{
         console.log(event);
     return (
+        
+        
         <div className="ui divided list" key={event.eventname}>
             <div className="item" >
                 <img className="ui large image"  src={event.imagepath}/>
@@ -47,9 +50,10 @@ const rendereventslist=
                     {event.description}
                     </div>
                 </div>
+                
 
             </div>
-
+            <br/>
         </div>
 
     );
@@ -60,12 +64,14 @@ const rendereventslist=
 
 const pasteventslist=()=>{
     return(
-        
+        <div>
+            <Navbar/>
+            <br/>
         <div className="ui container" >
-            <h3 style={{textAlign:'center'}}>Past Events</h3>
+            <h3 style={{textAlign:'center'}}>Past Events</h3><br/>
             {rendereventslist}
         </div>
-
+</div>
     );
 };
 
