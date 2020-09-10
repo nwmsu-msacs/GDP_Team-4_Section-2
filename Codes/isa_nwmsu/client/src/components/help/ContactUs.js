@@ -1,5 +1,6 @@
 import React, { Component } from "react";
-import image from "../layout/assets/isa.jpg"
+import image from "../layout/assets/isa.jpg";
+import Navbar from "../layout/Navbar";
 class ContactUs extends Component {
     constructor() {
         super();
@@ -13,7 +14,7 @@ class ContactUs extends Component {
 
         return (
             <div>
-
+                <Navbar/>
                 {/* <!-- Section: Team v.1 --> */}
                 <section class="team-section text-center my-5">
 

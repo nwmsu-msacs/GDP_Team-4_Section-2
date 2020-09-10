@@ -1,70 +1,45 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
-import { loginUser } from "../../actions/authActions";
-import image from "../layout/assets/carousel_image4.jpg"
+// import pickup from "../../../../models/pickup";
 import classnames from "classnames";
+import image from "../layout/assets/carousel_image4.jpg"
 
-class Login extends Component {
-  constructor() {
-    super();
-    this.state = {
-      email: "",
-      password: "",
-      errors: {}
-    };
-  }
 
-  componentDidMount() {
-    // If logged in and user navigates to Login page, should redirect them to dashboard
-    if (this.props.auth.isAuthenticated) {
-      
-      // this.props.history.push("/home");
-      if(this.props.auth.user.role===100)
-      this.props.history.push("/adminHome");
+class Pickup extends Component{
 
-      else
-        this.props.history.push("/home");
-    }
-  }
+    constructor() {
+        super();
+        this.state = {
+          name: "",
+          date: "",
+          email:"",
+          cell:"",
+          luggage:"",
+          errors: {}
+        };
+      }
 
-  componentWillReceiveProps(nextProps) {
-    if (nextProps.auth.isAuthenticated ) {
-     
-      if(nextProps.auth.user.role===100)
-      this.props.history.push("/adminHome");
+      onChange = e => {
+        this.setState({ [e.target.id]: e.target.value });
+      };
 
-      else
-        this.props.history.push("/home");
-      
+      onSubmit = e => {
+        e.preventDefault();
+    
+        const pickupData = {
+            name: this.state.name,
+            date: this.state.date,
+            email: this.state.email,
+            cell: this.state.cell,
+            luggage: this.state.luggage
+        };
 
-    }
-
-    // if (nextProps.errors) {
-    //   this.setState({
-    //     errors: nextProps.errors
-    //   });
-    // }
-  }
-
-  onChange = e => {
-    this.setState({ [e.target.id]: e.target.value });
-  };
-
-  onSubmit = e => {
-    e.preventDefault();
-
-    const userData = {
-      email: this.state.email,
-      password: this.state.password
-    };
-
-    this.props.loginUser(userData);
+        this.props.pickup(pickupData);
   };
 
   render() {
     const { errors } = this.state;
-   // console.log(`errorsss${errors}`);
 
     return (
       <div >
@@ -140,21 +115,8 @@ class Login extends Component {
       </div>
     );
   }
+
+
 }
 
-Login.propTypes = {
-  loginUser: PropTypes.func.isRequired,
-  auth: PropTypes.object.isRequired,
-  errors: PropTypes.object.isRequired
-};
-
-const mapStateToProps = state => ({
-  auth: state.auth,
-  
-  errors: state.errors
-});
-
-export default connect(
-  mapStateToProps,
-  { loginUser }
-)(Login);
+export default Pickup;

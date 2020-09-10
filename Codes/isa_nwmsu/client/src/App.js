@@ -18,6 +18,9 @@ import ContactUs from "./components/help/ContactUs";
 import Faq from "./components/help/Faq"
 import PastEvents from './components/events/pastevents';
 import UpcomingEvents from './components/events/upcomingevents';
+import Pickup from './components/services/pickup';
+import AdminHome from "./components/home/AdminHome";
+
 
 
 // import { route } from "../../routes/api/users";
@@ -45,7 +48,12 @@ class App extends Component {
       <Provider store={store}>
         <Router>
           <div className="App">
-            <Navbar />
+            {/* <Navbar /> */}
+            <Switch>
+
+              <PrivateRoute exact path="/home" component={Home} />
+              <PrivateRoute exact path="/adminHome" component={AdminHome}/>
+              
             <Route exact path="/" component={Landing} />
             <Route exact path="/register" component={Register} />
             <Route exact path="/login" component={Login} />
@@ -56,9 +64,24 @@ class App extends Component {
             <Route exact path="/faq" component={Faq}/>
             <Route exact path="/pastEvents" component={PastEvents}/>
             <Route exact path="/upcomingEvents" component={UpcomingEvents}/>
-            <Switch>
-              <PrivateRoute exact path="/home" component={Home} />
+            <Route exact path="/pickup" component={Pickup}/>
             </Switch>
+            
+            
+              
+              {/* <Switch>
+
+              <PrivateRoute exact path="/home" component={Home} />
+              <PrivateRoute exact path="/adminHome" component={AdminHome}/>
+              </Switch> */}
+              
+          
+           
+              
+              
+            
+            
+            
           </div>
         </Router>
       </Provider>

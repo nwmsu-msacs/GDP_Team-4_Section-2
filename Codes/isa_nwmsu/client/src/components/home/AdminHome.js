@@ -2,37 +2,39 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { logoutUser } from "../../actions/authActions";
-import Navbar from "../layout/Navbar";
-import { Redirect } from "react-router-dom";
-// import Navbar from "../layout/Navbar";
+import AdminNavbar from "../layout/AdminNavbar";
+class AdminHome extends Component {
 
-class Home extends Component {
+
   onLogoutClick = e => {
     e.preventDefault();
     this.props.logoutUser();
-    
+    this.props.history.push("/")
   };
 
-  // componentDidMount(){
-  //   {Navbar}
-  // }
+  
+  getUser=()=>{
+     
+         if(this.props.auth.user!==null){
+             return this.props.auth.user.name;
 
+         }
+         else{
+             return "test";
+         }
 
-  getNavBar=()=>{
-    return(
-    <Navbar/>
-    );
+    
   }
+
 render() {
-  console.log(this.props.auth);
-    const { user } = this.props.auth;
-
-
+    console.log(this.props.auth);
+    // console.log("username",this.user.name);
+    //const { user } = this.props.auth;
 return (
-  <div>
-    {this.getNavBar()}
-      <div style={{ height: "75vh" }} className="container valign-wrapper">
+    <div>
         
+        <AdminNavbar/>
+      <div style={{ height: "75vh" }} className="container valign-wrapper">
         <div className="row">
           <div className="col s12 center-align">
             <h4>
@@ -40,7 +42,9 @@ return (
                 Login Successful{" "}
                 
               </p>
-            <b>Indian Student Association</b> welcomes, {user.name.split(" ")[0]}
+            <b>Indian Student Association</b> welcomes, 
+            {/* {this.user.name.split(" ")[0]} */}
+            {this.getUser()}
               
             </h4>
             <button
@@ -50,7 +54,8 @@ return (
                 letterSpacing: "1.5px",
                 marginTop: "1rem"
               }}
-              onClick={this.onLogoutClick}
+             onClick={this.onLogoutClick}
+            //  onClick={this.props.logoutUser()}
               className="btn btn-large waves-effect waves-light hoverable blue accent-3"
             >
               Logout
@@ -62,7 +67,7 @@ return (
     );
   }
 }
-Home.propTypes = {
+AdminHome.propTypes = {
   logoutUser: PropTypes.func.isRequired,
   auth: PropTypes.object.isRequired
 };
@@ -72,4 +77,4 @@ const mapStateToProps = state => ({
 export default connect(
   mapStateToProps,
   { logoutUser }
-)(Home);
+)(AdminHome);

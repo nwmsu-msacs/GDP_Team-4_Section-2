@@ -1,11 +1,24 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import image from "./assets/carousel_image4.jpg"
+import Navbar from "../layout/Navbar";
+
 class Landing extends Component {
+
+  // componentDidMount(){
+  //   <Navbar/>
+  // }
+
+  getNavBar=()=>{
+    return(
+    <Navbar/>
+    );
+  }
   render() {
     return (
 
-      
+      <div>
+        {this.getNavBar()}
       <div style={{ height: "100vh", 
                     backgroundImage: `url(${image})`, 
                     backgroundRepeat: "no-repeat", 
@@ -56,6 +69,7 @@ class Landing extends Component {
             </div>
           </div>
         </div>
+      </div>
       </div>
     );
   }

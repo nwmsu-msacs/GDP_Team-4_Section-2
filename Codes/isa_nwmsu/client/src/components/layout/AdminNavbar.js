@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import IsaLogo from "../layout/assets/ISA.png"
-class Navbar extends Component {
+class AdminNavbar extends React.Component {
     render() {
         return (
             <div className="navbar-fixed">
@@ -47,6 +47,18 @@ class Navbar extends Component {
                                     <a class="dropdown-item" href="/developmentInProgress">Alumni</a>
                                 </div>
                             </li>
+                            <li class="nav-item px-3 dropdown">
+                                <a class="nav-link dropdown-toggle" href="/" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    Admin Functionalities
+        </a>
+                                <div class="dropdown-menu" style={{borderRadius:"15%"}} aria-labelledby="navbarDropdownMenuLink">
+                                    <a class="dropdown-item" href="/developmentInProgress">Manage Events</a>
+                                    <a class="dropdown-item" href ="/developmentInProgress">Pickup Management</a>
+                                    <a class="dropdown-item" href="/developmentInProgress">Volunteer Management</a>
+                                    <a class="dropdown-item" href="/developmentInProgress">Manage Accommodation</a>
+                                    <a class="dropdown-item" href="/developmentInProgress">Members Enrolled</a>
+                                </div>
+                            </li>
                             </ul>
                             <ul class="navbar-nav ml-auto" >
                             <li class="nav-item ">
@@ -59,4 +71,4 @@ class Navbar extends Component {
     );
     }
 }
-export default Navbar;
+export default AdminNavbar;
