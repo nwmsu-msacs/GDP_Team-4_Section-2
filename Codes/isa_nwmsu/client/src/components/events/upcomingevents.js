@@ -4,9 +4,13 @@ import React from 'react';
 
 const UpcomingEvents=()=>{
     return(
-        <div>
-            Upcoming Events
-        </div>
+        <div className="ui container">
+            <br/>
+            <button class="ui primary right floated button">Create Event</button>
+            </div>
+        
+           
+        
 
     );
 
