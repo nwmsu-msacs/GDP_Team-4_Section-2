@@ -3,11 +3,11 @@ const isEmpty = require("is-empty");
 
 module.exports = function validateEventInput(data) {
     let errors = {};
-    let presentdate= Date.now().toString(MM/dd/yyyy);
+   // let presentdate= Date.now().toString(M/d/yyyy);
 
     // Convert empty fields to an empty string so we can use validator functions
     data.eventname = !isEmpty(data.eventname) ? data.eventname : "";
-    data.eventdate = !isEmpty(data.eventdate) ? data.eventdate.toString(MM/dd/yyyy) : "";
+    data.eventdate = !isEmpty(data.eventdate) ? data.eventdate : "";
     data.eventvenue = !isEmpty(data.eventvenue) ? data.eventvenue : "";
     data.timings = !isEmpty(data.timings) ? data.timings : "";
     data.description = !isEmpty(data.description) ? data.description : "";
@@ -22,9 +22,9 @@ module.exports = function validateEventInput(data) {
     if (Validator.isEmpty(data.eventdate)) {
         errors.eventdate = "Event Date field is required";
     }
-    else if (!(data.eventdate >= presentdate)) {
-        errors.eventdate = "Enter a valid date";
-    }
+    // else if (!(data.eventdate >= presentdate)) {
+    //     errors.eventdate = "Enter a valid date";
+    // }
 
     // Event venue checks
 
