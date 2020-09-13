@@ -10,6 +10,7 @@ class Home extends Component {
   onLogoutClick = e => {
     e.preventDefault();
     this.props.logoutUser();
+    // this.setState({loggedIn: false}); 
     
   };
 
@@ -30,7 +31,7 @@ render() {
 
 return (
   <div>
-    {this.getNavBar()}
+     {this.getNavBar()} 
       <div style={{ height: "75vh" }} className="container valign-wrapper">
         
         <div className="row">

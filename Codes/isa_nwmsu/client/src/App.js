@@ -43,30 +43,44 @@ if (localStorage.jwtToken) {
   }
 }
 class App extends Component {
+//logging test
+  constructor(props){
+    super(props);
+    this.state = {};  
+  }
+  componentWillMount(){
+      if(localStorage.getItem('jwtToken') != null){
+          this.setState({loggedIn: true}); 
+      } 
+  }
+
+  
+
   render() {
     return (
       <Provider store={store}>
 
         <Router>
           <div className="App">
-
-
+            <Navbar loggedIn={this.state.loggedIn} logOut={this.logOut}/>
+            {/* {<Navbar auth={store.getState()}/>} */}
             <Switch>
 
               <PrivateRoute exact path="/home" component={Home} />
-              <PrivateRoute exact path="/adminHome" component={AdminHome} />
-
-              <Route exact path="/" component={Landing} />
-              <Route exact path="/register" component={Register} />
-              <Route exact path="/login" component={Login} />
-              <Route exact path="/forgotPassword" component={ForgotPassword} />
-              <Route exact path="/reset/:token" component={ResetPassword} />
-              <Route exact path="/developmentInProgress" component={developmentInProgress} />
-              <Route exact path="/contact" component={ContactUs} />
-              <Route exact path="/faq" component={Faq} />
-              <Route exact path="/pastEvents" component={PastEvents} />
-              <Route exact path="/upcomingEvents" component={UpcomingEvents} />
-              <Route exact path="/pickup" component={Pickup} />
+              <PrivateRoute exact path="/adminHome" component={AdminHome}/>
+              
+            <Route exact path="/" component={Landing} />
+            <Route exact path="/register" component={Register} />
+            <Route exact path="/login" component={Login} />
+            <Route exact path="/forgotPassword" component={ForgotPassword} />
+            <Route exact path="/reset/:token" component={ResetPassword} />
+            <Route exact path="/developmentInProgress" component={developmentInProgress}/>
+            <Route exact path="/contact" component={ContactUs}/>
+            <Route exact path="/faq" component={Faq}/>
+            <Route exact path="/pastEvents" component={PastEvents}/>
+            <Route exact path="/upcomingEvents" component={UpcomingEvents}/>
+            <Route exact path="/pickup" component={Pickup}/>
+            {this.state.loggedIn == true ? <Route exact path='/logout' component={developmentInProgress}/> : null}
             </Switch>
 
 
