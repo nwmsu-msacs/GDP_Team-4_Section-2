@@ -43,12 +43,26 @@ if (localStorage.jwtToken) {
   }
 }
 class App extends Component {
+//logging test
+  constructor(props){
+    super(props);
+    this.state = {};  
+  }
+  componentWillMount(){
+      if(localStorage.getItem('jwtToken') != null){
+          this.setState({loggedIn: true}); 
+      } 
+  }
+
+  
+
   render() {
     return (
       <Provider store={store}>
         <Router>
           <div className="App">
-            {/* <Navbar /> */}
+            <Navbar loggedIn={this.state.loggedIn} logOut={this.logOut}/>
+            {/* {<Navbar auth={store.getState()}/>} */}
             <Switch>
 
               <PrivateRoute exact path="/home" component={Home} />
@@ -65,6 +79,7 @@ class App extends Component {
             <Route exact path="/pastEvents" component={PastEvents}/>
             <Route exact path="/upcomingEvents" component={UpcomingEvents}/>
             <Route exact path="/pickup" component={Pickup}/>
+            {this.state.loggedIn == true ? <Route exact path='/logout' component={developmentInProgress}/> : null}
             </Switch>
             
             

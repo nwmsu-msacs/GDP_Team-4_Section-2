@@ -1,8 +1,40 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import IsaLogo from "../layout/assets/ISA.png"
+import {connect} from "react-redux";
+import {loginUser} from "../../actions/authActions";
+import { logoutUser } from "../../actions/authActions";
+import PropTypes from "prop-types";
+
+
 class Navbar extends Component {
-    render() {
+
+    constructor(props) {
+        super(props);
+        
+    }
+
+    componentWillMount(){
+        if(localStorage.getItem('jwtToken') != null){
+            this.setState({loggedIn: true}); 
+        } 
+        else{
+            this.setState({loggedIn: false}); 
+        }
+    }
+
+
+
+    onLogoutClick = e => {
+        e.preventDefault();
+        this.props.logoutUser();
+        this.setState({loggedIn: false}); 
+        
+      };
+
+    
+    render(props) {
+        console.log(`From NAVBAR${this.props.auth}`);
         return (
             <div className="navbar-fixed">
                 <nav class="navbar navbar-expand-lg " style={{backgroundColor:"#0099FF"}}>
@@ -48,15 +80,57 @@ class Navbar extends Component {
                                 </div>
                             </li>
                             </ul>
-                            <ul class="navbar-nav ml-auto" >
+
+                            {(this.state.loggedIn) ?
+                            <ul><li>
+                                <a className='nav-link' href='/home'>
+                                    <i className='fa fa-user'></i> 
+                                </a>
+                                </li>
+                                </ul>
+                            : null }
+
+                            {(this.state.loggedIn == true) ?
+
+                            <ul>
+                                <li>
+                                <a className='nav-link' onclick={this.onLogoutClick}>
+                                    Logout
+                                </a>
+                                </li>
+                            </ul>
+                            : 
+                            <ul><li>
+                                <a className='nav-link' href='/login'>
+                                    Login
+                                </a>
+                                </li>
+                            </ul>
+                            }
+                            {/* <ul class="navbar-nav ml-auto" >
                             <li class="nav-item ">
                             <a class="nav-link" href="/login">Login</a>
                             </li>
-                        </ul>
+                        </ul> */}
                     </div>
                 </nav>
       </div >
     );
     }
 }
+
+// const mapStateToProps = state => {
+//     return {auth:state.auth}
+// };
+// Navbar.propTypes = {
+//     logoutUser: PropTypes.func.isRequired,
+//     auth: PropTypes.object.isRequired
+//   };
+//   const mapStateToProps = state => ({
+//     auth: state.auth
+//   });
+//   export default connect(
+//     mapStateToProps,
+//     { logoutUser }
+//   )(Navbar);
 export default Navbar;
