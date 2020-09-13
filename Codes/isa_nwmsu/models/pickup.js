@@ -24,6 +24,7 @@ const PickupSchema = new Schema({
   },
   pickupid:{
     type:String,
+    unique:true,
     default: ""
   },
   from:{
