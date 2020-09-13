@@ -33,7 +33,7 @@ if (localStorage.jwtToken) {
   const decoded = jwt_decode(token);
   // Set user and isAuthenticated
   store.dispatch(setCurrentUser(decoded));
-// Check for expired token
+  // Check for expired token
   const currentTime = Date.now() / 1000; // to get in milliseconds
   if (decoded.exp < currentTime) {
     // Logout user
@@ -46,42 +46,44 @@ class App extends Component {
   render() {
     return (
       <Provider store={store}>
+
         <Router>
           <div className="App">
-            {/* <Navbar /> */}
+
+
             <Switch>
 
               <PrivateRoute exact path="/home" component={Home} />
-              <PrivateRoute exact path="/adminHome" component={AdminHome}/>
-              
-            <Route exact path="/" component={Landing} />
-            <Route exact path="/register" component={Register} />
-            <Route exact path="/login" component={Login} />
-            <Route exact path="/forgotPassword" component={ForgotPassword} />
-            <Route exact path="/reset/:token" component={ResetPassword} />
-            <Route exact path="/developmentInProgress" component={developmentInProgress}/>
-            <Route exact path="/contact" component={ContactUs}/>
-            <Route exact path="/faq" component={Faq}/>
-            <Route exact path="/pastEvents" component={PastEvents}/>
-            <Route exact path="/upcomingEvents" component={UpcomingEvents}/>
-            <Route exact path="/pickup" component={Pickup}/>
+              <PrivateRoute exact path="/adminHome" component={AdminHome} />
+
+              <Route exact path="/" component={Landing} />
+              <Route exact path="/register" component={Register} />
+              <Route exact path="/login" component={Login} />
+              <Route exact path="/forgotPassword" component={ForgotPassword} />
+              <Route exact path="/reset/:token" component={ResetPassword} />
+              <Route exact path="/developmentInProgress" component={developmentInProgress} />
+              <Route exact path="/contact" component={ContactUs} />
+              <Route exact path="/faq" component={Faq} />
+              <Route exact path="/pastEvents" component={PastEvents} />
+              <Route exact path="/upcomingEvents" component={UpcomingEvents} />
+              <Route exact path="/pickup" component={Pickup} />
             </Switch>
-            
-            
-              
-              {/* <Switch>
+
+
+
+            {/* <Switch>
 
               <PrivateRoute exact path="/home" component={Home} />
               <PrivateRoute exact path="/adminHome" component={AdminHome}/>
               </Switch> */}
-              
-          
-           
-              
-              
-            
-            
-            
+
+
+
+
+
+
+
+
           </div>
         </Router>
       </Provider>
