@@ -78,7 +78,7 @@ class Pickup extends Component {
             type="text"
             name="email"
             id="email"
-            value={this.state.value}
+            value={this.state.email}
             onChange={this.onChange}
             placeholder="Enter email"
           />

@@ -20,7 +20,7 @@ const MembershipSchema = new Schema({
   },
   gender:{
     type: String,
-    required:true
+    required:false
   },
   contactNo:{
     type:Number,
