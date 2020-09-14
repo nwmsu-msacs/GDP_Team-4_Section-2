@@ -10,7 +10,7 @@ const MembershipSchema = new Schema({
     type: String,
     required: true
   },
-  Major: {
+  major: {
     type: String,
     required: true
   },
@@ -18,7 +18,7 @@ const MembershipSchema = new Schema({
     type: String,
     required: true
   },
-  Gender:{
+  gender:{
     type: String,
     required:true
   },

@@ -18,7 +18,7 @@ const AccommodationSchema = new Schema({
     type: Number,
     required: true
   },
-  Gender:{
+  gender:{
     type: String,
     required:true
   },
