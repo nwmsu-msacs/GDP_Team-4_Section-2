@@ -18,7 +18,7 @@ router.post("/pickup", (req,res) => {
         to: req.body.to,
         date: req.body.date,
         airline: req.body.airline,
-        flightNo: req.body.flightno
+        flightNo: req.body.flightNo
     });
 
     pickupData.save();
@@ -30,12 +30,12 @@ router.post("/pickup", (req,res) => {
 router.post("/accommodation", (req,res) => {
 
     const accommodationData = new Accommodation({
-        firstName: req.body.firstname,
-        lastName: req.body.lastname,
+        firstName: req.body.firstName,
+        lastName: req.body.lastName,
         non: req.body.non,
-        daysRequired: req.body.daysrequired,
+        daysRequired: req.body.daysRequired,
         gender: req.body.gender,
-        contactNo: req.body.contactno,
+        contactNo: req.body.contactNo,
     });
 
     accommodationData.save();
@@ -46,12 +46,12 @@ router.post("/accommodation", (req,res) => {
 router.post("/membership", (req,res) => {
 
     const membershipData = new Membership({
-        firstName: req.body.firstname,
-        lastName: req.body.lastname,
+        firstName: req.body.firstName,
+        lastName: req.body.lastName,
         major: req.body.major,
         email: req.body.email,
         gender: req.body.gender,
-        contactNo: req.body.contactno,
+        contactNo: req.body.contactNo,
     });
 
     membershipData.save();
@@ -62,11 +62,11 @@ router.post("/membership", (req,res) => {
 router.post("/volunteer", (req,res) => {
 
     const volunteerData = new Volunteer({
-        firstName: req.body.firstname,
-        lastName: req.body.lastname,
+        firstName: req.body.firstName,
+        lastName: req.body.lastName,
         non: req.body.non,
-        carType: req.body.cartype,
-        contactNo: req.body.contactno,
+        carType: req.body.carType,
+        contactNo: req.body.contactNo,
     });
 
     volunteerData.save();
