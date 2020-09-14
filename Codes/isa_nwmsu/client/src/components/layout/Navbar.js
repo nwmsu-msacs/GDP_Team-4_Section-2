@@ -61,11 +61,12 @@ class Navbar extends Component {
                                     Services
         </a>
                                 <div class="dropdown-menu" style={{borderRadius:"15%"}} aria-labelledby="navbarDropdownMenuLink">
+                                <a class="dropdown-item" href="/membership">Membership</a>
                                     <a class="dropdown-item" href="/pickup">Pickup</a>
-                                    <a class="dropdown-item" href="/developmentInProgress">Temporary Accommodation</a>
+                                    <a class="dropdown-item" href="/accommodation">Temporary Accommodation</a>
                                     <a class="dropdown-item" href="https://www.nwmissouri.edu/admissions/apply/admitted/checklist.htm" target="new">Pre-arrival Checklist</a>
                                     <a class="dropdown-item" href="https://www.nwmissouri.edu/admissions/apply/admitted/checklist.htm" target="new">Post-arrival Checklist</a>
-                                    <a class="dropdown-item" href="/developmentInProgress">Volunteer</a>
+                                    <a class="dropdown-item" href="/volunteer">Volunteer</a>
                                 </div>
                             </li>
                             <li class="nav-item px-3 dropdown">

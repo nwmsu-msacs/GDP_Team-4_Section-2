@@ -20,9 +20,9 @@ import PastEvents from './components/events/pastevents';
 import UpcomingEvents from './components/events/upcomingevents';
 import Pickup from './components/services/pickup';
 import AdminHome from "./components/home/AdminHome";
-
-
-
+import Membership from "./components/services/membership";
+import Accommodation from "./components/services/accommodation";
+import Volunteer from "./components/services/volunteer";
 // import { route } from "../../routes/api/users";
 // Check for token to keep user logged in
 if (localStorage.jwtToken) {
@@ -80,6 +80,9 @@ class App extends Component {
             <Route exact path="/pastEvents" component={PastEvents}/>
             <Route exact path="/upcomingEvents" component={UpcomingEvents}/>
             <Route exact path="/pickup" component={Pickup}/>
+            <Route exact path="/membership" component={Membership}/>
+            <Route exact path="/accommodation" component={Accommodation}/>
+            <Route exact path="/volunteer" component={Volunteer}/>
             {this.state.loggedIn == true ? <Route exact path='/logout' component={developmentInProgress}/> : null}
             </Switch>
 
