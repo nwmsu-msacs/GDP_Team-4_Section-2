@@ -22,11 +22,6 @@ const PickupSchema = new Schema({
     type: Number,
     required:true
   },
-  pickupid:{
-    type:String,
-    unique:true,
-    default: ""
-  },
   from:{
     type: String,
     required:true

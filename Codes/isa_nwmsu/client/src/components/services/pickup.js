@@ -47,7 +47,9 @@ class Pickup extends Component {
 
     axios.post('http://localhost:5000/api/services/pickup', pickupData)
             .then(res => console.log(res.data))
+            .then(this.props.history.push("/home"))
   //   // this.props.pickup(pickupData);
+    
   };
 
   render() {
@@ -65,6 +67,8 @@ class Pickup extends Component {
           <input
             type="text"
             name="name"
+            id="name"
+            value={this.state.name}
             onChange={this.onChange}
             placeholder="Enter name"
           />
@@ -73,6 +77,8 @@ class Pickup extends Component {
           <input
             type="text"
             name="email"
+            id="email"
+            value={this.state.value}
             onChange={this.onChange}
             placeholder="Enter email"
           />
@@ -81,6 +87,8 @@ class Pickup extends Component {
           <input
             type="number"
             name="cell"
+            id="cell"
+            value={this.state.cell}
             onChange={this.onChange}
             placeholder="Enter Cell number"
           />
@@ -89,6 +97,8 @@ class Pickup extends Component {
           <input
             type="number"
             name="luggage"
+            id="luggage"
+            value={this.state.luggage}
             onChange={this.onChange}
             placeholder="How many luggage are you carrying"
           />
@@ -97,6 +107,8 @@ class Pickup extends Component {
           <input
             type="text"
             name="from"
+            id="from"
+            value={this.state.from}
             onChange={this.onChange}
             placeholder="Enter from address"
           />
@@ -105,6 +117,8 @@ class Pickup extends Component {
           <input
             type="text"
             name="to"
+            id="to"
+            value={this.state.to}
             onChange={this.onChange}
             placeholder="Enter to address"
           />
@@ -113,6 +127,8 @@ class Pickup extends Component {
           <input
             type="datetime-local"
             name="date"
+            id="date"
+            value={this.state.date}
             onChange={this.onChange}
             placeholder="Select a date"
           />
@@ -121,6 +137,8 @@ class Pickup extends Component {
           <input
             type="text"
             name="airline"
+            id="airline"
+            value={this.state.airline}
             onChange={this.onChange}
             placeholder="Enter airline name"
           />
@@ -129,6 +147,8 @@ class Pickup extends Component {
           <input
             type="text"
             name="flightNo"
+            id="flightNo"
+            value={this.state.flightNo}
             onChange={this.onChange}
             placeholder="Enter flight No"
           />
