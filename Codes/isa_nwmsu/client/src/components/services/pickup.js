@@ -44,11 +44,12 @@ class Pickup extends Component {
       airline: this.state.airline,
       flightNo: this.state.flightNo
     };
-
+// port for the service
     axios.post('http://localhost:5000/api/services/pickup', pickupData)
             .then(res => console.log(res.data))
             .then(this.props.history.push("/home"))
   //   // this.props.pickup(pickupData);
+  
     
   };
 
