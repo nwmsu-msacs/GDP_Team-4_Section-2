@@ -94,7 +94,7 @@ class Pickup extends Component {
             onChange={this.onChange}
             placeholder="Enter Cell number"
           />
-          {/* luggage */}
+          {/* Luggage */}
           <label htmlFor="luggage">Luggage Count</label>
           <input
             type="number"
