@@ -6,7 +6,7 @@ const Membership = require("../../models/Membership");
 const Accommodation = require("../../models/Accommodation");
 const Volunteer = require("../../models/Volunteer");
 
-
+// post the data of pickup 
 router.post("/pickup", (req,res) => {
 
     const pickupData = new Pickup({

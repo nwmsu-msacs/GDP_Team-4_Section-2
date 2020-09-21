@@ -155,7 +155,7 @@ class Pickup extends Component {
             placeholder="Enter flight No"
           />
 
-          {/* submit  */}
+          {/* Submit  */}
           <button 
           type="submit"
           value="Request Pickup">Request Pickup</button>
