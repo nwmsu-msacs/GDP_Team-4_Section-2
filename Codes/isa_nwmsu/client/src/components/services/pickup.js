@@ -55,7 +55,7 @@ class Pickup extends Component {
 
   render() {
     const { errors } = this.state;
-
+// function
     return (
       <div>
         <Navbar/>
@@ -63,7 +63,8 @@ class Pickup extends Component {
       <div class="container">
         <h3>Pickup</h3>
         <form onSubmit={this.onSubmit}>
-          {/* name */}
+          {/* Name */}
+          
           <label htmlFor="Name">Name</label>
           <input
             type="text"
@@ -73,7 +74,7 @@ class Pickup extends Component {
             onChange={this.onChange}
             placeholder="Enter name"
           />
-          {/* email */}
+          {/* Email */}
           <label htmlFor="email">Email</label>
           <input
             type="text"
@@ -83,7 +84,7 @@ class Pickup extends Component {
             onChange={this.onChange}
             placeholder="Enter email"
           />
-          {/* cell */}
+          {/* Cell */}
           <label htmlFor="cell">Cell Number</label>
           <input
             type="number"
@@ -93,7 +94,7 @@ class Pickup extends Component {
             onChange={this.onChange}
             placeholder="Enter Cell number"
           />
-          {/* luggage */}
+          {/* Luggage */}
           <label htmlFor="luggage">Luggage Count</label>
           <input
             type="number"
@@ -103,7 +104,7 @@ class Pickup extends Component {
             onChange={this.onChange}
             placeholder="How many luggage are you carrying"
           />
-          {/* from */}
+          {/* From */}
           <label htmlFor="from">From</label>
           <input
             type="text"
@@ -113,7 +114,7 @@ class Pickup extends Component {
             onChange={this.onChange}
             placeholder="Enter from address"
           />
-          {/* to */}
+          {/* To */}
           <label htmlFor="to">To</label>
           <input
             type="text"
@@ -123,7 +124,7 @@ class Pickup extends Component {
             onChange={this.onChange}
             placeholder="Enter to address"
           />
-          {/* date */}
+          {/* Date */}
           <label htmlFor="date">Date</label>
           <input
             type="datetime-local"
@@ -133,7 +134,7 @@ class Pickup extends Component {
             onChange={this.onChange}
             placeholder="Select a date"
           />
-          {/* airline */}
+          {/* Airline */}
           <label htmlFor="airline">Airline Name (optional)</label>
           <input
             type="text"
@@ -143,7 +144,7 @@ class Pickup extends Component {
             onChange={this.onChange}
             placeholder="Enter airline name"
           />
-          {/* flightNo */}
+          {/* FlightNo */}
           <label htmlFor="flightNo">Flight No(Optional)</label>
           <input
             type="text"
@@ -154,7 +155,7 @@ class Pickup extends Component {
             placeholder="Enter flight No"
           />
 
-          {/* submit  */}
+          {/* Submit  */}
           <button 
           type="submit"
           value="Request Pickup">Request Pickup</button>
