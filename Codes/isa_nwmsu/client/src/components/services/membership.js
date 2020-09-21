@@ -95,6 +95,59 @@ class Membership extends Component {
                             onChange={this.onChange}
                             placeholder="Enter email"
                         />
+                        
+
+                        {/* Gender */}
+
+
+                        <label>Gender&nbsp;&nbsp;</label><br />
+                        <label htmlFor="male">
+                            <input class="with-gap" onChange={this.onChange}
+                                value="Male"
+                                name="gender"
+                                type="radio" checked={this.state.gender === "Male"}
+                                checked={true}
+                            />
+                            <span>Male</span>
+                        </label>
+                                &nbsp;&nbsp;
+                                <label>
+                            <input class="with-gap" onChange={this.onChange}
+                                value="Female"
+                                name="gender"
+                                type="radio" checked={this.state.gender === "Female"}
+                            />
+                            <span>Female</span>
+                        </label>
+
+                        <br />
+                        {/* major */}
+                        <label htmlFor="major">Major</label>
+                        <input
+                            type="text"
+                            name="major"
+                            id="major"
+                            value={this.state.major}
+                            onChange={this.onChange}
+                            placeholder="Enter Major"
+                        />
+                        {/* contact no */}
+                        <label htmlFor="contactNo">Contact Number</label>
+                        <input
+                            type="number"
+                            name="contactNo"
+                            id="contactNo"
+                            value={this.state.contactNo}
+                            onChange={this.onChange}
+                            placeholder="Enter Cell number"
+                        />
+
+
+                        {/* submit  */}
+                        <button
+                            type="submit"
+                            value="Request Pickup">Request Membership</button>
+                    </form>
                 </div>
             </div>
         );
