@@ -114,7 +114,7 @@ class Pickup extends Component {
             onChange={this.onChange}
             placeholder="Enter from address"
           />
-          {/* to */}
+          {/* To */}
           <label htmlFor="to">To</label>
           <input
             type="text"
