@@ -20,7 +20,7 @@ router.post("/pickup", (req,res) => {
         airline: req.body.airline,
         flightNo: req.body.flightNo
     });
-
+// method to save data in database
     pickupData.save();
 
     res.status(200).json({response: "Pickup data saved"});
