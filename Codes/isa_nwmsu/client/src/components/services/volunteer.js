@@ -25,7 +25,6 @@ class Volunteer extends Component {
         this.setState({ [e.target.id]: e.target.value });
     };
 
-
     onSubmit = e => {
         e.preventDefault();
 
@@ -38,7 +37,6 @@ class Volunteer extends Component {
             contactNo: this.state.contactNo,
 
         };
-
         
         axios.post('http://localhost:5000/api/services/volunteer', volunteerData)
             .then(res => console.log(res.data))
@@ -108,7 +106,6 @@ class Volunteer extends Component {
                             onChange={this.onChange}
                             placeholder="Enter Cell number"
                         />
-
 
                         {/* submit  */}
                         <button
