@@ -74,7 +74,7 @@ class Pickup extends Component {
             onChange={this.onChange}
             placeholder="Enter name"
           />
-          {/* email */}
+          {/* Email */}
           <label htmlFor="email">Email</label>
           <input
             type="text"
@@ -84,7 +84,7 @@ class Pickup extends Component {
             onChange={this.onChange}
             placeholder="Enter email"
           />
-          {/* cell */}
+          {/* Cell */}
           <label htmlFor="cell">Cell Number</label>
           <input
             type="number"
