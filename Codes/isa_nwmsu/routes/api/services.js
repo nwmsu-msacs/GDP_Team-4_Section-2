@@ -6,7 +6,6 @@ const Membership = require("../../models/Membership");
 const Accommodation = require("../../models/Accommodation");
 const Volunteer = require("../../models/Volunteer");
 
-
 router.post("/pickup", (req,res) => {
 
     const pickupData = new Pickup({
@@ -25,7 +24,6 @@ router.post("/pickup", (req,res) => {
 
     res.status(200).json({response: "Pickup data saved"});
 });
-
 
 router.post("/accommodation", (req,res) => {
 

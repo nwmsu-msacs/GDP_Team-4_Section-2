@@ -40,7 +40,6 @@ class Volunteer extends Component {
         };
 
         
-
         axios.post('http://localhost:5000/api/services/volunteer', volunteerData)
             .then(res => console.log(res.data))
             .then(this.props.history.push("/home"))
@@ -120,8 +119,6 @@ class Volunteer extends Component {
             </div>
         );
     }
-
-
 }
 
 export default Volunteer;
