@@ -144,7 +144,7 @@ class Pickup extends Component {
             onChange={this.onChange}
             placeholder="Enter airline name"
           />
-          {/* flightNo */}
+          {/* FlightNo */}
           <label htmlFor="flightNo">Flight No(Optional)</label>
           <input
             type="text"
