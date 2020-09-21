@@ -24,6 +24,7 @@ import AdminHome from "./components/home/AdminHome";
 import Membership from "./components/services/membership";
 import Accommodation from "./components/services/accommodation";
 import Volunteer from "./components/services/volunteer";
+
 // import { route } from "../../routes/api/users";
 // Check for token to keep user logged in
 if (localStorage.jwtToken) {
@@ -54,8 +55,6 @@ class App extends Component {
           this.setState({loggedIn: true}); 
       } 
   }
-
-  
 
   render() {
     return (
@@ -88,20 +87,11 @@ class App extends Component {
             {this.state.loggedIn == true ? <Route exact path='/logout' component={developmentInProgress}/> : null}
             </Switch>
 
-
-
             {/* <Switch>
 
               <PrivateRoute exact path="/home" component={Home} />
               <PrivateRoute exact path="/adminHome" component={AdminHome}/>
               </Switch> */}
-
-
-
-
-
-
-
 
           </div>
         </Router>
