@@ -63,7 +63,7 @@ class Pickup extends Component {
       <div class="container">
         <h3>Pickup</h3>
         <form onSubmit={this.onSubmit}>
-          {/* name */}
+          {/* Name */}
           
           <label htmlFor="Name">Name</label>
           <input
