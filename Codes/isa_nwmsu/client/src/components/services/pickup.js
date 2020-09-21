@@ -55,7 +55,7 @@ class Pickup extends Component {
 
   render() {
     const { errors } = this.state;
-
+// function
     return (
       <div>
         <Navbar/>
@@ -64,6 +64,7 @@ class Pickup extends Component {
         <h3>Pickup</h3>
         <form onSubmit={this.onSubmit}>
           {/* name */}
+          
           <label htmlFor="Name">Name</label>
           <input
             type="text"
