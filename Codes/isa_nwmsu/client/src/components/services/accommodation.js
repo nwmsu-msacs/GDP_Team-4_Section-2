@@ -95,6 +95,7 @@ class Accommodation extends Component {
                             onChange={this.onChange}
                             placeholder="Enter 919#"
                         />
+                        
 
                         {/* Gender */}
 
@@ -140,7 +141,6 @@ class Accommodation extends Component {
                             onChange={this.onChange}
                             placeholder="Enter Cell number"
                         />
-
 
                         {/* submit  */}
                         <button
