@@ -124,7 +124,7 @@ class Pickup extends Component {
             onChange={this.onChange}
             placeholder="Enter to address"
           />
-          {/* date */}
+          {/* Date */}
           <label htmlFor="date">Date</label>
           <input
             type="datetime-local"
@@ -134,7 +134,7 @@ class Pickup extends Component {
             onChange={this.onChange}
             placeholder="Select a date"
           />
-          {/* airline */}
+          {/* Airline */}
           <label htmlFor="airline">Airline Name (optional)</label>
           <input
             type="text"
