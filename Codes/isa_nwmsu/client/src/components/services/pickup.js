@@ -104,7 +104,7 @@ class Pickup extends Component {
             onChange={this.onChange}
             placeholder="How many luggage are you carrying"
           />
-          {/* from */}
+          {/* From */}
           <label htmlFor="from">From</label>
           <input
             type="text"
