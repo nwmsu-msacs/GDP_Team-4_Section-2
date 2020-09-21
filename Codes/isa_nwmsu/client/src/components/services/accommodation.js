@@ -63,7 +63,38 @@ class Accommodation extends Component {
 
                 <div class="container">
                     <h3>Temporary Accommodation</h3>
+                    <form onSubmit={this.onSubmit}>
+                        {/* first name */}
+                        <label htmlFor="Name">First Name</label>
+                        <input
+                            type="text"
+                            name="firstName"
+                            id="firstName"
+                            value={this.state.firstName}
+                            onChange={this.onChange}
+                            placeholder="Enter first name"
+                        />
 
+                        {/* last name */}
+                        <label htmlFor="Name">last Name</label>
+                        <input
+                            type="text"
+                            name="lastName"
+                            id="lastName"
+                            value={this.state.lastName}
+                            onChange={this.onChange}
+                            placeholder="Enter last name"
+                        />
+                        {/* email */}
+                        <label htmlFor="non">919#</label>
+                        <input
+                            type="number"
+                            name="non"
+                            id="non"
+                            value={this.state.non}
+                            onChange={this.onChange}
+                            placeholder="Enter 919#"
+                        />
                 </div>
             </div>
         );
