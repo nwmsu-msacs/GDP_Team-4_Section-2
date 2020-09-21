@@ -63,7 +63,38 @@ class Membership extends Component {
 
                 <div class="container">
                     <h3>Become A Member</h3>
+                    <form onSubmit={this.onSubmit}>
+                        {/* first name */}
+                        <label htmlFor="Name">First Name</label>
+                        <input
+                            type="text"
+                            name="firstName"
+                            id="firstName"
+                            value={this.state.firstName}
+                            onChange={this.onChange}
+                            placeholder="Enter first name"
+                        />
 
+                        {/* last name */}
+                        <label htmlFor="Name">last Name</label>
+                        <input
+                            type="text"
+                            name="lastName"
+                            id="lastName"
+                            value={this.state.lastName}
+                            onChange={this.onChange}
+                            placeholder="Enter last name"
+                        />
+                        {/* email */}
+                        <label htmlFor="email">Email</label>
+                        <input
+                            type="text"
+                            name="email"
+                            id="email"
+                            value={this.state.email}
+                            onChange={this.onChange}
+                            placeholder="Enter email"
+                        />
                 </div>
             </div>
         );
