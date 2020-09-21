@@ -59,7 +59,7 @@ router.post("/membership", (req,res) => {
 });
 
 router.post("/volunteer", (req,res) => {
-
+    
     const volunteerData = new Volunteer({
         firstName: req.body.firstName,
         lastName: req.body.lastName,
