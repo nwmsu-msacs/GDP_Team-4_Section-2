@@ -15,7 +15,8 @@ import ForgotPassword from "./components/auth/ForgotPassword";
 import ResetPassword from "./components/auth/ResetPassword";
 import developmentInProgress from "./components/developmentInProgress";
 import ContactUs from "./components/help/ContactUs";
-import Faq from "./components/help/Faq"
+import Faq from "./components/help/Faq";
+import Alumni from "./components/help/Alumni";
 import PastEvents from './components/events/pastevents';
 import UpcomingEvents from './components/events/upcomingevents';
 import Pickup from './components/services/pickup';
@@ -77,6 +78,7 @@ class App extends Component {
             <Route exact path="/developmentInProgress" component={developmentInProgress}/>
             <Route exact path="/contact" component={ContactUs}/>
             <Route exact path="/faq" component={Faq}/>
+            <Route exact path="/alumni" component={Alumni}/>
             <Route exact path="/pastEvents" component={PastEvents}/>
             <Route exact path="/upcomingEvents" component={UpcomingEvents}/>
             <Route exact path="/pickup" component={Pickup}/>

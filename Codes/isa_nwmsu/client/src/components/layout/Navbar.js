@@ -77,7 +77,7 @@ class Navbar extends Component {
                                     <a class="dropdown-item" href="/contact">Contact Us</a>
                                     <a class="dropdown-item" href ="/forum">ISA Forum</a>
                                     <a class="dropdown-item" href="/faq">FAQ?</a>
-                                    <a class="dropdown-item" href="/developmentInProgress">Alumni</a>
+                                    <a class="dropdown-item" href="/alumni">Alumni</a>
                                 </div>
                             </li>
                             </ul>
