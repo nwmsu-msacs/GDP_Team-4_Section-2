@@ -95,6 +95,58 @@ class Accommodation extends Component {
                             onChange={this.onChange}
                             placeholder="Enter 919#"
                         />
+                        
+
+                        {/* Gender */}
+
+
+                        <label>Gender&nbsp;&nbsp;</label><br />
+                        <label htmlFor="male">
+                            <input class="with-gap" onChange={this.onChange}
+                                value="Male"
+                                name="gender"
+                                type="radio" checked={this.state.gender === "Male"}
+                                checked={true}
+                            />
+                            <span>Male</span>
+                        </label>
+                                &nbsp;&nbsp;
+                                <label>
+                            <input class="with-gap" onChange={this.onChange}
+                                value="Female"
+                                name="gender"
+                                type="radio" checked={this.state.gender === "Female"}
+                            />
+                            <span>Female</span>
+                        </label>
+
+                        <br />
+                        {/* major */}
+                        <label htmlFor="daysRequired">Days Required</label>
+                        <input
+                            type="number"
+                            name="daysRequired"
+                            id="daysRequired"
+                            value={this.state.daysRequired}
+                            onChange={this.onChange}
+                            placeholder="Number of days"
+                        />
+                        {/* contact no */}
+                        <label htmlFor="contactNo">Contact Number</label>
+                        <input
+                            type="number"
+                            name="contactNo"
+                            id="contactNo"
+                            value={this.state.contactNo}
+                            onChange={this.onChange}
+                            placeholder="Enter Cell number"
+                        />
+
+                        {/* submit  */}
+                        <button
+                            type="submit"
+                            value="Request Pickup">Request Accommodation</button>
+                    </form>
                 </div>
             </div>
         );
