@@ -31,10 +31,7 @@ router.post("/accommodation", (req,res) => {
     const accommodationData = new Accommodation({
         firstName: req.body.firstName,
         lastName: req.body.lastName,
-        non: req.body.non,
-        daysRequired: req.body.daysRequired,
-        gender: req.body.gender,
-        contactNo: req.body.contactNo,
+       
     });
 
     accommodationData.save();
