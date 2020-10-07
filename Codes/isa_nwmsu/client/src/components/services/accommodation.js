@@ -61,7 +61,10 @@ class Accommodation extends Component {
             <div>
                 <Navbar />
 
-                <div class="container">
+                <div class="row">
+        <div class="col-md-2"></div>
+        
+        <div class="col-md-4" style={{marginTop: "3rem",borderRadius:"5%", marginBottom: "8rem", boxShadow:"0px 0px 10px 10px #303030", backgroundColor:"white"}}>
                     <h3>Temporary Accommodation</h3>
                     <form onSubmit={this.onSubmit}>
                         {/* first name */}
@@ -144,9 +147,20 @@ class Accommodation extends Component {
 
                         {/* submit  */}
                         <button
-                            type="submit"
-                            value="Request Pickup">Request Accommodation</button>
+                  style={{
+                    width: "250px",
+                    borderRadius: "3px",
+                    letterSpacing: "1.5px",
+                    marginTop: "1rem"
+                    
+                  }}
+                  type="submit"
+                  className="btn btn-large waves-effect waves-light hoverable blue accent-3"
+                >
+                  Submit
+                </button>
                     </form>
+                </div>
                 </div>
             </div>
         );
