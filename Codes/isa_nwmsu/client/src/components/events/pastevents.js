@@ -6,25 +6,25 @@ import Indiannightimage from '../../assets/carousel_image4.jpg';
 import Navbar from "../layout/Navbar";
 
 
-const eventslist=
-     [
+const eventslist =
+    [
         {
-            eventname:"HOLY",
+            eventname: "HOLY",
             description: "This is a very good event celebrated in North India",
             imagepath: holyimage
         },
         {
-            eventname:"DIWALI",
+            eventname: "DIWALI",
             description: "This is a very good event celebrated in North India",
             imagepath: diwaliimage
         },
         {
-            eventname:"INDEPENDENCE DAY",
+            eventname: "INDEPENDENCE DAY",
             description: "This is a very good event celebrated in North India",
             imagepath: independenceimage
         },
         {
-            eventname:"INDIAN NIGHT",
+            eventname: "INDIAN NIGHT",
             description: "This is a very good event celebrated in North India",
             imagepath: Indiannightimage
         }
@@ -33,45 +33,43 @@ const eventslist=
 
 
 
-const rendereventslist=
-    eventslist.map((event)=>{
+const rendereventslist =
+    eventslist.map((event) => {
         console.log(event);
-    return (
-        
-        
-        <div className="ui divided list" key={event.eventname}>
-            <div className="item" >
-                <img className="ui large image"  src={event.imagepath}/>
-                <div className="content">
-                <a className="header" >{event.eventname}</a>
-                <hr/>
-                <br/>
-                <div className="description">
-                    {event.description}
+        return (
+            <div className="ui divided list" key={event.eventname}>
+                <div className="item" >
+                    <img className="ui large image" src={event.imagepath} />
+                    <div className="content">
+                        <a className="header" >{event.eventname}</a>
+                        <hr />
+                        <br />
+                        <div className="description">
+                            {event.description}
+                        </div>
                     </div>
+
+
                 </div>
-                
-
+                <br />
             </div>
-            <br/>
-        </div>
 
+        );
+
+
+    }
     );
 
-
-}
-);
-
-const pasteventslist=()=>{
-    return(
+const pasteventslist = () => {
+    return (
         <div>
-            <Navbar/>
-            <br/>
-        <div className="ui container" >
-            <h3 style={{textAlign:'center'}}>Past Events</h3><br/>
-            {rendereventslist}
+            <Navbar />
+            <br />
+            <div className="ui container" >
+                <h3 style={{ textAlign: 'center' }}>Past Events</h3><br />
+                {rendereventslist}
+            </div>
         </div>
-</div>
     );
 };
 
