@@ -54,10 +54,10 @@ class AdminNavbar extends React.Component {
         </a>
                                 <div class="dropdown-menu" style={{borderRadius:"15%"}} aria-labelledby="navbarDropdownMenuLink">
                                     <a class="dropdown-item" href="/developmentInProgress">Manage Events</a>
-                                    <a class="dropdown-item" href ="/developmentInProgress">Pickup Management</a>
-                                    <a class="dropdown-item" href="/developmentInProgress">Volunteer Management</a>
-                                    <a class="dropdown-item" href="/developmentInProgress">Manage Accommodation</a>
-                                    <a class="dropdown-item" href="/developmentInProgress">Members Enrolled</a>
+                                    <a class="dropdown-item" href ="/pickupManagement">Pickup Management</a>
+                                    <a class="dropdown-item" href="/volunteerManagement">Volunteer Management</a>
+                                    <a class="dropdown-item" href="/accommodationManagement">Manage Accommodation</a>
+                                    <a class="dropdown-item" href="/membershipManagement">Members Enrolled</a>
                                 </div>
                             </li>
                             </ul>
