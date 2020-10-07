@@ -14,7 +14,7 @@ class ContactUs extends Component {
 
         return (
             <div>
-                <Navbar/>
+                {/* <Navbar/> */}
                 {/* <!-- Section: Team v.1 --> */}
                 <section class="team-section text-center my-5">
 

@@ -16,7 +16,7 @@ class Faq extends Component {
 
         return (
             <div>
-              <Navbar/>
+              {/* <Navbar/> */}
               <br/>
             
             <div class="container">

@@ -58,7 +58,7 @@ class Pickup extends Component {
 // function
     return (
       <div >
-        <Navbar/>
+        {/* <Navbar/> */}
       
       <div class="row">
         <div class="col-md-2"></div>

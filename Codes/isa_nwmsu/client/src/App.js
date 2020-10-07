@@ -69,6 +69,7 @@ class App extends Component {
         <Router>
           <div className="App">
             <Navbar loggedIn={this.state.loggedIn} logOut={this.logOut}/>
+            <ClientChat/>
             {/* {<Navbar auth={store.getState()}/>} */}
             <Switch>
 

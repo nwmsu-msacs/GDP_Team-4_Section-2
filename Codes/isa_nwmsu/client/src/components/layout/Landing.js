@@ -18,7 +18,7 @@ class Landing extends Component {
     return (
 
       <div>
-        {this.getNavBar()}
+        {/* {this.getNavBar()} */}
       <div style={{ height: "100vh", 
                     backgroundImage: `url(${image})`, 
                     backgroundRepeat: "no-repeat", 
