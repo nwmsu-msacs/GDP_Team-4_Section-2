@@ -1,6 +1,6 @@
 import axios from 'axios';
 import React, { Component } from 'react';
-import Navbar from "../layout/Navbar";
+import AdminNavbar from "../layout/AdminNavbar";
 
 const VolunteerMap = (volunteerList) => {
   console.log("-----volunteerList", volunteerList);
@@ -84,7 +84,7 @@ class VolunteerManagement extends Component {
     return (
 
       <div>
-        
+        <AdminNavbar/>
         <br/>
         <h2>Volunteer Management</h2>
         <p>{VolunteerMap(this.state.volunteerData)}</p>
