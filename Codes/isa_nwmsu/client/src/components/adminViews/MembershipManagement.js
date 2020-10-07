@@ -70,7 +70,7 @@ class MembershipManagement extends Component {
     return (
 
       <div>
-        
+        <AdminNavbar/>
         <br/>
         <h2>Active Members</h2>
         <p>{memberShipMap(this.state.memberShipdata)}</p>
