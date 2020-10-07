@@ -57,12 +57,15 @@ class Pickup extends Component {
     const { errors } = this.state;
 // function
     return (
-      <div>
+      <div >
         <Navbar/>
       
-      <div class="container">
-        <h3>Pickup</h3>
-        <form onSubmit={this.onSubmit}>
+      <div class="row">
+        <div class="col-md-2"></div>
+        
+        <div class="col-md-4" style={{marginTop: "3rem",borderRadius:"5%", marginBottom: "8rem", boxShadow:"0px 0px 10px 10px #303030", backgroundColor:"white"}}>
+        <h3 class="center">Pickup</h3>
+        <form class onSubmit={this.onSubmit}>
           {/* Name */}
           
           <label htmlFor="Name">Name</label>
@@ -73,7 +76,16 @@ class Pickup extends Component {
             value={this.state.name}
             onChange={this.onChange}
             placeholder="Enter name"
-          />
+            error={errors.name}
+                  className={classnames("", {
+                    invalid: errors.name
+                  })}
+                />
+                
+                <span className="red-text">
+                  {errors.name}
+                </span>
+          
           {/* Email */}
           <label htmlFor="email">Email</label>
           <input
@@ -83,7 +95,17 @@ class Pickup extends Component {
             value={this.state.email}
             onChange={this.onChange}
             placeholder="Enter email"
-          />
+            error={errors.email}
+                  className={classnames("", {
+                    invalid: errors.email || errors.emailnotfound
+                  })}
+                />
+                
+                <span className="red-text">
+                  {errors.email}
+                  {errors.emailnotfound}
+                </span>
+          
           {/* Cell */}
           <label htmlFor="cell">Cell Number</label>
           <input
@@ -93,7 +115,16 @@ class Pickup extends Component {
             value={this.state.cell}
             onChange={this.onChange}
             placeholder="Enter Cell number"
-          />
+            error={errors.cell}
+                  className={classnames("", {
+                    invalid: errors.cell
+                  })}
+                />
+                
+                <span className="red-text">
+                  {errors.cell}
+                </span>
+          
           {/* Luggage */}
           <label htmlFor="luggage">Luggage Count</label>
           <input
@@ -103,7 +134,16 @@ class Pickup extends Component {
             value={this.state.luggage}
             onChange={this.onChange}
             placeholder="How many luggage are you carrying"
-          />
+            error={errors.luggage}
+                  className={classnames("", {
+                    invalid: errors.luggage
+                  })}
+                />
+                
+                <span className="red-text">
+                  {errors.luggage}
+                </span>
+          
           {/* From */}
           <label htmlFor="from">From</label>
           <input
@@ -113,7 +153,16 @@ class Pickup extends Component {
             value={this.state.from}
             onChange={this.onChange}
             placeholder="Enter from address"
-          />
+            error={errors.from}
+                  className={classnames("", {
+                    invalid: errors.from
+                  })}
+                />
+                
+                <span className="red-text">
+                  {errors.from}
+                </span>
+          
           {/* To */}
           <label htmlFor="to">To</label>
           <input
@@ -123,7 +172,15 @@ class Pickup extends Component {
             value={this.state.to}
             onChange={this.onChange}
             placeholder="Enter to address"
-          />
+            error={errors.to}
+                  className={classnames("", {
+                    invalid: errors.to
+                  })}
+                />
+                
+                <span className="red-text">
+                  {errors.to}
+                </span>
           {/* Date */}
           <label htmlFor="date">Date</label>
           <input
@@ -133,7 +190,16 @@ class Pickup extends Component {
             value={this.state.date}
             onChange={this.onChange}
             placeholder="Select a date"
-          />
+            error={errors.date}
+                  className={classnames("", {
+                    invalid: errors.date
+                  })}
+                />
+                
+                <span className="red-text">
+                  {errors.date}
+                </span>
+          
           {/* Airline */}
           <label htmlFor="airline">Airline Name (optional)</label>
           <input
@@ -143,7 +209,16 @@ class Pickup extends Component {
             value={this.state.airline}
             onChange={this.onChange}
             placeholder="Enter airline name"
-          />
+            error={errors.airline}
+                  className={classnames("", {
+                    invalid: errors.airline
+                  })}
+                />
+                
+                <span className="red-text">
+                  {errors.airline}
+                </span>
+          
           {/* FlightNo */}
           <label htmlFor="flightNo">Flight No(Optional)</label>
           <input
@@ -153,19 +228,42 @@ class Pickup extends Component {
             value={this.state.flightNo}
             onChange={this.onChange}
             placeholder="Enter flight No"
-          />
+            error={errors.flightNo}
+                  className={classnames("", {
+                    invalid: errors.flightNo
+                  })}
+                />
+                
+                <span className="red-text">
+                  {errors.flightNo}
+                </span>
+          
 
           {/* Submit  */}
-          <button 
-          type="submit"
-          value="Request Pickup">Request Pickup</button>
+          <button
+                  style={{
+                    width: "250px",
+                    borderRadius: "3px",
+                    letterSpacing: "1.5px",
+                    marginTop: "1rem"
+                    
+                  }}
+                  type="submit"
+                  className="btn btn-large waves-effect waves-light hoverable blue accent-3"
+                >
+                  Request Pickup
+                </button>
         </form>
       </div>
+      <div class="col-md-3"></div>
+      </div>
+      
       </div>
     );
   }
 
 
 }
+
 
 export default Pickup;
