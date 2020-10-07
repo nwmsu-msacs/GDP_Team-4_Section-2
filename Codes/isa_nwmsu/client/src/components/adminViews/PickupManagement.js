@@ -1,6 +1,6 @@
 import axios from 'axios';
 import React, { Component } from 'react';
-import Navbar from "../layout/Navbar";
+import AdminNavbar from "../layout/AdminNavbar";
 
 const pickUpMap = (pickupList) => {
   console.log("-----pickupList", pickupList);
@@ -86,7 +86,7 @@ class PickupManagement extends Component {
     return (
 
       <div>
-        
+        <AdminNavbar/>
         <br/>
         <h2>Pickup Management</h2>
         <p>{pickUpMap(this.state.pickUpdata)}</p>
