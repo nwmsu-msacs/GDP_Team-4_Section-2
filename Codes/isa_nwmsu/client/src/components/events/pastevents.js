@@ -63,7 +63,7 @@ const rendereventslist =
 const pasteventslist = () => {
     return (
         <div>
-            <Navbar />
+            {/* <Navbar /> */}
             <br />
             <div className="ui container" >
                 <h3 style={{ textAlign: 'center' }}>Past Events</h3><br />
