@@ -1,0 +1,40 @@
+const Validator = require("validator");
+const isEmpty = require("is-empty");
+
+module.exports = function validateVolunteerInput(data) {
+  let errors = {};
+
+// Convert empty fields to an empty string so we can use validator functions
+  data.firstName = !isEmpty(data.firstName) ? data.firstName : "";
+  data.lastName = !isEmpty(data.lastName) ? data.lastName : "";
+  data.non = !isEmpty(data.non) ? data.non : "";
+  data.carType = !isEmpty(data.carType) ? data.carType : "";
+  data.contactNo = !isEmpty(data.contactNo) ? data.contactNo : "";
+  
+
+
+  
+// Other checks
+  if (Validator.isEmpty(data.firstName)) {
+    errors.firstNname = "first name field is required";
+  }
+
+  if (Validator.isEmpty(data.lastName)) {
+    errors.lastName = "last name field is required";
+  }
+
+  if (Validator.isEmpty(data.non)) {
+    errors.non = "919# field is required";
+  }
+  if (Validator.isEmpty(data.contactNo)) {
+    errors.contactNo = "contact Number field is required";
+  }
+  if (Validator.isEmpty(data.carType)) {
+    errors.carType = "Car Type field is required";
+  }
+  
+  return {
+    errors,
+    isValid: isEmpty(errors)
+  };
+};
