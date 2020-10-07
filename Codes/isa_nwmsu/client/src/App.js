@@ -24,6 +24,12 @@ import AdminHome from "./components/home/AdminHome";
 import Membership from "./components/services/membership";
 import Accommodation from "./components/services/accommodation";
 import Volunteer from "./components/services/volunteer";
+import ClientChat from "./components/chat/Client";
+import AdminChat from "./components/chat/Admin";
+import PickupManagement from "./components/adminViews/PickupManagement";
+import MembershipManagement from "./components/adminViews/MembershipManagement";
+import AccommodationManagement from "./components/adminViews/AccommodationManagement";
+import VolunteerManagement from "./components/adminViews/VolunteerManagement";
 
 // import { route } from "../../routes/api/users";
 // Check for token to keep user logged in
@@ -84,7 +90,13 @@ class App extends Component {
             <Route exact path="/membership" component={Membership}/>
             <Route exact path="/accommodation" component={Accommodation}/>
             <Route exact path="/volunteer" component={Volunteer}/>
-            {this.state.loggedIn == true ? <Route exact path='/logout' component={developmentInProgress}/> : null}
+            <Route exact path="/userChat" component={ClientChat}/>
+            <Route exact path="/adminChat" component={AdminChat}/>
+            <Route exact path="/pickupManagement" component={PickupManagement}/>
+            <Route exact path="/accommodationManagement" component={AccommodationManagement}/>
+            <Route exact path="/volunteerManagement" component={VolunteerManagement}/>
+            <Route exact path="/membershipManagement" component={MembershipManagement}/>
+            {this.state.loggedIn === true ? <Route exact path='/logout' component={developmentInProgress}/> : null}
             </Switch>
 
             {/* <Switch>
