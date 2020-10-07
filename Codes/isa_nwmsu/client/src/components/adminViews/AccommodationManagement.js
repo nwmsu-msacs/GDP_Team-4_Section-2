@@ -1,6 +1,6 @@
 import axios from 'axios';
 import React, { Component } from 'react';
-import Navbar from "../layout/Navbar";
+import AdminNavbar from "../layout/AdminNavbar";
 
 const AccommodationMap = (accommodationList) => {
   console.log("-----accommodationList", accommodationList);
@@ -8,9 +8,9 @@ const AccommodationMap = (accommodationList) => {
   let res = accommodationList.map((data) => {
     return (
 
-
+      
       <div class="row">
-
+        
         {/* <!-- Grid column --> */}
         <div class="col-lg-4 col-md-6 mb-lg-0 mb-5" >
           
@@ -82,7 +82,7 @@ class AccommodationManagement extends Component {
     return (
 
       <div>
-        
+        <AdminNavbar/>
         <br/>
         <h2>Accommodation Management</h2>
         <p>{AccommodationMap(this.state.AccommodationData)}</p>
