@@ -5,9 +5,15 @@ const Pickup = require("../../models/Pickup");
 const Membership = require("../../models/Membership");
 const Accommodation = require("../../models/Accommodation");
 const Volunteer = require("../../models/Volunteer");
-
+const validatePickupInput = require("../../validation/pickup");
 // post the data of pickup 
-router.post("/pickup", (req,res) => {
+router.post("/pickup", async (req,res) => {
+    const {errors, isValid } = validatePickupInput(req.body)
+
+    if(!isValid){
+        return res.status(400).json({errors});
+    }
+    else{
 
     const pickupData = new Pickup({
         name: req.body.name,
@@ -24,6 +30,7 @@ router.post("/pickup", (req,res) => {
     pickupData.save();
 
     res.status(200).json({response: "Pickup data saved"});
+}
 });
 
 router.post("/accommodation", (req,res) => {
