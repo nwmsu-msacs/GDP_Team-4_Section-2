@@ -3,7 +3,11 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
+import { CometChat } from '@cometchat-pro/chat';
+import config from './config'
 
+
+CometChat.init(config.appID)
 
 
 ReactDOM.render(
