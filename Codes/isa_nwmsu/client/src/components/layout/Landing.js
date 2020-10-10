@@ -16,6 +16,8 @@ class Landing extends Component {
   }
   render() {
     return (
+      <div>
+        <Navbar/>
 
       <div>
         {/* {this.getNavBar()} */}
@@ -69,6 +71,7 @@ class Landing extends Component {
             </div>
           </div>
         </div>
+      </div>
       </div>
       </div>
     );
