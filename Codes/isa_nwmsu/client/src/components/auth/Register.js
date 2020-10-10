@@ -6,6 +6,8 @@ import { registerUser } from "../../actions/authActions";
 import classnames from "classnames";
 import image from "../layout/assets/carousel_image4.jpg";   
 import home from "../layout/assets/home.svg"; 
+import Navbar from "../layout/Navbar";
+
 class Register extends Component {
     constructor() {
         super();
@@ -59,6 +61,7 @@ class Register extends Component {
         const { errors } = this.state;
         return (
             <div>
+                <Navbar/>
                 <div style={{ height: "110vh",  backgroundImage: `url(${image})`, backgroundRepeat:"no-repeat",backgroundSize:"cover"}} className="row">
                 <div className="col-md-6" ></div>
                 <div className=" col-md-3" style={{marginTop: "3rem",borderRadius:"5%", marginBottom: "3rem", boxShadow:"0px 0px 10px 10px #303030", backgroundColor:"white",}}>
