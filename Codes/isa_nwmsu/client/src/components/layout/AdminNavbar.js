@@ -13,7 +13,7 @@ class AdminNavbar extends React.Component {
                     <div class="collapse navbar-collapse" id="navbarNavDropdown">
                         <ul class="navbar-nav">
                             <li class="nav-item ">
-                                <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+                                <a class="nav-link" href="/home">Home <span class="sr-only">(current)</span></a>
                             </li>
                             <li class="nav-item px-3 dropdown">
                                 <a class="nav-link dropdown-toggle" href="/" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -53,7 +53,7 @@ class AdminNavbar extends React.Component {
                                     Admin Functionalities
         </a>
                                 <div class="dropdown-menu" style={{borderRadius:"15%"}} aria-labelledby="navbarDropdownMenuLink">
-                                    <a class="dropdown-item" href="/developmentInProgress">Manage Events</a>
+                                    <a class="dropdown-item" href="/createEvent">Manage Events</a>
                                     <a class="dropdown-item" href ="/pickupManagement">Pickup Management</a>
                                     <a class="dropdown-item" href="/volunteerManagement">Volunteer Management</a>
                                     <a class="dropdown-item" href="/accommodationManagement">Manage Accommodation</a>
