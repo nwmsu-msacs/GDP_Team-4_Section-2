@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import axios from 'axios';
 import image from "../layout/assets/carousel_image4.jpg"
-
+import Navbar from "../layout/Navbar";
 const loading = {
     margin: '1em',
     fontSize: '24px',
@@ -118,7 +118,8 @@ class ResetPassword extends Component {
             );
         }
         return (
-            
+            <div>
+                <Navbar/>
             <div style={{ height: "100vh",  backgroundImage: `url(${image})`, backgroundRepeat:"no-repeat",backgroundSize:"cover"}} className="row">
           <div className="col-md-6" ></div>
           <div className=" col-md-3" style={{marginTop: "7rem",borderRadius:"5%", marginBottom: "13rem", boxShadow:"0px 0px 10px 10px #303030", backgroundColor:"white",}}>
@@ -165,6 +166,7 @@ class ResetPassword extends Component {
                     </div>
                 )}
                 
+            </div>
             </div>
             </div>
             </div>
