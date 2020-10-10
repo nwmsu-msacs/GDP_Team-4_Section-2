@@ -1,7 +1,9 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import Navbar from "../layout/Navbar";
+import AdminNavbar from "../layout/AdminNavbar";
 
+let navbar = undefined;
 
 class Faq extends Component {
     constructor() {
@@ -11,12 +13,26 @@ class Faq extends Component {
         };
     }
 
+    componentWillMount(){
+
+      if (localStorage.getItem('jwtToken') != null) {
+        this.setState({ loggedIn: true });
+      }
+      if (localStorage.getItem('role') === null || localStorage.getItem('role') === '50') {
+        navbar = <Navbar />
+      }
+      if (localStorage.getItem('role') === '100') {
+        navbar = <AdminNavbar />
+      }
+    }
+
     render() {
         const { errors } = this.state;
 
         return (
+          <div>
+            {navbar}
             <div>
-              {/* <Navbar/> */}
               <br/>
             
             <div class="container">
@@ -102,7 +118,7 @@ class Faq extends Component {
 
             </div>
 
-            
+            </div>
         );
     }
 }
