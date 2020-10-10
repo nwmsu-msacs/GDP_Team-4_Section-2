@@ -5,7 +5,9 @@ import classnames from "classnames";
 import image from "../layout/assets/carousel_image4.jpg"
 import axios from 'axios';
 import Navbar from "../layout/Navbar";
+import AdminNavbar from "../layout/AdminNavbar";
 
+let navbar = undefined;
 
 class Accommodation extends Component {
 
@@ -20,6 +22,18 @@ class Accommodation extends Component {
             contactNo: "",
             errors: {}
         };
+    }
+    componentWillMount(){
+
+        if (localStorage.getItem('jwtToken') != null) {
+            this.setState({ loggedIn: true });
+          }
+          if (localStorage.getItem('role') === null || localStorage.getItem('role') === '50') {
+            navbar = <Navbar />
+          }
+          if (localStorage.getItem('role') === '100') {
+            navbar = <AdminNavbar />
+          }
     }
 
     onChange = e => {
@@ -59,7 +73,7 @@ class Accommodation extends Component {
 
         return (
             <div>
-                {/* <Navbar /> */}
+                {navbar}
 
                 <div class="row">
         <div class="col-md-2"></div>
