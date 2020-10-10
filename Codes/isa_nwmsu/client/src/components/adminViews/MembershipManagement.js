@@ -1,7 +1,9 @@
 import axios from 'axios';
 import React, { Component } from 'react';
 import AdminNavbar from "../layout/AdminNavbar";
+import Navbar from "../layout/Navbar";
 
+let navbar = undefined;
 const memberShipMap = (membershipList) => {
   console.log("-----membershipList", membershipList);
   let res = membershipList.map((data) => {
@@ -65,16 +67,29 @@ class MembershipManagement extends Component {
       );
   }
 
+  componentWillMount(){
+    if (localStorage.getItem('jwtToken') != null) {
+      this.setState({ loggedIn: true });
+    }
+    if (localStorage.getItem('role') === null || localStorage.getItem('role') === '50') {
+      navbar = <Navbar />
+    }
+    if (localStorage.getItem('role') === '100') {
+      navbar = <AdminNavbar />
+    }
+  }
+
   render() {
 
     return (
 
       <div>
-        <AdminNavbar/>
+        {navbar}
+        <div>
         <br/>
         <h2>Active Members</h2>
         <p>{memberShipMap(this.state.memberShipdata)}</p>
-        
+        </div>
       </div>
     );
   }
