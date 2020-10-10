@@ -105,7 +105,8 @@ router.post("/login", (req, res) => {
         const payload = {
           id: user.id,
           name: user.name,
-          role: user.role
+          role: user.role,
+          email: user.email
         };
         // Sign token
         jwt.sign(
@@ -119,7 +120,8 @@ router.post("/login", (req, res) => {
               success: true,
               token: "Bearer " + token,
               name: user.name,
-              role: user.role
+              role: user.role,
+              email: user.email
             });
           }
         );
