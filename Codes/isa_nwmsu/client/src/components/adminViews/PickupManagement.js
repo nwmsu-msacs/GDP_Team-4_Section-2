@@ -1,7 +1,9 @@
 import axios from 'axios';
 import React, { Component } from 'react';
 import AdminNavbar from "../layout/AdminNavbar";
+import Navbar from "../layout/Navbar";
 
+let navbar = undefined;
 const pickUpMap = (pickupList) => {
   console.log("-----pickupList", pickupList);
   
@@ -81,16 +83,29 @@ class PickupManagement extends Component {
       );
   }
 
+  componentWillMount(){
+    if (localStorage.getItem('jwtToken') != null) {
+      this.setState({ loggedIn: true });
+    }
+    if (localStorage.getItem('role') === null || localStorage.getItem('role') === '50') {
+      navbar = <Navbar />
+    }
+    if (localStorage.getItem('role') === '100') {
+      navbar = <AdminNavbar />
+    }
+  }
+
   render() {
 
     return (
 
       <div>
-        <AdminNavbar/>
+        {navbar}
+        <div>
         <br/>
         <h2>Pickup Management</h2>
         <p>{pickUpMap(this.state.pickUpdata)}</p>
-        
+        </div>
       </div>
     );
   }
