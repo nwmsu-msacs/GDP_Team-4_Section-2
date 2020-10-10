@@ -6,6 +6,7 @@ import { setCurrentUser, logoutUser } from "./actions/authActions";
 import { Provider } from "react-redux";
 import store from "./store";
 import Navbar from "./components/layout/Navbar";
+import AdminNavbar from "./components/layout/AdminNavbar";
 import Landing from "./components/layout/Landing";
 import Register from "./components/auth/Register";
 import Login from "./components/auth/Login";
@@ -30,7 +31,7 @@ import PickupManagement from "./components/adminViews/PickupManagement";
 import MembershipManagement from "./components/adminViews/MembershipManagement";
 import AccommodationManagement from "./components/adminViews/AccommodationManagement";
 import VolunteerManagement from "./components/adminViews/VolunteerManagement";
-
+import CreateEvent from "./components/events/createEvent";
 // import { route } from "../../routes/api/users";
 // Check for token to keep user logged in
 if (localStorage.jwtToken) {
@@ -50,54 +51,63 @@ if (localStorage.jwtToken) {
     window.location.href = "./login";
   }
 }
+
+// let navbar = <Navbar />
 class App extends Component {
-//logging test
-  constructor(props){
+  //logging test
+  constructor(props) {
     super(props);
-    this.state = {};  
+    this.state = {};
   }
-  componentWillMount(){
-      if(localStorage.getItem('jwtToken') != null){
-          this.setState({loggedIn: true}); 
-      } 
-  }
+  // componentWillMount() {
+  //   console.log("----------nav call------");
+  //   if (localStorage.getItem('jwtToken') != null) {
+  //     this.setState({ loggedIn: true });
+  //   }
+  //   if (localStorage.getItem('role') != null || localStorage.getItem('role') == '50') {
+  //     navbar = <Navbar />
+  //   }
+  //   if (localStorage.getItem('role') == '100') {
+  //     navbar = <AdminNavbar />
+  //   }
+  // }
 
   render() {
     return (
       <Provider store={store}>
-
         <Router>
           <div className="App">
-            <Navbar loggedIn={this.state.loggedIn} logOut={this.logOut}/>
-            <ClientChat/>
+            {/* {navbar} */}
+            <ClientChat />
             {/* {<Navbar auth={store.getState()}/>} */}
             <Switch>
 
               <PrivateRoute exact path="/home" component={Home} />
-              <PrivateRoute exact path="/adminHome" component={AdminHome}/>
-              
-            <Route exact path="/" component={Landing} />
-            <Route exact path="/register" component={Register} />
-            <Route exact path="/login" component={Login} />
-            <Route exact path="/forgotPassword" component={ForgotPassword} />
-            <Route exact path="/reset/:token" component={ResetPassword} />
-            <Route exact path="/developmentInProgress" component={developmentInProgress}/>
-            <Route exact path="/contact" component={ContactUs}/>
-            <Route exact path="/faq" component={Faq}/>
-            <Route exact path="/alumni" component={Alumni}/>
-            <Route exact path="/pastEvents" component={PastEvents}/>
-            <Route exact path="/upcomingEvents" component={UpcomingEvents}/>
-            <Route exact path="/pickup" component={Pickup}/>
-            <Route exact path="/membership" component={Membership}/>
-            <Route exact path="/accommodation" component={Accommodation}/>
-            <Route exact path="/volunteer" component={Volunteer}/>
-            <Route exact path="/userChat" component={ClientChat}/>
-            <Route exact path="/adminChat" component={AdminChat}/>
-            <Route exact path="/pickupManagement" component={PickupManagement}/>
-            <Route exact path="/accommodationManagement" component={AccommodationManagement}/>
-            <Route exact path="/volunteerManagement" component={VolunteerManagement}/>
-            <Route exact path="/membershipManagement" component={MembershipManagement}/>
-            {this.state.loggedIn === true ? <Route exact path='/logout' component={developmentInProgress}/> : null}
+              {/* <PrivateRoute exact path="/adminHome" component={AdminHome}/> */}
+
+              <Route exact path="/" component={Landing} />
+              <Route exact path="/register" component={Register} />
+              <Route exact path="/login" component={Login} />
+              <Route exact path="/forgotPassword" component={ForgotPassword} />
+              <Route exact path="/reset/:token" component={ResetPassword} />
+              <Route exact path="/developmentInProgress" component={developmentInProgress} />
+              <Route exact path="/contact" component={ContactUs} />
+              <Route exact path="/faq" component={Faq} />
+              <Route exact path="/alumni" component={Alumni} />
+              <Route exact path="/pastEvents" component={PastEvents} />
+              <Route exact path="/upcomingEvents" component={UpcomingEvents} />
+              <Route exact path="/pickup" component={Pickup} />
+              <Route exact path="/membership" component={Membership} />
+              <Route exact path="/accommodation" component={Accommodation} />
+              <Route exact path="/volunteer" component={Volunteer} />
+              <Route exact path="/userChat" component={ClientChat} />
+              <Route exact path="/adminChat" component={AdminChat} />
+              <Route exact path="/pickupManagement" component={PickupManagement} />
+              <Route exact path="/accommodationManagement" component={AccommodationManagement} />
+              <Route exact path="/volunteerManagement" component={VolunteerManagement} />
+              <Route exact path="/membershipManagement" component={MembershipManagement} />
+              <Route exact path="/createEvent" component={CreateEvent} />
+              {this.state.loggedIn === true ? <Route exact path='/logout' component={developmentInProgress} /> : null}
             </Switch>
 
             {/* <Switch>
