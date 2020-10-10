@@ -1,6 +1,10 @@
 import React, { Component } from "react";
 import image from "../layout/assets/isa.jpg";
 import Navbar from "../layout/Navbar";
+import AdminNavbar from "../layout/AdminNavbar";
+
+let navbar = undefined;
+
 class ContactUs extends Component {
     constructor() {
         super();
@@ -9,12 +13,26 @@ class ContactUs extends Component {
         };
     }
 
+    componentWillMount(){
+        if (localStorage.getItem('jwtToken') != null) {
+            this.setState({ loggedIn: true });
+          }
+          if (localStorage.getItem('role') === null || localStorage.getItem('role') === '50') {
+            navbar = <Navbar />
+          }
+          if (localStorage.getItem('role') === '100') {
+            navbar = <AdminNavbar />
+          }
+    }
+
     render() {
         const { errors } = this.state;
 
         return (
             <div>
-                {/* <Navbar/> */}
+                {navbar}
+            <div>
+                
                 {/* <!-- Section: Team v.1 --> */}
                 <section class="team-section text-center my-5">
 
@@ -187,7 +205,7 @@ class ContactUs extends Component {
                 </section>
             </div>
 
-
+            </div>
 
             
         );
