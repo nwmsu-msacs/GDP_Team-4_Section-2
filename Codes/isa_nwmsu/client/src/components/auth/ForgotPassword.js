@@ -3,9 +3,12 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import classnames from "classnames";
 import image from "../layout/assets/carousel_image4.jpg"
+import Navbar from "../layout/Navbar";
+
 const title = {
   pageTitle: 'Forgot Password Screen',
 };
+
 
 class ForgotPassword extends Component {
   constructor() {
@@ -20,6 +23,7 @@ class ForgotPassword extends Component {
     };
   }
   
+ 
 
   onChange = name => (event) => {
     this.setState({
@@ -71,6 +75,8 @@ class ForgotPassword extends Component {
     } = this.state;
 
     return (
+      <div>
+        <Navbar/>
       <div style={{ height: "100vh",  backgroundImage: `url(${image})`, backgroundRepeat:"no-repeat",backgroundSize:"cover"}} className="row">
           <div className="col-md-6" ></div>
           <div className=" col-md-3" style={{marginTop: "7rem",borderRadius:"5%", marginBottom: "12rem", boxShadow:"0px 0px 10px 10px #303030", backgroundColor:"white",}}>
@@ -134,6 +140,7 @@ class ForgotPassword extends Component {
             </form>
           </div>
         </div>
+      </div>
       </div>
     );
   }
