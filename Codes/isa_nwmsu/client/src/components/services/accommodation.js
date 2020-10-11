@@ -20,6 +20,7 @@ class Accommodation extends Component {
             daysRequired: "",
             gender: "",
             contactNo: "",
+            email: "",
             errors: {}
         };
     }
@@ -58,6 +59,7 @@ class Accommodation extends Component {
             daysRequired: this.state.daysRequired,
             gender: this.state.gender,
             contactNo: this.state.contactNo,
+            email: this.state.email
 
         };
 
@@ -103,6 +105,16 @@ class Accommodation extends Component {
                             placeholder="Enter last name"
                         />
                         {/* email */}
+                        <label htmlFor="email">Email</label>
+                        <input
+                            type="text"
+                            name="email"
+                            id="email"
+                            value={this.state.email}
+                            onChange={this.onChange}
+                            placeholder="Enter email"
+                        />
+                        {/* NON */}
                         <label htmlFor="non">919#</label>
                         <input
                             type="number"
