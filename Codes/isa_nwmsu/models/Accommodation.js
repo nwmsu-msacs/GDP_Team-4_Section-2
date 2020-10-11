@@ -25,6 +25,14 @@ const AccommodationSchema = new Schema({
   contactNo:{
     type:Number,
     default: ""
+  },
+  status:{
+    type: String,
+    default:""
+  },
+  email:{
+    type:String,
+    required:true
   }
 });
 module.exports = Accommodation = mongoose.model("accommodation", AccommodationSchema);
