@@ -5,7 +5,9 @@ import {connect} from "react-redux";
 import {loginUser} from "../../actions/authActions";
 import { logoutUser } from "../../actions/authActions";
 import PropTypes from "prop-types";
-
+import NavLogin from "../layout/NavLogin";
+import NavLogout from "../layout/NavLogout";
+import NavRegister from "../layout/NavRegister";
 
 class Navbar extends Component {
 
@@ -26,9 +28,13 @@ class Navbar extends Component {
 
 
     onLogoutClick = e => {
+        console.log("---nav logout---")
         e.preventDefault();
         this.props.logoutUser();
         this.setState({loggedIn: false}); 
+        // localStorage.removeItem("jwtToken");
+        // localStorage.removeItem("email");
+        // localStorage.removeItem("role");
         
       };
 
@@ -43,10 +49,23 @@ class Navbar extends Component {
                         <span class="navbar-toggler-icon"></span>
                     </button> */}
                     <div class="collapse navbar-collapse" id="navbarNavDropdown">
-                        <ul class="navbar-nav">
-                            <li class="nav-item ">
-                                <a class="nav-link" href="/home">Home <span class="sr-only">(current)</span></a>
+                    {this.state.loggedIn === true ?
+                        <ul>
+                            <li>
+                                <a href ="/home">Home</a>
                             </li>
+                        </ul>
+                        :
+                        <ul>
+                            <li>
+                                <a href="/">Home</a>
+                            </li>
+                        </ul>
+                        }
+                        <ul class="navbar-nav">
+                            {/* <li class="nav-item">
+                                <a class="nav-link" href="/home">Home <span class="sr-only">(current)</span></a>
+                            </li> */}
                             <li class="nav-item px-3 dropdown">
                                 <a class="nav-link dropdown-toggle" href="/" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                     Events
@@ -78,36 +97,40 @@ class Navbar extends Component {
                                     <a class="dropdown-item" href ="/forum">ISA Forum</a>
                                     <a class="dropdown-item" href="/faq">FAQ?</a>
                                     <a class="dropdown-item" href="/alumni">Alumni</a>
+                                    <a class="dropdown-item" href="/" onClick={this.onLogoutClick}>Logout</a>
                                 </div>
                             </li>
                             </ul>
 
-                            {(this.state.loggedIn) ?
+                            {/* {(this.state.loggedIn) ?
                             <ul><li>
                                 <a className='nav-link' href='/home'>
                                     <i className='fa fa-user'></i> 
                                 </a>
                                 </li>
                                 </ul>
-                            : null }
+                            : null } */}
 
                             {(this.state.loggedIn === true) ?
-
-                            <ul>
-                                <li>
-                                <a className='nav-link' onclick={this.onLogoutClick}>
-                                    Logout
-                                </a>
-                                </li>
+                            <ul class="navbar-nav ml-auto">
+                                <li class="nav-item">
+                            <NavLogout/>
+                            </li>
                             </ul>
                             : 
-                            <ul><li>
-                                <a className='nav-link' href='/login'>
-                                    Login
-                                </a>
-                                </li>
-                            </ul>
+                            
+                            <ul class="navbar-nav ml-auto">
+                                <li class="nav-item">
+                                    <NavLogin/>
+                           
+                           </li>
+                           <li className="nav-item">
+                           <NavRegister/>
+                           </li>
+                           </ul>
+                           
                             }
+                            
                             {/* <ul class="navbar-nav ml-auto" >
                             <li class="nav-item ">
                             <a class="nav-link" href="/login">Login</a>
@@ -134,4 +157,16 @@ class Navbar extends Component {
 //     mapStateToProps,
 //     { logoutUser }
 //   )(Navbar);
-export default Navbar;
+// export default Navbar;
+
+Navbar.propTypes = {
+    logoutUser: PropTypes.func.isRequired,
+    auth: PropTypes.object.isRequired
+  };
+  const mapStateToProps = state => ({
+    auth: state.auth
+  });
+  export default connect(
+    mapStateToProps,
+    { logoutUser }
+  )(Navbar);
