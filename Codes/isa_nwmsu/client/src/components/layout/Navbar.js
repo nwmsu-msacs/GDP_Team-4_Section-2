@@ -50,15 +50,15 @@ class Navbar extends Component {
                     </button> */}
                     <div class="collapse navbar-collapse" id="navbarNavDropdown">
                     {this.state.loggedIn === true ?
-                        <ul>
-                            <li>
-                                <a href ="/home">Home</a>
+                        <ul class=" navbar-nav">
+                            <li class="nav-item">
+                                <a class = "nav-link" href ="/home">Home</a>
                             </li>
                         </ul>
                         :
-                        <ul>
-                            <li>
-                                <a href="/">Home</a>
+                        <ul class=" navbar-nav">
+                            <li class="nav-item" >
+                                <a class="nav-link" href="/">Home</a>
                             </li>
                         </ul>
                         }
