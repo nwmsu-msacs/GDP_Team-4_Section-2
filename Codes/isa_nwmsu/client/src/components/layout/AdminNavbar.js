@@ -1,7 +1,39 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import IsaLogo from "../layout/assets/ISA.png"
+import NavLogin from "../layout/NavLogin";
+import NavLogout from "../layout/NavLogout";
+import NavRegister from "../layout/NavRegister";
+import PropTypes from "prop-types";
+import {connect} from "react-redux";
+import { logoutUser } from "../../actions/authActions";
 class AdminNavbar extends React.Component {
+
+    constructor(props) {
+        super(props);
+        
+    }
+
+    componentWillMount(){
+        if(localStorage.getItem('jwtToken') != null){
+            this.setState({loggedIn: true}); 
+        } 
+        else{
+            this.setState({loggedIn: false}); 
+        }
+    }
+
+    onLogoutClick = e => {
+        console.log("---nav logout---")
+        e.preventDefault();
+        this.props.logoutUser();
+        this.setState({loggedIn: false}); 
+        // localStorage.removeItem("jwtToken");
+        // localStorage.removeItem("email");
+        // localStorage.removeItem("role");
+        
+      };
+
     render() {
         return (
             <div className="navbar-fixed">
@@ -11,10 +43,23 @@ class AdminNavbar extends React.Component {
                         <span class="navbar-toggler-icon"></span>
                     </button> */}
                     <div class="collapse navbar-collapse" id="navbarNavDropdown">
-                        <ul class="navbar-nav">
-                            <li class="nav-item ">
-                                <a class="nav-link" href="/home">Home <span class="sr-only">(current)</span></a>
+                        {this.state.loggedIn === true ?
+                        <ul>
+                            <li>
+                                <a href ="/home">Home</a>
                             </li>
+                        </ul>
+                        :
+                        <ul>
+                            <li>
+                                <a href="/">Home</a>
+                            </li>
+                        </ul>
+                        }
+                        <ul class="navbar-nav">
+                            {/* <li class="nav-item ">
+                                <a class="nav-link" href="/home">Home <span class="sr-only">(current)</span></a>
+                            </li> */}
                             <li class="nav-item px-3 dropdown">
                                 <a class="nav-link dropdown-toggle" href="/" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                     Events
@@ -61,15 +106,45 @@ class AdminNavbar extends React.Component {
                                 </div>
                             </li>
                             </ul>
+                            {(this.state.loggedIn === true) ?
+                            <ul class="navbar-nav ml-auto">
+                                <li class="nav-item">
+                            <NavLogout/>
+                            </li>
+                            </ul>
+                            : 
+                            
+                            <ul class="navbar-nav ml-auto">
+                                <li class="nav-item">
+                                    <NavLogin/>
+                           
+                           </li>
+                           <li className="nav-item">
+                           <NavRegister/>
+                           </li>
+                           </ul>
+                           
+                            }
+                            {/* </ul>
                             <ul class="navbar-nav ml-auto" >
                             <li class="nav-item ">
                             <a class="nav-link" href="/login">Login</a>
                             </li>
-                        </ul>
+                        </ul> */}
                     </div>
                 </nav>
       </div >
     );
     }
 }
-export default AdminNavbar;
+AdminNavbar.propTypes = {
+    logoutUser: PropTypes.func.isRequired,
+    auth: PropTypes.object.isRequired
+  };
+  const mapStateToProps = state => ({
+    auth: state.auth
+  });
+  export default connect(
+    mapStateToProps,
+    { logoutUser }
+  )(AdminNavbar);
