@@ -42,6 +42,7 @@ router.post("/accommodation", (req,res) => {
         daysRequired: req.body.daysRequired,
         gender: req.body.gender,
         contactNo: req.body.contactNo,
+        email: req.body.email
     });
 
     accommodationData.save();
@@ -80,4 +81,13 @@ router.post("/volunteer", (req,res) => {
     res.status(200).json({response: "Volunteer data saved"});
 });
 
+
+//Status update accept & reject
+
+router.post("/accommodationaccept", (req, res) =>{
+
+    Accommodation.findOne({email: data.email})
+    .then(Accommodation.update({status: "Accepted"}))
+    .then(console.log("--Accepted--")).then(res.status(200).json({response: "accommodation accepted"}))
+});
 module.exports = router;
