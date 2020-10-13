@@ -8,7 +8,7 @@ import Navbar from "../layout/Navbar";
 import AdminNavbar from "../layout/AdminNavbar";
 
 let navbar = undefined;
-
+let randomId = Math.random(22,12345) * Math.random(22,12345);
 class Volunteer extends Component {
 
     constructor() {
@@ -19,6 +19,8 @@ class Volunteer extends Component {
             non: "",
             carType:"",
             contactNo: "",
+            volunteerId: randomId.toString().substring(2),
+            email: "",
             errors: {}
         };
     }
@@ -30,7 +32,9 @@ class Volunteer extends Component {
     componentWillMount(){
         if (localStorage.getItem('jwtToken') != null) {
             this.setState({ loggedIn: true });
-          }
+          }else{
+            this.props.history.push('/login')
+        }
           if (localStorage.getItem('role') === null || localStorage.getItem('role') === '50') {
             navbar = <Navbar />
           }
@@ -49,7 +53,8 @@ class Volunteer extends Component {
             non: this.state.non,
             carType: this.state.carType,
             contactNo: this.state.contactNo,
-
+            volunteerId: this.state.volunteerId,
+            email: this.state.email
         };
         
         axios.post('http://localhost:5000/api/services/volunteer', volunteerData)
@@ -70,6 +75,16 @@ class Volunteer extends Component {
         <div class="col-md-4" style={{marginTop: "3rem",borderRadius:"5%", marginBottom: "8rem", boxShadow:"0px 0px 10px 10px #303030", backgroundColor:"white"}}>
                     <h3 class="center">Become a Volunteer</h3>
                     <form onSubmit={this.onSubmit}>
+                        {/* Volunteer id */}
+
+                        <label htmlFor="volunteerId">Volunteer Id</label>
+          <input
+            type="text"
+            name="volunteerId"
+            id="volunteerId"
+            value={randomId.toString().substring(2)}
+            disabled
+            />
                         {/* first name */}
                         <label htmlFor="Name">First Name</label>
                         <input
@@ -91,7 +106,18 @@ class Volunteer extends Component {
                             onChange={this.onChange}
                             placeholder="Enter last name"
                         />
-                        
+                        {/* Email */}
+
+                        <label htmlFor="email">Email</label>
+                        <input
+                            type="text"
+                            name="email"
+                            id="email"
+                            value={this.state.email}
+                            onChange={this.onChange}
+                            placeholder="Enter email"
+                        />
+
                         {/* non */}
                         <label htmlFor="non">919#</label>
                         <input
