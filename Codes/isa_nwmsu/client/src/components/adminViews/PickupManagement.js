@@ -4,14 +4,29 @@ import AdminNavbar from "../layout/AdminNavbar";
 import Navbar from "../layout/Navbar";
 
 let navbar = undefined;
-const pickUpMap = (pickupList) => {
+
+function reject(data, self) {
+
+  axios.post('http://localhost:5000/api/services/pickupreject', data)
+    .then(res => self.go())
+    .catch(err => console.log(err));
+};
+
+function accept(data, self) {
+
+  axios.post('http://localhost:5000/api/services/pickupaccept', data)
+    .then(res => self.go())
+    .catch(err => console.log(err));
+};
+
+const pickUpMap = (pickupList, self) => {
   console.log("-----pickupList", pickupList);
   
   let res = pickupList.map((data) => {
     return (
 
 
-      <div class="row">
+      <div class="row" key = {data._id}>
 
         {/* <!-- Grid column --> */}
         <div class="col-lg-4 col-md-6 mb-lg-0 mb-5" >
@@ -24,7 +39,7 @@ const pickUpMap = (pickupList) => {
           <p class="text-uppercase blue-text"><strong>From:  {data.from} &nbsp; &nbsp; To: {data.to}</strong></p>
           <p class="text-uppercase blue-text"><strong>Airline:  {data.airline} &nbsp;&nbsp; FlightNo: {data.flightNo}</strong></p>
           <p class="text-uppercase blue-text"><strong>Luggage:  {data.luggage}</strong></p>
-          
+          <p class="text-uppercase blue-text"><strong>Status:  {data.status}</strong></p>
           <button
                   style={{
                     width: "150px",
@@ -34,6 +49,7 @@ const pickUpMap = (pickupList) => {
                   }}
                   type="submit"
                   className="btn btn-large waves-effect waves-light hoverable blue accent-3"
+                  onClick = {() => {accept(data,self)}}
                 >
                   Accept
                 </button>&nbsp;&nbsp;
@@ -47,6 +63,7 @@ const pickUpMap = (pickupList) => {
                   }}
                   type="submit"
                   className="btn btn-large waves-effect waves-light hoverable red accent-3"
+                  onClick = {() => {reject(data,self)}}
                 >
                   Reject
                 </button>   
@@ -65,11 +82,23 @@ const pickUpMap = (pickupList) => {
 }
 
 class PickupManagement extends Component {
+
+  constructor(props) {
+    super(props);
+  }
+
   state = {
-    pickUpdata: []
+    pickUpdata: [],
+    self: null
   }
 
   componentDidMount() {
+
+    this.setState({
+      self: this.props.history
+    });
+
+
     axios
       .get("http://localhost:5000/api/admin/pickupManagement")
       .then(res => {
@@ -104,7 +133,7 @@ class PickupManagement extends Component {
         <div>
         <br/>
         <h2>Pickup Management</h2>
-        <p>{pickUpMap(this.state.pickUpdata)}</p>
+        <p>{pickUpMap(this.state.pickUpdata, this.state.self)}</p>
         </div>
       </div>
     );
