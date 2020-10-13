@@ -9,7 +9,7 @@ import Navbar from "../layout/Navbar";
 import AdminNavbar from "../layout/AdminNavbar";
 
 let navbar = undefined;
-
+let randomId =  Math.random(22,12345)*Math.random(22,12345);
 class Pickup extends Component {
 
   constructor() {
@@ -24,6 +24,7 @@ class Pickup extends Component {
       to: "",
       airline: "",
       flightNo: "",
+      pickupId: randomId.toString().substring(2),
       errors: {}
     };
   }
@@ -35,7 +36,9 @@ class Pickup extends Component {
   componentWillMount(){
     if (localStorage.getItem('jwtToken') != null) {
       this.setState({ loggedIn: true });
-    }
+    }else{
+      this.props.history.push('/login')
+  }
     if (localStorage.getItem('role') === null || localStorage.getItem('role') === '50') {
       navbar = <Navbar />
     }
@@ -55,7 +58,8 @@ class Pickup extends Component {
       from: this.state.from,
       to: this.state.to,
       airline: this.state.airline,
-      flightNo: this.state.flightNo
+      flightNo: this.state.flightNo,
+      pickupId: this.state.pickupId
     };
 // port for the service
     axios.post('http://localhost:5000/api/services/pickup', pickupData)
@@ -67,6 +71,10 @@ class Pickup extends Component {
   };
 
   render() {
+
+    //getting random id for form
+
+   
     const { errors } = this.state;
 // function
     return (
@@ -79,6 +87,16 @@ class Pickup extends Component {
         <div class="col-md-4" style={{marginTop: "3rem",borderRadius:"5%", marginBottom: "8rem", boxShadow:"0px 0px 10px 10px #303030", backgroundColor:"white"}}>
         <h3 class="center">Pickup</h3>
         <form class onSubmit={this.onSubmit}>
+
+        <label htmlFor="pickupId">Pickup Id</label>
+          <input
+            type="text"
+            name="pickupId"
+            id="pickupId"
+            value={randomId.toString().substring(2)}
+            disabled
+            />
+          
           {/* Name */}
           
           <label htmlFor="Name">Name</label>
