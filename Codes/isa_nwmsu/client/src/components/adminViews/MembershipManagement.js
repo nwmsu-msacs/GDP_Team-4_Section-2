@@ -4,13 +4,21 @@ import AdminNavbar from "../layout/AdminNavbar";
 import Navbar from "../layout/Navbar";
 
 let navbar = undefined;
-const memberShipMap = (membershipList) => {
+
+function endMembership(data, self) {
+
+  axios.post('http://localhost:5000/api/services/endmembership', data)
+    .then(res => self.go())
+    .catch(err => console.log(err));
+};
+
+const memberShipMap = (membershipList, self) => {
   console.log("-----membershipList", membershipList);
   let res = membershipList.map((data) => {
     return (
 
         
-      <div class="row">
+      <div class="row" key = {data._id}>
 
         {/* <!-- Grid column --> */}
         <div class="col-lg-4 col-md-6 mb-lg-0 mb-5" >
@@ -19,7 +27,7 @@ const memberShipMap = (membershipList) => {
           <p class="text-uppercase blue-text"><strong>Contact No: {data.contactNo}</strong></p>
           <p class="text-uppercase blue-text"><strong>Major: {data.major}</strong></p>
           <p class="text-uppercase blue-text"><strong>Email:  {data.email}</strong></p>
-          
+          <p class="text-uppercase blue-text"><strong>Membership Status:  {data.status}</strong></p>
           
 
                 <button
@@ -31,6 +39,7 @@ const memberShipMap = (membershipList) => {
                   }}
                   type="submit"
                   className="btn btn-large waves-effect waves-light hoverable red accent-3"
+                  onClick = {() => { endMembership(data, self) }}
                 >
                   End Membership
                 </button>   
@@ -49,11 +58,22 @@ const memberShipMap = (membershipList) => {
 }
 
 class MembershipManagement extends Component {
+
+  constructor(props){
+    super(props);
+  }
+
   state = {
-    memberShipdata: []
+    memberShipdata: [],
+    self: null
   }
 
   componentDidMount() {
+
+    this.setState({
+      self: this.props.history
+    }); 
+
     axios
       .get("http://localhost:5000/api/admin/membershipManagement")
       .then(res => {
@@ -88,7 +108,7 @@ class MembershipManagement extends Component {
         <div>
         <br/>
         <h2>Active Members</h2>
-        <p>{memberShipMap(this.state.memberShipdata)}</p>
+        <p>{memberShipMap(this.state.memberShipdata, this.state.self)}</p>
         </div>
       </div>
     );
