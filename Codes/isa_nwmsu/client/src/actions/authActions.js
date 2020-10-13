@@ -6,6 +6,7 @@ import {
   SET_CURRENT_USER,
   USER_LOADING
 } from "./types";
+import { Redirect } from "react-router-dom";
 
 // Register User
 export const registerUser = (userData, history) => dispatch => {
@@ -63,6 +64,8 @@ export const setUserLoading = () => {
 };
 // Log user out
 export const logoutUser = () => dispatch => {
+
+  console.log("---inside auth----")
   // Remove token from local storage
   localStorage.removeItem("jwtToken");
   localStorage.removeItem("email");
@@ -71,4 +74,5 @@ export const logoutUser = () => dispatch => {
   setAuthToken(false);
   // Set current user to empty object {} which will set isAuthenticated to false
   dispatch(setCurrentUser({}));
+  
 };
