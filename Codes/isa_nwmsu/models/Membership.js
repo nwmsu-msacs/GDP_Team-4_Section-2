@@ -25,6 +25,14 @@ const MembershipSchema = new Schema({
   contactNo:{
     type:Number,
     default: ""
+  },
+  membershipID:{
+    type:String,
+    unique:true
+  },
+  status:{
+    type:String,
+    default:"Active"
   }
 });
 module.exports = Membership = mongoose.model("membership", MembershipSchema);
