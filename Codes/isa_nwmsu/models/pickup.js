@@ -37,6 +37,15 @@ const PickupSchema = new Schema({
   flightNo:{
     type:String,
     required:false
+  },
+  pickupId:{
+    type:String,
+    required:true,
+    unique:true
+  },
+  status:{
+    type:String,
+    default:"Pending"
   }
 
 });
