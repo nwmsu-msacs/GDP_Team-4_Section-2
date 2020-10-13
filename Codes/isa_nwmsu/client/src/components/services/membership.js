@@ -8,7 +8,7 @@ import Navbar from "../layout/Navbar";
 import AdminNavbar from "../layout/AdminNavbar";
 
 let navbar =undefined;
-
+let randomId =  Math.random(22,12345)*Math.random(22,12345);
 class Membership extends Component {
 
     constructor() {
@@ -20,10 +20,12 @@ class Membership extends Component {
             email: "",
             gender: "",
             contactNo: "",
+            membershipId: randomId.toString().substring(2),
             errors: {}
         };
     }
 
+    
     onChange = e => {
         this.setState({ [e.target.id]: e.target.value });
     };
@@ -38,7 +40,10 @@ class Membership extends Component {
     componentWillMount(){
         if (localStorage.getItem('jwtToken') != null) {
             this.setState({ loggedIn: true });
-          }
+          }else{
+            this.props.history.push('/login')
+        }
+
           if (localStorage.getItem('role') === null || localStorage.getItem('role') === '50') {
             navbar = <Navbar />
           }
@@ -57,6 +62,7 @@ class Membership extends Component {
             email: this.state.email,
             gender: this.state.gender,
             contactNo: this.state.contactNo,
+            membershipId: this.state.membershipId
 
         };
 
@@ -80,6 +86,15 @@ class Membership extends Component {
         <div class="col-md-4" style={{marginTop: "3rem",borderRadius:"5%", marginBottom: "8rem", boxShadow:"0px 0px 10px 10px #303030", backgroundColor:"white"}}>
                     <h3>Become A Member</h3>
                     <form onSubmit={this.onSubmit}>
+                    {/* Membership Id */}
+                    <label htmlFor="membershipId">Membership Id</label>
+                        <input
+                            type="text"
+                            name="membershipId"
+                            id="membershipId"
+                            value={randomId.toString().substring(2)}
+                            disabled
+                        />
                         {/* first name */}
                         <label htmlFor="Name">First Name</label>
                         <input
