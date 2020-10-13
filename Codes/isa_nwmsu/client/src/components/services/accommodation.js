@@ -6,9 +6,10 @@ import image from "../layout/assets/carousel_image4.jpg"
 import axios from 'axios';
 import Navbar from "../layout/Navbar";
 import AdminNavbar from "../layout/AdminNavbar";
+import { Redirect } from "react-router-dom";
 
 let navbar = undefined;
-
+let randomId =  Math.random(22,12345)*Math.random(22,12345);
 class Accommodation extends Component {
 
     constructor() {
@@ -21,6 +22,7 @@ class Accommodation extends Component {
             gender: "",
             contactNo: "",
             email: "",
+            accommodationId: randomId.toString().substring(2),
             errors: {}
         };
     }
@@ -28,6 +30,8 @@ class Accommodation extends Component {
 
         if (localStorage.getItem('jwtToken') != null) {
             this.setState({ loggedIn: true });
+          }else{
+              this.props.history.push('/login')
           }
           if (localStorage.getItem('role') === null || localStorage.getItem('role') === '50') {
             navbar = <Navbar />
@@ -59,7 +63,8 @@ class Accommodation extends Component {
             daysRequired: this.state.daysRequired,
             gender: this.state.gender,
             contactNo: this.state.contactNo,
-            email: this.state.email
+            email: this.state.email,
+            accommodationId: this.state.accommodationId,
 
         };
 
@@ -83,6 +88,15 @@ class Accommodation extends Component {
         <div class="col-md-4" style={{marginTop: "3rem",borderRadius:"5%", marginBottom: "8rem", boxShadow:"0px 0px 10px 10px #303030", backgroundColor:"white"}}>
                     <h3>Temporary Accommodation</h3>
                     <form onSubmit={this.onSubmit}>
+                        {/* Accommodation Id */}
+                        <label htmlFor="accommodationId">Accommodation Id</label>
+                        <input
+                            type="text"
+                            name="accommodationId"
+                            id="accommodationId"
+                            value={randomId.toString().substring(2)}
+                            disabled
+                        />
                         {/* first name */}
                         <label htmlFor="Name">First Name</label>
                         <input
