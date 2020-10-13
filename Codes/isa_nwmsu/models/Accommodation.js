@@ -28,11 +28,16 @@ const AccommodationSchema = new Schema({
   },
   status:{
     type: String,
-    default:""
+    default:"Pending"
   },
   email:{
     type:String,
     required:true
+  },
+  accommodationId:{
+    type:String,
+    required:true,
+    unique:true
   }
 });
 module.exports = Accommodation = mongoose.model("accommodation", AccommodationSchema);
