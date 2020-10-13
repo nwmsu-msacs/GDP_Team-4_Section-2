@@ -21,6 +21,19 @@ const VolunteerSchema = new Schema({
   contactNo:{
     type:Number,
     default: ""
+  },
+  volunteerId:{
+    type:String,
+    required:true,
+    unique:true
+  },
+  status:{
+    type:String,
+    default:"Pending"
+  },
+  email:{
+    type:String,
+    required:true
   }
 });
 module.exports = Volunteer = mongoose.model("volunteer", VolunteerSchema);
