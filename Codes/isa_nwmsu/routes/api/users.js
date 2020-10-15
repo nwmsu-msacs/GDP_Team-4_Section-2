@@ -1,5 +1,4 @@
-// import crypto from 'crypto';
-// import User from '../sequelize';
+
 
 const crypto = require("crypto");
 const express = require("express");
@@ -14,34 +13,6 @@ const validateLoginInput = require("../../validation/login");
 const User = require("../../models/User");
 
 
-//cors error
-
-// router.use(function(req, res, next) {
-//   res.header("Access-Control-Allow-Origin", "*");
-//   res.header("Access-Control-Allow-Headers", "X-Requested-With");
-//   next();
-//   });
-
-//   const cors = require("cors");
-//   router.use(cors());
-
-// const whitelist = [
-//     'http://localhost:3031',
-//     'http://localhost:3000',
-//     'http://localhost:3003',
-//   ];
-//   const corsOptions = {
-//     origin: (origin, callback) => {
-//       if (whitelist.indexOf(origin) !== -1) {
-//         callback(null, true);
-//       } else {
-//         callback(new Error('Not allowed by CORS'));
-//       }
-//     },
-//     optionsSuccessStatus: 200,
-//   };
-
-//   router.use(cors(corsOptions));
 
 
 // @route POST api/users/register
@@ -135,22 +106,7 @@ router.post("/login", (req, res) => {
 });
 
 
-//forgotpassword
-// router.post("/forgotPassword", (req, res) => {
-//   // Form validation
-// const { errors, isValid } = validateForgotPasswordInput(req.body);
-// // Check validation
-//   if (!isValid) {
-//     return res.status(400).json(errors);
-//   }
-// User.findOne({ email: req.body.email }).then(user => {
-//     if (!user) {
-//       return res.status(400).json({ email: "Email doesn't exists" });
-//     } else {
-//       return res.status(200).json({email: "Email exists"});
-//     }
-//   });
-// });
+
 
 //forgotpassword new
 
