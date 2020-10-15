@@ -17,6 +17,7 @@ class ForumPage extends Component {
         this.state = {
             title:"",
             description:"",
+            createdBy:localStorage.getItem("name"),
             errors: {}
         };
     }
@@ -53,15 +54,15 @@ class ForumPage extends Component {
 
             title: this.state.title,
             description: this.state.description,
-            
+            createdBy: this.state.createdBy
 
         };
 
         
 
-        axios.post('http://localhost:5000/api/services/newForum', forumData)
+        axios.post('http://localhost:5000/api/forum/newForum', forumData)
             .then(res => console.log(res.data))
-            .then(this.props.history.push("/isaForum"))
+            .then(this.props.history.push("/createForum"))
     };
 
     render() {
@@ -89,13 +90,15 @@ class ForumPage extends Component {
                         />
                         {/* Title description */}
                         <label htmlFor="description">Description: </label>
-                        <input
-                            type="textarea"
+                        <textarea
+                            
                             name="description"
                             id="description"
                             value={this.state.description}
                             onChange={this.onChange}
                             placeholder="Enter your thoughts here..!!"
+                            rows="4"
+                            cols="50"
                         />
 
                         {/* submit  */}
