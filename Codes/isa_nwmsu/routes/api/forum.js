@@ -26,6 +26,22 @@ router.post('/newForum', async(req,res) => {
 });
 
 
+//route for replies for single forum item
+router.post('/reply/:forumId', async (req,res)=>{
+
+    let data = req.body;
+
+    const newReply = new Replies({
+        forumId: req.params.forumId,
+        replyBy: data.replyBy,
+        replyContent: data.replyContent,
+
+    });
+
+    newReply.save();
+    console.log(res.json(newReply))
+    
+});
 
 
 
