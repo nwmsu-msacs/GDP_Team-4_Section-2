@@ -40,12 +40,7 @@ class ForumPage extends Component {
         this.setState({ [e.target.id]: e.target.value });
     };
 
-    // onRadioChange = (e) => {
-    //         this.setState({
-    //           gender: e.target.value
-    //         });
-    //       }
-
+    
 
     onSubmit = e => {
         e.preventDefault();
