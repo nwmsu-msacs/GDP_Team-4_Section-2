@@ -88,7 +88,7 @@ class AdminNavbar extends React.Component {
         </a>
                                 <div class="dropdown-menu" style={{borderRadius:"15%"}} aria-labelledby="navbarDropdownMenuLink">
                                     <a class="dropdown-item" href="/contact">Contact Us</a>
-                                    <a class="dropdown-item" href ="/forum">ISA Forum</a>
+                                    <a class="dropdown-item" href ="/isaForum">ISA Forum</a>
                                     <a class="dropdown-item" href="/faq">FAQ?</a>
                                     <a class="dropdown-item" href="/alumni">Alumni</a>
                                 </div>
