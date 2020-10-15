@@ -61,18 +61,7 @@ class App extends Component {
     super(props);
     this.state = {};
   }
-  // componentWillMount() {
-  //   console.log("----------nav call------");
-  //   if (localStorage.getItem('jwtToken') != null) {
-  //     this.setState({ loggedIn: true });
-  //   }
-  //   if (localStorage.getItem('role') != null || localStorage.getItem('role') == '50') {
-  //     navbar = <Navbar />
-  //   }
-  //   if (localStorage.getItem('role') == '100') {
-  //     navbar = <AdminNavbar />
-  //   }
-  // }
+  
 
   render() {
     return (
