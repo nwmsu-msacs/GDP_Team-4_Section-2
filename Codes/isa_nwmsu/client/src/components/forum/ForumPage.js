@@ -11,7 +11,6 @@ import { Input, TextArea, Form } from 'semantic-ui-react'
 import {Button} from 'react-bootstrap'
 
 let navbar = undefined;
-// let randomId =  Math.random(22,12345)*Math.random(22,12345);
 class ForumPage extends Component {
 
     constructor() {
@@ -105,13 +104,7 @@ class ForumPage extends Component {
                         {/* submit  */}
                         <p class="h4 text-center mb-4">
                             <Button 
-                                // style={{
-                                //     width: "250px",
-                                //     borderRadius: "3px",
-                                //     letterSpacing: "1.5px",
-                                //     marginTop: "1rem"
-
-                                // }}
+                                
                                 type="submit"
                                 className="btn btn-large waves-effect waves-light hoverable blue accent-3"
                             >
