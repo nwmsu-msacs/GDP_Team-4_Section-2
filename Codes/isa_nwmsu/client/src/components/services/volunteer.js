@@ -9,7 +9,6 @@ import AdminNavbar from "../layout/AdminNavbar";
 import { Input, Button, Form } from 'semantic-ui-react'
 
 let navbar = undefined;
-// let randomId = Math.random(22,12345) * Math.random(22,12345);
 class Volunteer extends Component {
 
     constructor() {
@@ -20,7 +19,6 @@ class Volunteer extends Component {
             non: "",
             carType:"",
             contactNo: "",
-            // volunteerId: randomId.toString().substring(2),
             email: "",
             errors: {}
         };
@@ -54,7 +52,6 @@ class Volunteer extends Component {
             non: this.state.non,
             carType: this.state.carType,
             contactNo: this.state.contactNo,
-            // volunteerId: this.state.volunteerId,
             email: this.state.email
         };
         
@@ -76,16 +73,7 @@ class Volunteer extends Component {
         <div class="col-md-4" >
         <p class="h3 text-center mb-4">Become a volunteer</p>
                     <Form onSubmit={this.onSubmit}>
-                        {/* Volunteer id
-
-                        <label htmlFor="volunteerId">Volunteer Id</label>
-          <input
-            type="text"
-            name="volunteerId"
-            id="volunteerId"
-            value={randomId.toString().substring(2)}
-            disabled
-            /> */}
+                        
                         {/* first name */}
                         <Form.Group>
                         <Form.Field>
@@ -148,15 +136,7 @@ class Volunteer extends Component {
                                     <option value="other">Other</option>
                                 </select>
                         </Form.Field>
-                        {/* <label htmlFor="carType">Car Type</label>
-                        <input
-                            type="text"
-                            name="carType"
-                            id="carType"
-                            value={this.state.carType}
-                            onChange={this.onChange}
-                            placeholder="Enter car type"
-                        /> */}
+                        
                         
                         {/* contact no */}
                         <Form.Field>
@@ -173,13 +153,7 @@ class Volunteer extends Component {
                         {/* submit  */}
                         <p class="h4 text-center mb-4">
                             <Button 
-                                // style={{
-                                //     width: "250px",
-                                //     borderRadius: "3px",
-                                //     letterSpacing: "1.5px",
-                                //     marginTop: "1rem"
-
-                                // }}
+                                
                                 type="submit"
                                 className="btn btn-large waves-effect waves-light hoverable blue accent-3"
                             >
