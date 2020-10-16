@@ -9,7 +9,6 @@ import Navbar from "../layout/Navbar";
 import AdminNavbar from "../layout/AdminNavbar";
 import { Input, Button, Form } from 'semantic-ui-react'
 let navbar = undefined;
-// let randomId =  Math.random(22,12345)*Math.random(22,12345);
 class Pickup extends Component {
 
   constructor() {
@@ -24,7 +23,6 @@ class Pickup extends Component {
       to: "",
       airline: "",
       flightNo: "",
-      // pickupId: randomId.toString().substring(2),
       errors: {}
     };
   }
@@ -89,15 +87,6 @@ class Pickup extends Component {
         <div class="col-md-4" >
         <p class="h3 text-center mb-4">Need a pickup?</p>
         <Form class onSubmit={this.onSubmit}>
-
-        {/* <label htmlFor="pickupId">Pickup Id</label>
-          <input
-            type="text"
-            name="pickupId"
-            id="pickupId"
-            value={randomId.toString().substring(2)}
-            disabled
-            /> */}
           
           {/* Name */}
           <Form.Field>
@@ -288,13 +277,7 @@ class Pickup extends Component {
           {/* Submit  */}
           <p class="h4 text-center mb-4">
                             <Button 
-                                // style={{
-                                //     width: "250px",
-                                //     borderRadius: "3px",
-                                //     letterSpacing: "1.5px",
-                                //     marginTop: "1rem"
-
-                                // }}
+                                
                                 type="submit"
                                 className="btn btn-large waves-effect waves-light hoverable blue accent-3"
                             >
