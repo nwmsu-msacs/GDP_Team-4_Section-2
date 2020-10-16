@@ -9,7 +9,6 @@ import AdminNavbar from "../layout/AdminNavbar";
 import { Redirect } from "react-router-dom";
 import { Input, Button, Form } from 'semantic-ui-react'
 let navbar = undefined;
-// let randomId =  Math.random(22,12345)*Math.random(22,12345);
 class Accommodation extends Component {
 
     constructor() {
@@ -22,7 +21,6 @@ class Accommodation extends Component {
             gender: "Male",
             contactNo: "",
             email: "",
-            // accommodationId: randomId.toString().substring(2),
             errors: {}
         };
     }
@@ -44,12 +42,6 @@ class Accommodation extends Component {
     onChange = e => {
         this.setState({ [e.target.id]: e.target.value });
     };
-
-    // onRadioChange = (e) => {
-    //         this.setState({
-    //           gender: e.target.value
-    //         });
-    //       }
 
 
     onSubmit = e => {
@@ -88,15 +80,7 @@ class Accommodation extends Component {
         <div class="col-md-4" >
         <p class="h3 text-center mb-4">Need Accommodation?</p>
                     <Form onSubmit={this.onSubmit}>
-                        {/* Accommodation Id
-                        <label htmlFor="accommodationId">Accommodation Id</label>
-                        <input
-                            type="text"
-                            name="accommodationId"
-                            id="accommodationId"
-                            value={randomId.toString().substring(2)}
-                            disabled
-                        /> */}
+                        
                         {/* first name */}
                         <Form.Group widths="equal">
                         <Form.Field>
@@ -162,27 +146,7 @@ class Accommodation extends Component {
                         </Form.Field>
 
 
-                        {/* <label>Gender&nbsp;&nbsp;</label><br />
-                        <label htmlFor="male">
-                            <input class="with-gap" onChange={this.onChange}
-                                value="Male"
-                                name="gender"
-                                type="radio" checked={this.state.gender === "Male"}
-                                checked={true}
-                            />
-                            <span>Male</span>
-                        </label>
-                                &nbsp;&nbsp;
-                                <label>
-                            <input class="with-gap" onChange={this.onChange}
-                                value="Female"
-                                name="gender"
-                                type="radio" checked={this.state.gender === "Female"}
-                            />
-                            <span>Female</span>
-                        </label>
-
-                        <br /> */}
+                        
                         {/* major */}
                         <Form.Field>
                         <label htmlFor="daysRequired">Days Required</label>
