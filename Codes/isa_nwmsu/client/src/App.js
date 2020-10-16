@@ -34,6 +34,8 @@ import VolunteerManagement from "./components/adminViews/VolunteerManagement";
 import CreateEvent from "./components/events/createEvent";
 import createForum from "./components/forum/ForumPage";
 import ISAForum from "./components/forum/IsaForum";
+import IndividualReply from "./components/forum/ReplyToIndividualForum";
+import RepliesView from "./components/forum/Replies"
 // import { route } from "../../routes/api/users";
 // Check for token to keep user logged in
 if (localStorage.jwtToken) {
@@ -100,6 +102,8 @@ class App extends Component {
               <Route exact path="/createEvent" component={CreateEvent} />
               <Route exact path="/createForum" component={createForum} />
               <Route exact path="/isaForum" component={ISAForum} />
+              <Route exact path="/individualReply" component={IndividualReply} />
+              <Route exact path="/repliesView" component={RepliesView} />
               {this.state.loggedIn === true ? <Route exact path='/logout' component={developmentInProgress} /> : null}
             </Switch>
 
