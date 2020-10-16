@@ -6,19 +6,7 @@ import { Button, Comment, Form, Header } from 'semantic-ui-react'
 import image from "./user.png"
 let navbar = undefined;
 
-// function reject(data, self) {
 
-//   axios.post('http://localhost:5000/api/services/accommodationreject', data)
-//     .then(res => self.go())
-//     .catch(err => console.log(err));
-// };
-
-// function accept(data, self) {
-
-//   axios.post('http://localhost:5000/api/services/accommodationaccept', data)
-//     .then(res => self.go())
-//     .catch(err => console.log(err));
-// };
 
 const ReplyMap = (replyList, self) => {
   console.log("-----replyList", replyList);
@@ -48,39 +36,7 @@ const ReplyMap = (replyList, self) => {
         
       </Comment.Group>
         
-        {/* <div class="col-lg-4 col-md-6 mb-lg-0 mb-5" >
-
-        <p class="font-weight-bold mt-4 mb-3">{data.replyContent}</p>
-          <i>By:{data.replyBy} on {data.replyTime}</i>
-          {/* <button
-            style={{
-              width: "150px",
-              borderRadius: "3px",
-              letterSpacing: "1.5px",
-              marginTop: "1rem"
-            }}
-            type="submit"
-            className="btn btn-large waves-effect waves-light hoverable blue accent-3"
-            // onClick={() => { accept(data, self) }}
-          >
-            Accept
-                </button>&nbsp;&nbsp; */}
-
-                {/* <button
-            style={{
-              width: "150px",
-              borderRadius: "3px",
-              letterSpacing: "1.5px",
-              marginTop: "1rem"
-            }}
-            type="submit"
-            className="btn btn-large waves-effect waves-light hoverable red accent-3"
-            onClick= {() => {reject(data, self)}}
-          >
-            Reject
-                </button> */}
-          {/* <hr />
-        </div> */} 
+        
 
 
       </div>
@@ -121,17 +77,7 @@ class ReplyView extends Component {
       );
   }
 
-//   componentWillMount() {
-//     if (localStorage.getItem('jwtToken') != null) {
-//       this.setState({ loggedIn: true });
-//     }
-//     if (localStorage.getItem('role') === null || localStorage.getItem('role') === '50') {
-//       navbar = <Navbar />
-//     }
-//     if (localStorage.getItem('role') === '100') {
-//       navbar = <AdminNavbar />
-//     }
-//   }
+
 
   render() {
 
