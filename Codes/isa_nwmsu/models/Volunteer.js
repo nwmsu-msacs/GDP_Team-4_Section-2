@@ -22,11 +22,11 @@ const VolunteerSchema = new Schema({
     type:Number,
     default: ""
   },
-  volunteerId:{
-    type:String,
-    required:true,
-    unique:true
-  },
+  // volunteerId:{
+  //   type:String,
+  //   required:true,
+  //   unique:true
+  // },
   status:{
     type:String,
     default:"Pending"

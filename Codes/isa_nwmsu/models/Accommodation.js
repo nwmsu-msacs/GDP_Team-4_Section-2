@@ -34,11 +34,11 @@ const AccommodationSchema = new Schema({
     type:String,
     required:true
   },
-  accommodationId:{
-    type:String,
-    required:true,
-    unique:true
-  }
+  // accommodationId:{
+  //   type:String,
+  //   required:true,
+  //   unique:true
+  // }
 });
 module.exports = Accommodation = mongoose.model("accommodation", AccommodationSchema);
 

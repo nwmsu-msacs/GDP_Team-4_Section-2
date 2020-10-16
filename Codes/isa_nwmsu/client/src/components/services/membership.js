@@ -6,9 +6,16 @@ import image from "../layout/assets/carousel_image4.jpg"
 import axios from 'axios';
 import Navbar from "../layout/Navbar";
 import AdminNavbar from "../layout/AdminNavbar";
+import { Input, Button, Form } from 'semantic-ui-react'
 
-let navbar =undefined;
-let randomId =  Math.random(22,12345)*Math.random(22,12345);
+let navbar = undefined;
+let randomId = Math.random(22, 12345) * Math.random(22, 12345);
+
+// const genderOptions = [
+//     { key: 'm', text: 'Male', value: 'male' },
+//     { key: 'f', text: 'Female', value: 'female' },
+//     { key: 'o', text: 'Other', value: 'other' },
+// ]
 class Membership extends Component {
 
     constructor() {
@@ -18,38 +25,35 @@ class Membership extends Component {
             lastName: "",
             major: "",
             email: "",
-            gender: "",
+            gender: "Male",
             contactNo: "",
             membershipId: randomId.toString().substring(2),
             errors: {}
         };
     }
 
-    
+
     onChange = e => {
+        
         this.setState({ [e.target.id]: e.target.value });
+        
     };
 
-    // onRadioChange = (e) => {
-    //         this.setState({
-    //           gender: e.target.value
-    //         });
-    //       }
+    
 
-
-    componentWillMount(){
+    componentWillMount() {
         if (localStorage.getItem('jwtToken') != null) {
             this.setState({ loggedIn: true });
-          }else{
+        } else {
             this.props.history.push('/login')
         }
 
-          if (localStorage.getItem('role') === null || localStorage.getItem('role') === '50') {
+        if (localStorage.getItem('role') === null || localStorage.getItem('role') === '50') {
             navbar = <Navbar />
-          }
-          if (localStorage.getItem('role') === '100') {
+        }
+        if (localStorage.getItem('role') === '100') {
             navbar = <AdminNavbar />
-          }
+        }
     }
     onSubmit = e => {
         e.preventDefault();
@@ -66,7 +70,7 @@ class Membership extends Component {
 
         };
 
-        
+
 
         axios.post('http://localhost:5000/api/services/membership', membershipData)
             .then(res => console.log(res.data))
@@ -79,60 +83,77 @@ class Membership extends Component {
         return (
             <div>
                 {navbar}
+                <br/><br/>
 
                 <div class="row">
-        <div class="col-md-2"></div>
-        
-        <div class="col-md-4" style={{marginTop: "3rem",borderRadius:"5%", marginBottom: "8rem", boxShadow:"0px 0px 10px 10px #303030", backgroundColor:"white"}}>
-                    <h3>Become A Member</h3>
-                    <form onSubmit={this.onSubmit}>
-                    {/* Membership Id */}
-                    <label htmlFor="membershipId">Membership Id</label>
-                        <input
+                    <div class="col-md-4" >
+                        
+                    </div>
+
+                    <div class="col-md-4" >
+                        <p class="h3 text-center mb-4">Get a membership</p>
+
+                        <Form onSubmit={this.onSubmit}>
+                            {/* Membership Id */}
+                            {/* <Label htmlFor="membershipId">Membership Id</Label>
+                        <Input
                             type="text"
                             name="membershipId"
                             id="membershipId"
                             value={randomId.toString().substring(2)}
                             disabled
-                        />
-                        {/* first name */}
-                        <label htmlFor="Name">First Name</label>
-                        <input
-                            type="text"
-                            name="firstName"
-                            id="firstName"
-                            value={this.state.firstName}
-                            onChange={this.onChange}
-                            placeholder="Enter first name"
-                        />
+                        /> */}
 
-                        {/* last name */}
-                        <label htmlFor="Name">last Name</label>
-                        <input
-                            type="text"
-                            name="lastName"
-                            id="lastName"
-                            value={this.state.lastName}
-                            onChange={this.onChange}
-                            placeholder="Enter last name"
-                        />
-                        {/* email */}
-                        <label htmlFor="email">Email</label>
-                        <input
-                            type="text"
-                            name="email"
-                            id="email"
-                            value={this.state.email}
-                            onChange={this.onChange}
-                            placeholder="Enter email"
-                        />
-                        
+                            {/* first name */}
+                            <Form.Group widths="equal">
+                            <Form.Field>
+                                <label htmlFor="firstName">First Name</label>
+                                <Input transparent
+                                    type="text"
+                                    name="firstName"
+                                    id="firstName"
+                                    value={this.state.firstName}
+                                    onChange={this.onChange}
+                                    placeholder="Enter first name"
+                                />
+                            </Form.Field>
+                            {/* last name */}
+                            <Form.Field>
+                                <label htmlFor="lastName">last Name</label>
+                                <Input transparent
+                                    type="text"
+                                    name="lastName"
+                                    id="lastName"
+                                    value={this.state.lastName}
+                                    onChange={this.onChange}
+                                    placeholder="Enter last name"
+                                />
+                            </Form.Field>
+                            </Form.Group>
+                            {/* email */}
+                            <Form.Field>
+                                <label htmlFor="email">Email</label>
+                                <Input transparent
+                                    type="email"
+                                    name="email"
+                                    id="email"
+                                    value={this.state.email}
+                                    onChange={this.onChange}
+                                    placeholder="Enter email"
+                                />
+                            </Form.Field>
 
-                        {/* Gender */}
+                            {/* Gender */}
 
-
-                        <label>Gender&nbsp;&nbsp;</label><br />
-                        <label htmlFor="male">
+                            <Form.Field>
+                                <label>Gender&nbsp;&nbsp;</label>
+                                <select class="mdb-select" name="Gender" id="gender" onChange={this.onChange} value= {this.state.gender}>
+                                    <option value="male">Male</option>
+                                    <option value="female">Female</option>
+                                    <option value="other">Other</option>
+                                </select>
+                            </Form.Field>
+                            {/* <label htmlFor="male">
                             <input class="with-gap" onChange={this.onChange}
                                 value="Male"
                                 name="gender"
@@ -140,8 +161,8 @@ class Membership extends Component {
                                 checked={true}
                             />
                             <span>Male</span>
-                        </label>
-                                &nbsp;&nbsp;
+                        </label> */}
+                            {/* &nbsp;&nbsp;
                                 <label>
                             <input class="with-gap" onChange={this.onChange}
                                 value="Female"
@@ -149,47 +170,53 @@ class Membership extends Component {
                                 type="radio" checked={this.state.gender === "Female"}
                             />
                             <span>Female</span>
-                        </label>
+                        </label> */}
 
-                        <br />
-                        {/* major */}
-                        <label htmlFor="major">Major</label>
-                        <input
-                            type="text"
-                            name="major"
-                            id="major"
-                            value={this.state.major}
-                            onChange={this.onChange}
-                            placeholder="Enter Major"
-                        />
-                        {/* contact no */}
-                        <label htmlFor="contactNo">Contact Number</label>
-                        <input
-                            type="number"
-                            name="contactNo"
-                            id="contactNo"
-                            value={this.state.contactNo}
-                            onChange={this.onChange}
-                            placeholder="Enter Cell number"
-                        />
+                            <br />
+                            {/* major */}
+                            <Form.Field>
+                            <label htmlFor="major">Major</label>
+                            <Input transparent
+                                type="text"
+                                name="major"
+                                id="major"
+                                value={this.state.major}
+                                onChange={this.onChange}
+                                placeholder="Enter Major"
+                            />
+                            </Form.Field>
+                            {/* contact no */}
+                            <Form.Field>
+                            <label htmlFor="contactNo">Contact Number</label>
+                            <Input transparent
+                                type="tel"
+                                name="contactNo"
+                                id="contactNo"
+                                value={this.state.contactNo}
+                                onChange={this.onChange}
+                                placeholder="Enter Cell number"
+                            />
+                            </Form.Field>
 
 
-                        {/* submit  */}
-                        <button
-                  style={{
-                    width: "250px",
-                    borderRadius: "3px",
-                    letterSpacing: "1.5px",
-                    marginTop: "1rem"
-                    
-                  }}
-                  type="submit"
-                  className="btn btn-large waves-effect waves-light hoverable blue accent-3"
-                >
-                  Submit
-                </button>
-                    </form>
-                </div>
+                            {/* submit  */}
+                            <p class="h4 text-center mb-4">
+                            <Button 
+                                // style={{
+                                //     width: "250px",
+                                //     borderRadius: "3px",
+                                //     letterSpacing: "1.5px",
+                                //     marginTop: "1rem"
+
+                                // }}
+                                type="submit"
+                                className="btn btn-large waves-effect waves-light hoverable blue accent-3"
+                            >
+                                Submit
+                </Button></p>
+                
+                        </Form>
+                    </div>
                 </div>
             </div>
         );

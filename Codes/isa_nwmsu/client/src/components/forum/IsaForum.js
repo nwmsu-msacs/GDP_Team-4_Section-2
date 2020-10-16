@@ -2,6 +2,9 @@ import axios from 'axios';
 import React, { Component } from 'react';
 import AdminNavbar from "../layout/AdminNavbar";
 import Navbar from "../layout/Navbar";
+import CreateForum from "../forum/ForumPage";
+import {  Card, Table } from 'react-bootstrap'
+import {Button} from 'semantic-ui-react'
 
 let navbar = undefined;
 
@@ -26,7 +29,34 @@ const discussionMap = (discussionList, self) => {
 
         {/* <!-- Grid column --> */}
 
-        <div class="col-lg-4 col-md-6 mb-lg-0 mb-5" >
+        <Card style={{ width: '50rem'}}>
+          <Card.Body>
+            <Card.Title class="blue-text"><h3 style={{fontSize:"3rem"}}>{data.title}</h3></Card.Title>
+            <br/>
+            <Card.Subtitle className="mb-2 text-muted">Replies: Number</Card.Subtitle>
+            <Card.Text>
+            <p style={{fontSize:"1rem", textAlign:"justify"}}><strong>{data.description}</strong></p>
+          
+    </Card.Text>
+    <p class="h4 text-center mb-4">
+    <Button
+            // style={{
+            //   width: "150px",
+            //   borderRadius: "3px",
+            //   letterSpacing: "1.5px",
+            //   marginTop: "1rem"
+            // }}
+            type="submit"
+            className="btn btn-large waves-effect waves-light hoverable blue accent-3"
+            onClick={() => { viewDiscussion(data, self) }}
+          >
+            View Discussion
+                </Button>
+              </p>
+          </Card.Body>
+        </Card>
+
+        {/* <div class="col-lg-4 col-md-6 mb-lg-0 mb-5" >
 
           <h5 class="font-weight-bold mt-4 mb-3">{data.title}</h5>
           <p class="text-uppercase blue-text"><strong>{data.description}</strong></p>
@@ -46,7 +76,7 @@ const discussionMap = (discussionList, self) => {
 
                 
           <hr />
-        </div>
+        </div> */}
 
 
       </div>
@@ -107,8 +137,18 @@ class ISAForum extends Component {
         {navbar}
         <div>
           <br />
-          <h2>ISA Forum</h2>
+          <div class="row">
+            <div class="col-md-9">
+            <h2 class="text-center" style={{fontFamily:"Arial"}}>ISA FORUM </h2>
+            </div>
+            <div class="col-md-3 text-center">
+          <a href="/createForum"><button class="btn btn-large waves-effect waves-light hoverable blue accent-3">New Discussion</button></a>
+          </div>
+              
+              </div>
+          <div class="container" style={{ columns: "1" }}>
           <p>{discussionMap(this.state.ForumData, this.state.self)}</p>
+          </div>
         </div>
       </div>
     );

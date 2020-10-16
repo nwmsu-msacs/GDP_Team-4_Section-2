@@ -29,7 +29,7 @@ router.post("/pickup", async (req, res) => {
             date: req.body.date,
             airline: req.body.airline,
             flightNo: req.body.flightNo,
-            pickupId: req.body.pickupId
+            // pickupId: req.body.pickupId
         });
         // method to save data in database
         pickupData.save();
@@ -48,7 +48,7 @@ router.post("/accommodation", (req, res) => {
         gender: req.body.gender,
         contactNo: req.body.contactNo,
         email: req.body.email,
-        accommodationId: req.body.accommodationId
+        // accommodationId: req.body.accommodationId
     });
 
     accommodationData.save();
@@ -65,7 +65,7 @@ router.post("/membership", (req, res) => {
         email: req.body.email,
         gender: req.body.gender,
         contactNo: req.body.contactNo,
-        membershipId: req.body.membershipId
+        // membershipId: req.body.membershipId
     });
 
     membershipData.save();
@@ -81,7 +81,7 @@ router.post("/volunteer", (req, res) => {
         non: req.body.non,
         carType: req.body.carType,
         contactNo: req.body.contactNo,
-        volunteerId: req.body.volunteerId,
+        // volunteerId: req.body.volunteerId,
         email: req.body.email
     });
 

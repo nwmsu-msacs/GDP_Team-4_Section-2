@@ -7,9 +7,9 @@ import image from "../layout/assets/carousel_image4.jpg"
 import axios from 'axios';
 import Navbar from "../layout/Navbar";
 import AdminNavbar from "../layout/AdminNavbar";
-
+import { Input, Button, Form } from 'semantic-ui-react'
 let navbar = undefined;
-let randomId =  Math.random(22,12345)*Math.random(22,12345);
+// let randomId =  Math.random(22,12345)*Math.random(22,12345);
 class Pickup extends Component {
 
   constructor() {
@@ -24,7 +24,7 @@ class Pickup extends Component {
       to: "",
       airline: "",
       flightNo: "",
-      pickupId: randomId.toString().substring(2),
+      // pickupId: randomId.toString().substring(2),
       errors: {}
     };
   }
@@ -80,27 +80,29 @@ class Pickup extends Component {
     return (
       <div >
         {navbar}
-      
+        <br/><br/>
       <div class="row">
-        <div class="col-md-2"></div>
+      <div class="col-md-4" >
+                        
+                        </div>
         
-        <div class="col-md-4" style={{marginTop: "3rem",borderRadius:"5%", marginBottom: "8rem", boxShadow:"0px 0px 10px 10px #303030", backgroundColor:"white"}}>
-        <h3 class="center">Pickup</h3>
-        <form class onSubmit={this.onSubmit}>
+        <div class="col-md-4" >
+        <p class="h3 text-center mb-4">Need a pickup?</p>
+        <Form class onSubmit={this.onSubmit}>
 
-        <label htmlFor="pickupId">Pickup Id</label>
+        {/* <label htmlFor="pickupId">Pickup Id</label>
           <input
             type="text"
             name="pickupId"
             id="pickupId"
             value={randomId.toString().substring(2)}
             disabled
-            />
+            /> */}
           
           {/* Name */}
-          
-          <label htmlFor="Name">Name</label>
-          <input
+          <Form.Field>
+          <label htmlFor="name">Name</label>
+          <Input transparent
             type="text"
             name="name"
             id="name"
@@ -116,11 +118,13 @@ class Pickup extends Component {
                 <span className="red-text">
                   {errors.name}
                 </span>
-          
+                </Form.Field>
+
           {/* Email */}
+          <Form.Field>
           <label htmlFor="email">Email</label>
-          <input
-            type="text"
+          <Input transparent
+            type="email"
             name="email"
             id="email"
             value={this.state.email}
@@ -136,11 +140,12 @@ class Pickup extends Component {
                   {errors.email}
                   {errors.emailnotfound}
                 </span>
-          
+                </Form.Field>
           {/* Cell */}
+          <Form.Field>
           <label htmlFor="cell">Cell Number</label>
-          <input
-            type="number"
+          <Input transparent
+            type="tel"
             name="cell"
             id="cell"
             value={this.state.cell}
@@ -155,16 +160,18 @@ class Pickup extends Component {
                 <span className="red-text">
                   {errors.cell}
                 </span>
-          
+                </Form.Field>
           {/* Luggage */}
+          <Form.Group widths="equal">
+          <Form.Field>
           <label htmlFor="luggage">Luggage Count</label>
-          <input
+          <Input transparent
             type="number"
             name="luggage"
             id="luggage"
             value={this.state.luggage}
             onChange={this.onChange}
-            placeholder="How many luggage are you carrying"
+            placeholder="How many bags?"
             error={errors.luggage}
                   className={classnames("", {
                     invalid: errors.luggage
@@ -174,10 +181,11 @@ class Pickup extends Component {
                 <span className="red-text">
                   {errors.luggage}
                 </span>
-          
+                </Form.Field>
           {/* From */}
+          <Form.Field>
           <label htmlFor="from">From</label>
-          <input
+          <Input transparent
             type="text"
             name="from"
             id="from"
@@ -193,10 +201,11 @@ class Pickup extends Component {
                 <span className="red-text">
                   {errors.from}
                 </span>
-          
+                </Form.Field>
           {/* To */}
+          <Form.Field>
           <label htmlFor="to">To</label>
-          <input
+          <Input transparent
             type="text"
             name="to"
             id="to"
@@ -212,9 +221,13 @@ class Pickup extends Component {
                 <span className="red-text">
                   {errors.to}
                 </span>
+
+                </Form.Field>
+                </Form.Group>
           {/* Date */}
+          <Form.Field>
           <label htmlFor="date">Date</label>
-          <input
+          <Input transparent
             type="datetime-local"
             name="date"
             id="date"
@@ -230,10 +243,11 @@ class Pickup extends Component {
                 <span className="red-text">
                   {errors.date}
                 </span>
-          
+                </Form.Field>
           {/* Airline */}
+          <Form.Field>
           <label htmlFor="airline">Airline Name (optional)</label>
-          <input
+          <Input transparent
             type="text"
             name="airline"
             id="airline"
@@ -249,10 +263,11 @@ class Pickup extends Component {
                 <span className="red-text">
                   {errors.airline}
                 </span>
-          
+                </Form.Field>
           {/* FlightNo */}
+          <Form.Field>
           <label htmlFor="flightNo">Flight No(Optional)</label>
-          <input
+          <Input transparent
             type="text"
             name="flightNo"
             id="flightNo"
@@ -268,23 +283,24 @@ class Pickup extends Component {
                 <span className="red-text">
                   {errors.flightNo}
                 </span>
-          
+                </Form.Field>
 
           {/* Submit  */}
-          <button
-                  style={{
-                    width: "250px",
-                    borderRadius: "3px",
-                    letterSpacing: "1.5px",
-                    marginTop: "1rem"
-                    
-                  }}
-                  type="submit"
-                  className="btn btn-large waves-effect waves-light hoverable blue accent-3"
-                >
-                  Request Pickup
-                </button>
-        </form>
+          <p class="h4 text-center mb-4">
+                            <Button 
+                                // style={{
+                                //     width: "250px",
+                                //     borderRadius: "3px",
+                                //     letterSpacing: "1.5px",
+                                //     marginTop: "1rem"
+
+                                // }}
+                                type="submit"
+                                className="btn btn-large waves-effect waves-light hoverable blue accent-3"
+                            >
+                                Submit
+                </Button></p>
+        </Form>
       </div>
       <div class="col-md-3"></div>
       </div>

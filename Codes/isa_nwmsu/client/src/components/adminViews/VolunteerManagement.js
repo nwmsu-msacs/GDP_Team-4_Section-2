@@ -2,7 +2,8 @@ import axios from 'axios';
 import React, { Component } from 'react';
 import AdminNavbar from "../layout/AdminNavbar";
 import Navbar from "../layout/Navbar";
-
+import {  Card } from 'react-bootstrap'
+import {Button} from 'semantic-ui-react'
 let navbar =  undefined;
 
 function reject(data, self) {
@@ -28,8 +29,50 @@ const VolunteerMap = (volunteerList, self) => {
 
       <div class="row" key={data._id}>
 
+<Card style={{ width: '50rem'}}>
+          <Card.Body>
+            <Card.Title>{data.firstName}&nbsp;{data.lastName}</Card.Title>
+            <br/>
+            <Card.Subtitle className="mb-2 text-muted"><i class="material-icons" style={{ color: "grey", opacity: "90%" }}>phone</i>{data.contactNo}</Card.Subtitle>
+            <Card.Text>
+            <p class="text-uppercase blue-text"><strong>Email: {data.email}</strong></p>
+          <p class="text-uppercase blue-text"><strong>919# : {data.non}</strong></p>
+          <p class="text-uppercase blue-text"><strong>car Type:  {data.carType}</strong></p>
+          <p class="text-uppercase blue-text"><strong>Status:  {data.status}</strong></p>
+    </Card.Text>
+    <p class="h4 text-center mb-4">
+    <Button
+            // style={{
+            //   width: "150px",
+            //   borderRadius: "3px",
+            //   letterSpacing: "1.5px",
+            //   marginTop: "1rem"
+            // }}
+            type="submit"
+            className="btn btn-large waves-effect waves-light hoverable blue accent-3"
+            onClick={() => { accept(data, self) }}
+          >
+            Accept
+                </Button>&nbsp;&nbsp;
+
+                <Button
+            // style={{
+            //   width: "150px",
+            //   borderRadius: "3px",
+            //   letterSpacing: "1.5px",
+            //   marginTop: "1rem"
+            // }}
+            type="submit"
+            className="btn btn-large waves-effect waves-light hoverable red accent-3"
+            onClick= {() => {reject(data, self)}}
+          >
+            Reject
+                </Button></p>
+          </Card.Body>
+        </Card>
+
         {/* <!-- Grid column --> */}
-        <div class="col-lg-4 col-md-6 mb-lg-0 mb-5" >
+        {/* <div class="col-lg-4 col-md-6 mb-lg-0 mb-5" >
           
           <h5 class="font-weight-bold mt-4 mb-3">{data.firstName}&nbsp;{data.lastName}</h5>
           <p class="text-uppercase blue-text"><strong>Email: {data.email}</strong></p>
@@ -67,7 +110,7 @@ const VolunteerMap = (volunteerList, self) => {
                   Reject
                 </button>      
                 <hr/>
-        </div>
+        </div> */}
         
 
       </div>
@@ -129,8 +172,10 @@ class VolunteerManagement extends Component {
         {navbar}
         <div>
         <br/>
-        <h2>Volunteer Management</h2>
+        <h2 class="text-center" style={{fontFamily:"Arial"}}>Volunteer Management</h2>
+          <div class="container" style={{ columns: "3", width:"100%" }}>
         <p>{VolunteerMap(this.state.volunteerData, this.state.self)}</p>
+        </div>
         </div>
       </div>
     );

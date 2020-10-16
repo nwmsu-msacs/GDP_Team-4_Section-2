@@ -7,6 +7,8 @@ import axios from 'axios';
 import Navbar from "../layout/Navbar";
 import AdminNavbar from "../layout/AdminNavbar";
 import { Redirect } from "react-router-dom";
+import { Input, TextArea, Form } from 'semantic-ui-react'
+import {Button} from 'react-bootstrap'
 
 let navbar = undefined;
 // let randomId =  Math.random(22,12345)*Math.random(22,12345);
@@ -57,7 +59,7 @@ class ForumPage extends Component {
 
         axios.post('http://localhost:5000/api/forum/newForum', forumData)
             .then(res => console.log(res.data))
-            .then(this.props.history.push("/createForum"))
+            .then(this.props.history.push("/isaForum"))
     };
 
     render() {
@@ -66,16 +68,17 @@ class ForumPage extends Component {
         return (
             <div>
                 {navbar}
-
+                <br/><br/>
                 <div class="row">
-        <div class="col-md-2"></div>
+        <div class="col-md-4"></div>
         
-        <div class="col-md-4" style={{marginTop: "3rem",borderRadius:"5%", marginBottom: "8rem", boxShadow:"0px 0px 10px 10px #303030", backgroundColor:"white"}}>
-                    <h3>Create a new discussion..!!</h3>
-                    <form onSubmit={this.onSubmit}>
+        <div class="col-md-4" >
+        <p class="h3 text-center mb-4">Create a new discussion..!!</p>
+                    <Form onSubmit={this.onSubmit}>
                         {/* Forum Title */}
+                        <Form.Field>
                         <label htmlFor="title">Title: </label>
-                        <input
+                        <Input transparent
                             type="text"
                             name="title"
                             id="title"
@@ -83,9 +86,11 @@ class ForumPage extends Component {
                             onChange={this.onChange}
                             placeholder="Enter a title for the discussion"
                         />
+                        </Form.Field>
                         {/* Title description */}
+                        <Form.Field>
                         <label htmlFor="description">Description: </label>
-                        <textarea
+                        <TextArea
                             
                             name="description"
                             id="description"
@@ -95,22 +100,24 @@ class ForumPage extends Component {
                             rows="4"
                             cols="50"
                         />
+                        </Form.Field>
 
                         {/* submit  */}
-                        <button
-                  style={{
-                    width: "250px",
-                    borderRadius: "3px",
-                    letterSpacing: "1.5px",
-                    marginTop: "1rem"
-                    
-                  }}
-                  type="submit"
-                  className="btn btn-large waves-effect waves-light hoverable blue accent-3"
-                >
-                  Submit
-                </button>
-                    </form>
+                        <p class="h4 text-center mb-4">
+                            <Button 
+                                // style={{
+                                //     width: "250px",
+                                //     borderRadius: "3px",
+                                //     letterSpacing: "1.5px",
+                                //     marginTop: "1rem"
+
+                                // }}
+                                type="submit"
+                                className="btn btn-large waves-effect waves-light hoverable blue accent-3"
+                            >
+                                Submit
+                </Button></p>
+                    </Form>
                 </div>
                 </div>
             </div>

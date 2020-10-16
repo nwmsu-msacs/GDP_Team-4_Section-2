@@ -38,11 +38,11 @@ const PickupSchema = new Schema({
     type:String,
     required:false
   },
-  pickupId:{
-    type:String,
-    required:true,
-    unique:true
-  },
+  // pickupId:{
+  //   type:String,
+  //   required:true,
+  //   unique:true
+  // },
   status:{
     type:String,
     default:"Pending"

@@ -7,9 +7,9 @@ import axios from 'axios';
 import Navbar from "../layout/Navbar";
 import AdminNavbar from "../layout/AdminNavbar";
 import { Redirect } from "react-router-dom";
-
+import { Input, Button, Form } from 'semantic-ui-react'
 let navbar = undefined;
-let randomId =  Math.random(22,12345)*Math.random(22,12345);
+// let randomId =  Math.random(22,12345)*Math.random(22,12345);
 class Accommodation extends Component {
 
     constructor() {
@@ -19,10 +19,10 @@ class Accommodation extends Component {
             lastName: "",
             non: "",
             daysRequired: "",
-            gender: "",
+            gender: "Male",
             contactNo: "",
             email: "",
-            accommodationId: randomId.toString().substring(2),
+            // accommodationId: randomId.toString().substring(2),
             errors: {}
         };
     }
@@ -81,14 +81,14 @@ class Accommodation extends Component {
         return (
             <div>
                 {navbar}
-
+                <br/><br/>
                 <div class="row">
-        <div class="col-md-2"></div>
+        <div class="col-md-4"></div>
         
-        <div class="col-md-4" style={{marginTop: "3rem",borderRadius:"5%", marginBottom: "8rem", boxShadow:"0px 0px 10px 10px #303030", backgroundColor:"white"}}>
-                    <h3>Temporary Accommodation</h3>
-                    <form onSubmit={this.onSubmit}>
-                        {/* Accommodation Id */}
+        <div class="col-md-4" >
+        <p class="h3 text-center mb-4">Need Accommodation?</p>
+                    <Form onSubmit={this.onSubmit}>
+                        {/* Accommodation Id
                         <label htmlFor="accommodationId">Accommodation Id</label>
                         <input
                             type="text"
@@ -96,10 +96,12 @@ class Accommodation extends Component {
                             id="accommodationId"
                             value={randomId.toString().substring(2)}
                             disabled
-                        />
+                        /> */}
                         {/* first name */}
-                        <label htmlFor="Name">First Name</label>
-                        <input
+                        <Form.Group widths="equal">
+                        <Form.Field>
+                        <label htmlFor="firstName">First Name</label>
+                        <Input transparent
                             type="text"
                             name="firstName"
                             id="firstName"
@@ -107,10 +109,11 @@ class Accommodation extends Component {
                             onChange={this.onChange}
                             placeholder="Enter first name"
                         />
-
+                        </Form.Field>
                         {/* last name */}
-                        <label htmlFor="Name">last Name</label>
-                        <input
+                        <Form.Field>
+                        <label htmlFor="lastName">last Name</label>
+                        <Input transparent
                             type="text"
                             name="lastName"
                             id="lastName"
@@ -118,32 +121,48 @@ class Accommodation extends Component {
                             onChange={this.onChange}
                             placeholder="Enter last name"
                         />
+                        </Form.Field>
+                        </Form.Group>
                         {/* email */}
+                        <Form.Field>
                         <label htmlFor="email">Email</label>
-                        <input
-                            type="text"
+                        <Input transparent
+                            type="email"
                             name="email"
                             id="email"
                             value={this.state.email}
                             onChange={this.onChange}
                             placeholder="Enter email"
                         />
+                        </Form.Field>
                         {/* NON */}
+
+                        <Form.Field>
                         <label htmlFor="non">919#</label>
-                        <input
-                            type="number"
+                        <Input transparent
+                            type="tel"
                             name="non"
                             id="non"
                             value={this.state.non}
                             onChange={this.onChange}
                             placeholder="Enter 919#"
                         />
+                        </Form.Field>
                         
 
                         {/* Gender */}
+                        <Form.Field>
+
+                        <label>Gender&nbsp;&nbsp;</label>
+                                <select class="mdb-select" name="Gender" id="gender" onChange={this.onChange} value= {this.state.gender}>
+                                    <option value="male">Male</option>
+                                    <option value="female">Female</option>
+                                    <option value="other">Other</option>
+                                </select>
+                        </Form.Field>
 
 
-                        <label>Gender&nbsp;&nbsp;</label><br />
+                        {/* <label>Gender&nbsp;&nbsp;</label><br />
                         <label htmlFor="male">
                             <input class="with-gap" onChange={this.onChange}
                                 value="Male"
@@ -163,10 +182,11 @@ class Accommodation extends Component {
                             <span>Female</span>
                         </label>
 
-                        <br />
+                        <br /> */}
                         {/* major */}
+                        <Form.Field>
                         <label htmlFor="daysRequired">Days Required</label>
-                        <input
+                        <Input transparent
                             type="number"
                             name="daysRequired"
                             id="daysRequired"
@@ -174,32 +194,35 @@ class Accommodation extends Component {
                             onChange={this.onChange}
                             placeholder="Number of days"
                         />
+                        </Form.Field>
                         {/* contact no */}
+                        <Form.Field>
                         <label htmlFor="contactNo">Contact Number</label>
-                        <input
-                            type="number"
+                        <Input transparent
+                            type="tel"
                             name="contactNo"
                             id="contactNo"
                             value={this.state.contactNo}
                             onChange={this.onChange}
                             placeholder="Enter Cell number"
                         />
-
+                        </Form.Field>
                         {/* submit  */}
-                        <button
-                  style={{
-                    width: "250px",
-                    borderRadius: "3px",
-                    letterSpacing: "1.5px",
-                    marginTop: "1rem"
-                    
-                  }}
-                  type="submit"
-                  className="btn btn-large waves-effect waves-light hoverable blue accent-3"
-                >
-                  Submit
-                </button>
-                    </form>
+                        <p class="h4 text-center mb-4">
+                            <Button 
+                                // style={{
+                                //     width: "250px",
+                                //     borderRadius: "3px",
+                                //     letterSpacing: "1.5px",
+                                //     marginTop: "1rem"
+
+                                // }}
+                                type="submit"
+                                className="btn btn-large waves-effect waves-light hoverable blue accent-3"
+                            >
+                                Submit
+                </Button></p>
+                    </Form>
                 </div>
                 </div>
             </div>
