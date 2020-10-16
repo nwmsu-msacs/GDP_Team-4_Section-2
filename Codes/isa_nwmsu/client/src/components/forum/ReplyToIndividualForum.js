@@ -17,50 +17,6 @@ function reply(data, self) {
 
 const discussionTitle = axios.get()
 
-// const replyMap = (replyList, self) => {
-//   console.log("-----replyList", replyList);
-
-//   let res = replyList.map((data) => {
-//     return (
-
-
-//       <div class="row" key={data._id}>
-
-//         {/* <!-- Grid column --> */}
-
-//         <div class="col-lg-4 col-md-6 mb-lg-0 mb-5" >
-
-//           <p class="font-weight-bold mt-4 mb-3">{data.replyContent}</p>
-//           <i>By:{data.replyBy} on {data.replyTime}</i>
-
-//           {/* <button
-//             style={{
-//               width: "150px",
-//               borderRadius: "3px",
-//               letterSpacing: "1.5px",
-//               marginTop: "1rem"
-//             }}
-//             type="submit"
-//             className="btn btn-large waves-effect waves-light hoverable blue accent-3"
-//             onClick={() => { reply(data, self) }}
-//           >
-//             View Discussion
-//                 </button>&nbsp;&nbsp; */}
-
-                
-//           <hr />
-//         </div>
-
-
-//       </div>
-
-//     );
-//   });
-
-//   console.log(res);
-
-//   return res;
-// }
 
 
 const ForumMap = (ForumList, self) => {
@@ -84,47 +40,6 @@ const ForumMap = (ForumList, self) => {
           </Item>
         </Item.Group>
         
-        {/* <!-- Grid column --> */}
-        {/* <div class="col-lg-4 col-md-6 mb-lg-0 mb-5" >
-         
-          <h5 class="font-weight-bold mt-4 mb-3">{data.name}</h5>
-          <p class="text-uppercase blue-text"><strong>Pickup Date: {data.date.substring(0,10)}</strong></p>
-          <p class="text-uppercase blue-text"><strong>Pickup Time: {data.date.substring(11,19)}</strong></p>
-          <p class="text-uppercase blue-text"><strong>Email:  {data.email}</strong></p>
-          <p class="text-uppercase blue-text"><strong>Cell:  {data.cell}</strong></p>
-          <p class="text-uppercase blue-text"><strong>From:  {data.from} &nbsp; &nbsp; To: {data.to}</strong></p>
-          <p class="text-uppercase blue-text"><strong>Airline:  {data.airline} &nbsp;&nbsp; FlightNo: {data.flightNo}</strong></p>
-          <p class="text-uppercase blue-text"><strong>Luggage:  {data.luggage}</strong></p>
-          <p class="text-uppercase blue-text"><strong>Status:  {data.status}</strong></p>
-          <button
-                  style={{
-                    width: "150px",
-                    borderRadius: "3px",
-                    letterSpacing: "1.5px",
-                    marginTop: "1rem"
-                  }}
-                  type="submit"
-                  className="btn btn-large waves-effect waves-light hoverable blue accent-3"
-                  onClick = {() => {accept(data,self)}}
-                >
-                  Accept
-                </button>&nbsp;&nbsp;
-
-                <button
-                  style={{
-                    width: "150px",
-                    borderRadius: "3px",
-                    letterSpacing: "1.5px",
-                    marginTop: "1rem"
-                  }}
-                  type="submit"
-                  className="btn btn-large waves-effect waves-light hoverable red accent-3"
-                  onClick = {() => {reject(data,self)}}
-                >
-                  Reject
-                </button>   
-                <hr/>
-        </div> */}
         
 
       </div>
@@ -143,20 +58,13 @@ class ReplyToIndividualForum extends Component {
     constructor() {
         super();
         this.state = {
-    //         ReplyData: [],
-    // self: null,
+
     replyContent:"",
     replyBy:"",
     ForumData: [],
             errors: {}
         };
     }
-//   state = {
-//     ReplyData: [],
-//     self: null,
-//     replyContent:"",
-//     replyBy:"",
-//   }
 
   onChange = e => {
     this.setState({ [e.target.id]: e.target.value });
@@ -202,17 +110,7 @@ class ReplyToIndividualForum extends Component {
         console.log("err: ", err)
       );
 
-    // axios
-    //   .get("http://localhost:5000/api/forum/replies/"+localStorage.getItem("discussionId"))
-    //   .then(res => {
-    //     console.log(res.data.replyData)
-    //     this.setState({
-    //       ReplyData: res.data.replyData
-    //     });
-    //   })
-    //   .catch(err =>
-    //     console.log("err: ", err)
-    //   );
+    
   }
 
   componentWillMount() {
@@ -244,7 +142,6 @@ class ReplyToIndividualForum extends Component {
 
           <Replies/>
         
-        {/* <div class="col-md-4" style={{marginTop: "3rem",borderRadius:"5%", marginBottom: "8rem", boxShadow:"0px 0px 10px 10px #303030", backgroundColor:"white"}}> */}
         <div>                    
                     <Form onSubmit={this.onSubmit}>
                         
@@ -268,13 +165,7 @@ class ReplyToIndividualForum extends Component {
                         <p class="h4 text-center mb-4">
                           <Button
 
-                  // style={{
-                  //   width: "250px",
-                  //   borderRadius: "3px",
-                  //   letterSpacing: "1.5px",
-                  //   marginTop: "1rem"
-                    
-                  // }}
+                  
                   type="submit"
                   className="btn btn-large waves-effect waves-light hoverable blue accent-3"
                 >
