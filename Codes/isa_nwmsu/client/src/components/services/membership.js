@@ -9,13 +9,7 @@ import AdminNavbar from "../layout/AdminNavbar";
 import { Input, Button, Form } from 'semantic-ui-react'
 
 let navbar = undefined;
-let randomId = Math.random(22, 12345) * Math.random(22, 12345);
 
-// const genderOptions = [
-//     { key: 'm', text: 'Male', value: 'male' },
-//     { key: 'f', text: 'Female', value: 'female' },
-//     { key: 'o', text: 'Other', value: 'other' },
-// ]
 class Membership extends Component {
 
     constructor() {
@@ -27,7 +21,6 @@ class Membership extends Component {
             email: "",
             gender: "Male",
             contactNo: "",
-            membershipId: randomId.toString().substring(2),
             errors: {}
         };
     }
@@ -65,8 +58,7 @@ class Membership extends Component {
             major: this.state.major,
             email: this.state.email,
             gender: this.state.gender,
-            contactNo: this.state.contactNo,
-            membershipId: this.state.membershipId
+            contactNo: this.state.contactNo
 
         };
 
@@ -94,15 +86,7 @@ class Membership extends Component {
                         <p class="h3 text-center mb-4">Get a membership</p>
 
                         <Form onSubmit={this.onSubmit}>
-                            {/* Membership Id */}
-                            {/* <Label htmlFor="membershipId">Membership Id</Label>
-                        <Input
-                            type="text"
-                            name="membershipId"
-                            id="membershipId"
-                            value={randomId.toString().substring(2)}
-                            disabled
-                        /> */}
+                            
 
                             {/* first name */}
                             <Form.Group widths="equal">
@@ -153,25 +137,7 @@ class Membership extends Component {
                                     <option value="other">Other</option>
                                 </select>
                             </Form.Field>
-                            {/* <label htmlFor="male">
-                            <input class="with-gap" onChange={this.onChange}
-                                value="Male"
-                                name="gender"
-                                type="radio" checked={this.state.gender === "Male"}
-                                checked={true}
-                            />
-                            <span>Male</span>
-                        </label> */}
-                            {/* &nbsp;&nbsp;
-                                <label>
-                            <input class="with-gap" onChange={this.onChange}
-                                value="Female"
-                                name="gender"
-                                type="radio" checked={this.state.gender === "Female"}
-                            />
-                            <span>Female</span>
-                        </label> */}
-
+                            
                             <br />
                             {/* major */}
                             <Form.Field>
@@ -202,13 +168,7 @@ class Membership extends Component {
                             {/* submit  */}
                             <p class="h4 text-center mb-4">
                             <Button 
-                                // style={{
-                                //     width: "250px",
-                                //     borderRadius: "3px",
-                                //     letterSpacing: "1.5px",
-                                //     marginTop: "1rem"
-
-                                // }}
+                                
                                 type="submit"
                                 className="btn btn-large waves-effect waves-light hoverable blue accent-3"
                             >
