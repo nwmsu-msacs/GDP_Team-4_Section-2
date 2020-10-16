@@ -2,6 +2,8 @@ import axios from 'axios';
 import React, { Component } from 'react';
 import AdminNavbar from "../layout/AdminNavbar";
 import Navbar from "../layout/Navbar";
+import {  Card } from 'react-bootstrap'
+import {Button} from 'semantic-ui-react'
 
 let navbar = undefined;
 
@@ -20,8 +22,37 @@ const memberShipMap = (membershipList, self) => {
         
       <div class="row" key = {data._id}>
 
+<Card style={{ width: '70rem'}}>
+          <Card.Body>
+            <Card.Title>{data.firstName}&nbsp;{data.lastName}</Card.Title>
+            <br/>
+            <Card.Subtitle className="mb-2 text-muted"><i class="material-icons" style={{ color: "grey", opacity: "90%" }}>phone</i>{data.contactNo}</Card.Subtitle>
+            <Card.Text>
+          <p class="text-uppercase blue-text"><strong>Major: {data.major}</strong></p>
+          <p class="text-uppercase blue-text"><strong>Email:  {data.email}</strong></p>
+          <p class="text-uppercase blue-text"><strong>Membership Status:  {data.status}</strong></p>
+    </Card.Text>
+    <p class="h4 text-center mb-4">
+    <Button
+            // style={{
+            //   width: "150px",
+            //   borderRadius: "3px",
+            //   letterSpacing: "1.5px",
+            //   marginTop: "1rem"
+            // }}
+            type="submit"
+            className="btn btn-large waves-effect waves-light hoverable red accent-3"
+            onClick={() => { endMembership(data, self) }}
+          >
+            End Membership
+                </Button>
+
+                </p>
+          </Card.Body>
+        </Card>
+
         {/* <!-- Grid column --> */}
-        <div class="col-lg-4 col-md-6 mb-lg-0 mb-5" >
+        {/* <div class="col-lg-4 col-md-6 mb-lg-0 mb-5" >
           
           <h5 class="font-weight-bold mt-4 mb-3">{data.firstName}&nbsp;{data.lastName}</h5>
           <p class="text-uppercase blue-text"><strong>Contact No: {data.contactNo}</strong></p>
@@ -45,7 +76,7 @@ const memberShipMap = (membershipList, self) => {
                 </button>   
                 <hr/>
         </div>
-        
+         */}
 
       </div>
       
@@ -107,8 +138,10 @@ class MembershipManagement extends Component {
         {navbar}
         <div>
         <br/>
-        <h2>Active Members</h2>
+        <h2 class="text-center" style={{fontFamily:"Arial"}}>Membership Management</h2>
+          <div class="container" style={{ columns: "3", width:"100%"}}>
         <p>{memberShipMap(this.state.memberShipdata, this.state.self)}</p>
+        </div>
         </div>
       </div>
     );
