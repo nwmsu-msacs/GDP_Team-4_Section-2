@@ -26,10 +26,6 @@ const MembershipSchema = new Schema({
     type:Number,
     default: ""
   },
-  // membershipID:{
-  //   type:String,
-  //   unique:true
-  // },
   status:{
     type:String,
     default:"Active"
