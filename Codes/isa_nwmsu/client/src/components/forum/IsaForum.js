@@ -40,12 +40,7 @@ const discussionMap = (discussionList, self) => {
     </Card.Text>
     <p class="h4 text-center mb-4">
     <Button
-            // style={{
-            //   width: "150px",
-            //   borderRadius: "3px",
-            //   letterSpacing: "1.5px",
-            //   marginTop: "1rem"
-            // }}
+            
             type="submit"
             className="btn btn-large waves-effect waves-light hoverable blue accent-3"
             onClick={() => { viewDiscussion(data, self) }}
@@ -56,27 +51,7 @@ const discussionMap = (discussionList, self) => {
           </Card.Body>
         </Card>
 
-        {/* <div class="col-lg-4 col-md-6 mb-lg-0 mb-5" >
-
-          <h5 class="font-weight-bold mt-4 mb-3">{data.title}</h5>
-          <p class="text-uppercase blue-text"><strong>{data.description}</strong></p>
-          <button
-            style={{
-              width: "150px",
-              borderRadius: "3px",
-              letterSpacing: "1.5px",
-              marginTop: "1rem"
-            }}
-            type="submit"
-            className="btn btn-large waves-effect waves-light hoverable blue accent-3"
-            onClick={() => { viewDiscussion(data, self) }}
-          >
-            View Discussion
-                </button>&nbsp;&nbsp;
-
-                
-          <hr />
-        </div> */}
+        
 
 
       </div>
