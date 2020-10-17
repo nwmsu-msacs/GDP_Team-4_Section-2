@@ -93,9 +93,11 @@ class ISAForum extends Component {
   }
 
   componentWillMount() {
+    
     if (localStorage.getItem('jwtToken') != null) {
       this.setState({ loggedIn: true });
     }
+    
     if (localStorage.getItem('role') === null || localStorage.getItem('role') === '50') {
       navbar = <Navbar />
     }
