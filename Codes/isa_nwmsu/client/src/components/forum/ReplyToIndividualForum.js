@@ -117,6 +117,9 @@ class ReplyToIndividualForum extends Component {
     if (localStorage.getItem('jwtToken') != null) {
       this.setState({ loggedIn: true });
     }
+    else{
+      this.props.history.push("/login")
+    }
     if (localStorage.getItem('role') === null || localStorage.getItem('role') === '50') {
       navbar = <Navbar />
     }
