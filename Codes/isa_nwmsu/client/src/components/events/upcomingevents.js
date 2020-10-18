@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import AdminNavbar from "../layout/AdminNavbar";
 import Navbar from "../layout/Navbar";
 import {  Card, Image } from 'react-bootstrap'
-import {Button, Item} from 'semantic-ui-react'
+import {Button, FeedDate, Item} from 'semantic-ui-react'
 let navbar = undefined;
 
 
@@ -11,6 +11,8 @@ const upcomingEventMap = (eventList, self) => {
   console.log("-----eventList", eventList);
 
   let res = eventList.map((data) => {
+
+        
     return (
 
 
@@ -37,6 +39,7 @@ const upcomingEventMap = (eventList, self) => {
       </div>
 
     );
+
   });
 
   console.log(res);
@@ -60,11 +63,11 @@ class UpcomingEvent extends Component {
     });
 
     axios
-      .get("http://localhost:5000/api/events/eventsData")
+      .get("http://localhost:5000/api/events/upcomingEventsData")
       .then(res => {
-        console.log(res.data.upcomingeventdata)
+        console.log(res.data.eventdata)
         this.setState({
-          UpcomingEventData: res.data.upcomingeventdata
+          UpcomingEventData: res.data.eventdata
         });
       })
       .catch(err =>
@@ -92,7 +95,8 @@ class UpcomingEvent extends Component {
         {navbar}
         <div>
           <br />
-          <h2 class="text-center" style={{fontFamily:"Arial"}}></h2>
+          <h2 class="text-center" style={{fontFamily:"Arial",fontStyle:"Italic", textShadow:"2px 2px #A9A9A9", color:"#585858"}}>Events Being Hosted</h2>
+          <hr style={{width:"50%"}}/>
           <div class="container" style={{ columns: "3", width:"100%" }}>
             <p>{upcomingEventMap(this.state.UpcomingEventData, this.state.self)}</p>
           </div>
