@@ -1,40 +1,104 @@
+import axios from 'axios';
 import React, { Component } from 'react';
-
-import Navbar from "../layout/Navbar";
 import AdminNavbar from "../layout/AdminNavbar";
-import { renderCustomComponent } from 'react-chat-widget';
-
+import Navbar from "../layout/Navbar";
+import {  Card, Image } from 'react-bootstrap'
+import {Button, Item} from 'semantic-ui-react'
 let navbar = undefined;
 
-class UpcomingEvents extends Component{
 
-    componentWillMount(){
-        if (localStorage.getItem('jwtToken') != null) {
-            this.setState({ loggedIn: true });
-          }
-          if (localStorage.getItem('role') === null || localStorage.getItem('role') === '50') {
-            navbar = <Navbar />
-          }
-          if (localStorage.getItem('role') === '100') {
-            navbar = <AdminNavbar />
-          }
-    }
+const upcomingEventMap = (eventList, self) => {
+  console.log("-----eventList", eventList);
+
+  let res = eventList.map((data) => {
+    return (
 
 
-render(){
-    return(
-        <div>
-            {navbar}
-        <div className="ui container">
+      <div class="row" key={data._id}>
+
+        {/* <!-- Grid column --> */}
+
+        <Card style={{ width: '50rem'}}>
+          <Card.Body>
+            <Card.Title style={{fontSize:"4rem"}}>{data.eventname}</Card.Title>
             <br/>
-            <button class="ui primary right floated button">Create Event</button>
-            </div>
+            <Card.Subtitle className="mb-2 text-muted"><i class="material-icons" style={{ color: "grey", opacity: "90%" }}>event</i>{data.eventdate.substring(0,10)}&nbsp;{data.eventdate.substring(11,19)}</Card.Subtitle>
+            <Card.Text>
+                <br/>
+            <p class="text-uppercase blue-text"><strong>Venue: {data.eventvenue}</strong></p>
+          <p class="text-uppercase blue-text"><strong>About the event:</strong></p>
+          <p style={{textAlign:"justify",fontFamily:"Calibri"}}><strong>{data.description}</strong></p>
+          <Card.Subtitle className="mb-2 text-muted">Sponsored by: {data.sponsor}</Card.Subtitle>
+    </Card.Text>
+    </Card.Body>
+    </Card>
         
-           
-        </div>
+
+      </div>
 
     );
-}
+  });
+
+  console.log(res);
+
+  return res;
 }
 
-export default UpcomingEvents;
+class UpcomingEvent extends Component {
+
+  constructor(props) {
+    super(props);
+  }
+  state = {
+    UpcomingEventData: [],
+    self: null,
+  }
+
+  componentDidMount() {
+    this.setState({
+      self: this.props.history
+    });
+
+    axios
+      .get("http://localhost:5000/api/events/eventsData")
+      .then(res => {
+        console.log(res.data.upcomingeventdata)
+        this.setState({
+          UpcomingEventData: res.data.upcomingeventdata
+        });
+      })
+      .catch(err =>
+        console.log("err: ", err)
+      );
+  }
+
+  componentWillMount() {
+    if (localStorage.getItem('jwtToken') != null) {
+      this.setState({ loggedIn: true });
+    }
+    if (localStorage.getItem('role') === null || localStorage.getItem('role') === '50') {
+      navbar = <Navbar />
+    }
+    if (localStorage.getItem('role') === '100') {
+      navbar = <AdminNavbar />
+    }
+  }
+
+  render() {
+
+    return (
+
+      <div>
+        {navbar}
+        <div>
+          <br />
+          <h2 class="text-center" style={{fontFamily:"Arial"}}></h2>
+          <div class="container" style={{ columns: "3", width:"100%" }}>
+            <p>{upcomingEventMap(this.state.UpcomingEventData, this.state.self)}</p>
+          </div>
+        </div>
+      </div>
+    );
+  }
+}
+export default UpcomingEvent;
