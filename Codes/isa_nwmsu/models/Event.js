@@ -8,7 +8,7 @@ const EventSchema = new mongoose.Schema({
 
     },
     eventdate: {
-        type: String,
+        type: Date,
 
         required: true
 
@@ -20,17 +20,22 @@ const EventSchema = new mongoose.Schema({
 
     },
 
-    timings: {
-        type: String,
-        required: true
-    },
-
     description: {
         type: String,
         length: 250,
         required: true
 
+    },
+    sponsor:{
+        type:String,
+        required:true,
+        default:"Team ISA"
     }
+
+    // eventimage:{
+    //     data:Buffer,
+    //     contentType:String
+    // }
 
 
 
