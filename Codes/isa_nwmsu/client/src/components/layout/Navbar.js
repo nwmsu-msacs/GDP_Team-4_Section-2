@@ -97,9 +97,17 @@ class Navbar extends Component {
                                     <a class="dropdown-item" href ="/isaForum">ISA Forum</a>
                                     <a class="dropdown-item" href="/faq">FAQ?</a>
                                     <a class="dropdown-item" href="/alumni">Alumni</a>
-                                    <a class="dropdown-item" href="/" onClick={this.onLogoutClick}>Logout</a>
                                 </div>
                             </li>
+                            {this.state.loggedIn===true?    
+                            <li>
+                            
+                            <a class="nav-link" href="/individualUser" >
+                                    Cancel Request
+        </a>
+
+                            </li>:
+                            <li></li>}
                             </ul>
 
                             {/* {(this.state.loggedIn) ?
