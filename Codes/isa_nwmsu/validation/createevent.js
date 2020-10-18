@@ -9,7 +9,6 @@ module.exports = function validateEventInput(data) {
     data.eventname = !isEmpty(data.eventname) ? data.eventname : "";
     data.eventdate = !isEmpty(data.eventdate) ? data.eventdate : "";
     data.eventvenue = !isEmpty(data.eventvenue) ? data.eventvenue : "";
-    data.timings = !isEmpty(data.timings) ? data.timings : "";
     data.description = !isEmpty(data.description) ? data.description : "";
 
 
@@ -30,12 +29,6 @@ module.exports = function validateEventInput(data) {
 
     if (Validator.isEmpty(data.eventvenue)) {
         errors.eventvenue = "Event Venue field is required";
-    }
-
-    // Event Timings check
-
-    if (Validator.isEmpty(data.timings)) {
-        errors.timings = "Timings field is required";
     }
 
     // Event description check
