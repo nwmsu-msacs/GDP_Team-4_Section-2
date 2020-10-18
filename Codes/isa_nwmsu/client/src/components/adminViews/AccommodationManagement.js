@@ -40,6 +40,7 @@ const AccommodationMap = (accommodationList, self) => {
             <Card.Text>
             <p class="text-uppercase blue-text"><strong>Email: {data.email}</strong></p>
           <p class="text-uppercase blue-text"><strong>919#: {data.non}</strong></p>
+          <p class="text-uppercase blue-text"><strong>Gender: {data.gender}</strong></p>
           <p class="text-uppercase blue-text"><strong>Days Required:  {data.daysRequired}</strong></p>
           <p class="text-uppercase blue-text"><strong>Status:  {data.status}</strong></p>
     </Card.Text>
