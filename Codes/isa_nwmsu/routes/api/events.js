@@ -40,7 +40,8 @@ router.post('/createEvent',
         eventname: req.body.eventname,
         eventdate: req.body.eventdate,
         eventvenue: req.body.eventvenue,
-        description: req.body.description
+        description: req.body.description,
+        sponsor: req.body.sponsor
 
        });
        try{
