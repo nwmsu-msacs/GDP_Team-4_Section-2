@@ -9,20 +9,16 @@ const keys = require("../../config/keys");
 // @route GET api/events/
 // @desc  Get all events
 // @access public
-router.get('/',async (req,res)=> {
-    
-try {
-    const events=await Event.find();
-    res.json(events);
-    
-} catch (err) {
+router.get("/eventsData",(req,res) => {
 
-    conole.error(err.message);
-    res.status(500).send('Server error');
-    
-}
-    
-   
+    Event.find({}).then((upcomingeventdata) => {
+        if(upcomingeventdata == null){
+            console.error('No pickup data retrieved');
+            res.status(403).send('No pickup data retrieved');
+        }else{
+            res.status(200).json({upcomingeventdata})
+        }
+    })
 });
 
 
@@ -44,7 +40,6 @@ router.post('/createEvent',
         eventname: req.body.eventname,
         eventdate: req.body.eventdate,
         eventvenue: req.body.eventvenue,
-        timings: req.body.timings,
         description: req.body.description
 
        });
@@ -83,7 +78,6 @@ router.post('/updateEvent/:eventname',  async (req,res) =>
                             event.eventname=req.body.eventname;
                             event.eventdate=req.body.eventdate;
                             event.eventvenue= req.body.eventvenue;
-                            event.timings= req.body.timings;
                             event.description= req.body.description;
                     
                            //});
