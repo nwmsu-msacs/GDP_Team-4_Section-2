@@ -1,75 +1,80 @@
-import React, {Component} from 'react';
-import holyimage from '../../assets/carousel_image1.jpg';
-import diwaliimage from '../../assets/carousel_image2.jpg';
-import independenceimage from '../../assets/carousel_image3.jpg';
-import Indiannightimage from '../../assets/carousel_image4.jpg';
-import Navbar from "../layout/Navbar";
+import axios from 'axios';
+import React, { Component } from 'react';
 import AdminNavbar from "../layout/AdminNavbar";
-
+import Navbar from "../layout/Navbar";
+import {  Card, Image } from 'react-bootstrap'
+import {Button, FeedDate, Item} from 'semantic-ui-react'
 let navbar = undefined;
 
-const eventslist =
-    [
-        {
-            eventname: "HOLY",
-            description: "This is a very good event celebrated in North India",
-            imagepath: holyimage
-        },
-        {
-            eventname: "DIWALI",
-            description: "This is a very good event celebrated in North India",
-            imagepath: diwaliimage
-        },
-        {
-            eventname: "INDEPENDENCE DAY",
-            description: "This is a very good event celebrated in North India",
-            imagepath: independenceimage
-        },
-        {
-            eventname: "INDIAN NIGHT",
-            description: "This is a very good event celebrated in North India",
-            imagepath: Indiannightimage
-        }
 
-    ];
+const pastEventMap = (eventList, self) => {
+  console.log("-----eventList", eventList);
+
+  let res = eventList.map((data) => {
+
+    return (
 
 
+      <div class="row" key={data._id}>
 
-const rendereventslist =
-    eventslist.map((event) => {
-        console.log(event);
-        return (
-            <div className="ui divided list" key={event.eventname}>
-                <div className="item" >
-                    <img className="ui large image" src={event.imagepath} />
-                    <div className="content">
-                        <a className="header" >{event.eventname}</a>
-                        <hr />
-                        <br />
-                        <div className="description">
-                            {event.description}
-                        </div>
-                    </div>
+        {/* <!-- Grid column --> */}
 
+        <Card style={{ width: '70rem'}}>
+          <Card.Body>
+            <Card.Title style={{fontSize:"4rem"}}>{data.eventname}</Card.Title>
+            <br/>
+            <Card.Subtitle className="mb-2 text-muted"><i class="material-icons" style={{ color: "grey", opacity: "90%" }}>event</i>{data.eventdate.substring(0,10)}&nbsp;{data.eventdate.substring(11,19)}</Card.Subtitle>
+            <Card.Text>
+                <br/>
+            <p class="text-uppercase blue-text"><strong>Venue: {data.eventvenue}</strong></p>
+          <p class="text-uppercase blue-text"><strong>About the event:</strong></p>
+          <p style={{textAlign:"justify",fontFamily:"Calibri"}}><strong>{data.description}</strong></p>
+          <Card.Subtitle className="mb-2 text-muted">Sponsored by: {data.sponsor}</Card.Subtitle>
+    </Card.Text>
+    </Card.Body>
+    </Card>
+        
 
-                </div>
-                <br />
-            </div>
+      </div>
 
-        );
-
-
-    }
     );
 
+  });
 
+  console.log(res);
 
+  return res;
+}
 
 class PastEvents extends Component {
 
+  constructor(props) {
+    super(props);
+  }
+  state = {
+    PastEventData: [],
+    self: null,
+  }
 
-  componentWillMount(){
-      console.log("------events------")
+  componentDidMount() {
+    this.setState({
+      self: this.props.history
+    });
+
+    axios
+      .get("http://localhost:5000/api/events/pastEventsData")
+      .then(res => {
+        console.log(res.data.eventdata)
+        this.setState({
+          PastEventData: res.data.eventdata
+        });
+      })
+      .catch(err =>
+        console.log("err: ", err)
+      );
+  }
+
+  componentWillMount() {
     if (localStorage.getItem('jwtToken') != null) {
       this.setState({ loggedIn: true });
     }
@@ -84,20 +89,19 @@ class PastEvents extends Component {
   render() {
 
     return (
-        <div>
-        {navbar}
-        
+
       <div>
-        
-        <div className="ui container" >
-                <h3 style={{ textAlign: 'center' }}>Past Events</h3><br />
-                {rendereventslist}
-            </div>
-        
-      </div>
+        {navbar}
+        <div>
+          <br />
+          <h2 class="text-center" style={{fontFamily:"Arial",fontStyle:"Italic", textShadow:"2px 2px #A9A9A9", color:"#585858"}}>Events Successfully Hosted</h2>
+          <hr style={{width:"50%"}}/>
+          <div class="container" style={{ overflow:"hidden",columns: "2", width:"100%", height:"100%" }}>
+            <p>{pastEventMap(this.state.PastEventData, this.state.self)}</p>
+          </div>
+        </div>
       </div>
     );
   }
 }
-
 export default PastEvents;
