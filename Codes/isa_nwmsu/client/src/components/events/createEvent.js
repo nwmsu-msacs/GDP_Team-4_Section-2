@@ -2,6 +2,9 @@ import React from 'react';
 import axios from 'axios';
 import Navbar from "../layout/Navbar";
 import AdminNavbar from "../layout/AdminNavbar";
+import {Input, TextArea, Form} from 'semantic-ui-react';
+import classnames from "classnames";
+import {Button} from 'react-bootstrap';
 
 
 let navbar = undefined;
@@ -13,9 +16,10 @@ class CreateEvent extends React.Component {
       eventname: "",
       eventdate: "",
       eventvenue: "",
-      timings: "",
-      description: ""
-
+      description: "",
+      // eventimage:"",
+      sponsor:"",
+      errors:{}
 
     };
   }
@@ -43,58 +47,159 @@ class CreateEvent extends React.Component {
       eventname: this.state.eventname,
       eventdate: this.state.eventdate,
       eventvenue: this.state.eventvenue,
-      timings: this.state.timings,
-      description: this.state.description
+      description: this.state.description,
+      sponsor: this.state.sponsor
 
     };
     axios.post('http://localhost:5000/api/events/createEvent', newevent)
       .then(res => console.log(res.data))
-      .then(this.props.history.push("/adminHome"))
+      .then(this.props.history.push("/upcomingEvents"))
   }
 
   render() {
+    const { errors } = this.state;
     return (
-      <div>
+      <div >
         {navbar}
-        <div>
-      <form style={{ marginTop: '50px', marginLeft: '50px' }} onSubmit={this.onSubmit}>
-        <div className="form-group col">
-          <label className="col-sm-2 col-form-label font-weight-bold text-dark ">Event Name</label>
-          <div className="col-sm-4">
-            <input type="text" className="form-control-plaintext border border-primary rounded" id="eventname" name="eventname" value={this.state.eventname} onChange={this.onChange} placeholder="Diwali 2020/Holy 2020" />
-          </div>
-        </div>
-        <div className="form-group col">
-          <label className="col-sm-2 col-form-label font-weight-bold text-dark ">Event Date</label>
-          <div className="col-sm-4">
-            <input type="text" className="form-control-plaintext border border-primary rounded" id="eventdate" name="eventdate" value={this.state.eventdate} onChange={this.onChange} placeholder="10/25/2020" />
-          </div>
-        </div>
-        <div className="form-group col">
-          <label className="col-sm-2 col-form-label font-weight-bold text-dark ">Timings</label>
-          <div className="col-sm-4">
-            <input type="text" className="form-control-plaintext border border-primary rounded" id="timings" name="timings" value={this.state.timings} onChange={this.onChange} placeholder="10.30 a.m. - 12.30 p.m." />
-          </div>
-        </div>
-        <div className="form-group col">
-          <label className="col-sm-2 col-form-label font-weight-bold text-dark ">Venue</label>
-          <div className="col-sm-4">
-            <input type="text" className="form-control-plaintext border border-primary rounded" id="eventvenue" name="venue" value={this.state.eventvenue} onChange={this.onChange} placeholder="Ball Room" />
-          </div>
-        </div>
-        <div className="form-group col">
-          <label className="col-sm-2 col-form-label font-weight-bold text-dark ">Description</label>
-          <div className="col-sm-4">
-            <textarea className="form-control-plaintext border border-primary rounded" id="description" name="description" value={this.state.description} onChange={this.onChange} placeholder="Something about the event" />
-          </div>
-        </div>
-        <br />
-        <div style={{ marginLeft: "150px" }}>
-          <button className=" btn btn-primary font-weight-bold text-dark mx-auto" type="submit">Add Event</button>
-        </div>
+        <br/><br/>
+      <div class="row">
+      <div class="col-md-4" >
+                        
+                        </div>
+        
+        <div class="col-md-4" >
+        <p class="h3 text-center mb-4">Add an event</p>
+        <Form class onSubmit={this.onSubmit}>
+          
+          {/* event Name */}
+          <Form.Field>
+          <label htmlFor="eventname">Event Name</label>
+          <Input transparent
+            type="text"
+            name="eventname"
+            id="eventname"
+            value={this.state.eventname}
+            onChange={this.onChange}
+            placeholder="Enter event name"
+            error={errors.eventname}
+                  className={classnames("", {
+                    invalid: errors.eventname
+                  })}
+                />
+                
+                <span className="red-text">
+                  {errors.eventname}
+                </span>
+                </Form.Field>
 
-      </form>
+          {/* Date */}
+          <Form.Field>
+          <label htmlFor="eventdate">Event Date</label>
+          <Input transparent
+            type="datetime-local"
+            name="eventdate"
+            id="eventdate"
+            value={this.state.date}
+            onChange={this.onChange}
+            placeholder="Select a date"
+            error={errors.eventdate}
+                  className={classnames("", {
+                    invalid: errors.eventdate
+                  })}
+                />
+                
+                <span className="red-text">
+                  {errors.eventdate}
+                </span>
+                </Form.Field>
+          {/* event venue */}
+          <Form.Field>
+          <label htmlFor="eventvenue">Event Venue</label>
+          <Input transparent
+            type="text"
+            name="eventvenue"
+            id="eventvenue"
+            value={this.state.eventvenue}
+            onChange={this.onChange}
+            placeholder="Enter venue details"
+            error={errors.eventvenue}
+                  className={classnames("", {
+                    invalid: errors.eventvenue
+                  })}
+                />
+                
+                <span className="red-text">
+                  {errors.eventvenue}
+                </span>
+                </Form.Field>
+
+                {/* Event sponsor */}
+                <Form.Field>
+          <label htmlFor="sponsor">Event sponsor</label>
+          <Input transparent
+            type="text"
+            name="sponsor"
+            id="sponsor"
+            value={this.state.sponsor}
+            onChange={this.onChange}
+            placeholder="Enter sponsor details"
+            error={errors.eventvenue}
+                  className={classnames("", {
+                    invalid: errors.sponsor
+                  })}
+                />
+                
+                <span className="red-text">
+                  {errors.sponsor}
+                </span>
+                </Form.Field>
+          {/* Event description */}
+          <Form.Field>
+          <label htmlFor="description">Event Descritpion</label>
+          <TextArea
+                            
+                            name="description"
+                            id="description"
+                            value={this.state.description}
+                            onChange={this.onChange}
+                            placeholder="Enter your thoughts here..!!"
+                            rows="4"
+                            cols="50"
+            error={errors.description}
+                  className={classnames("", {
+                    invalid: errors.description
+                  })}
+                />
+                
+                <span className="red-text">
+                  {errors.description}
+                </span>
+                </Form.Field>
+                {/* <Form.Field>
+                <label htmlFor="eventimage">Event Image</label>
+                  <Input 
+                  type="file"
+                  name="eventimage"
+                  id="eventimage"
+                  value={this.state.eventimage}
+                  onChange={this.onChange}
+                  />
+                </Form.Field> */}
+
+          {/* Submit  */}
+          <p class="h4 text-center mb-4">
+                            <Button 
+                                
+                                type="submit"
+                                className="btn btn-large waves-effect waves-light hoverable blue accent-3"
+                            >
+                                Add Event
+                </Button></p>
+        </Form>
       </div>
+      <div class="col-md-3"></div>
+      </div>
+      
       </div>
     );
   }
