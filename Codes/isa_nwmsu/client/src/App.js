@@ -37,6 +37,8 @@ import ISAForum from "./components/forum/IsaForum";
 import IndividualReply from "./components/forum/ReplyToIndividualForum";
 import RepliesView from "./components/forum/Replies"
 import IndividualUser from "./components/user/IndividualUser";
+import ManageEvents from "./components/adminViews/ManageEvent";
+import ModifyEvent from "./components/adminViews/ModifyExistingEvent";
 // import { route } from "../../routes/api/users";
 // Check for token to keep user logged in
 if (localStorage.jwtToken) {
@@ -106,6 +108,10 @@ class App extends Component {
               <Route exact path="/individualReply" component={IndividualReply} />
               <Route exact path="/repliesView" component={RepliesView} />
               <Route exact path="/individualUser" component={IndividualUser} />
+              <Route exact path="/manageEvents" component={ManageEvents} />
+              <Route exact path="/modifyEvent" component={ModifyEvent} />
+
+
               {this.state.loggedIn === true ? <Route exact path='/logout' component={developmentInProgress} /> : null}
             </Switch>
 
