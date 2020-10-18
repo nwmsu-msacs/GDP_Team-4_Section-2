@@ -382,7 +382,9 @@ class Home extends Component {
 
           </div>
           <hr style={{borderTop:"1px solid white", width:"83%"}}/>
-          <div class="row"></div>
+          <div class="row">
+            <div class="col center-align"> <p style={{color:"white"}}>© 2020 Team ISA</p></div>
+          </div>
           <br/><br/>
         </footer>
 
