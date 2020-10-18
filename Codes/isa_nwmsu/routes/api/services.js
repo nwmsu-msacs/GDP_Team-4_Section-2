@@ -135,7 +135,7 @@ router.post("/accommodationaccept", (req, res) => {
               console.error('there was an error: ', err);
             } else {
               console.log('here is the res: ', response);
-              res.status(200).json('recovery email sent');
+              res.status(200).json('email sent');
             }
           });
     
@@ -201,7 +201,7 @@ router.post("/accommodationreject", (req, res) => {
               console.error('there was an error: ', err);
             } else {
               console.log('here is the res: ', response);
-              res.status(200).json('recovery email sent');
+              res.status(200).json('email sent');
             }
           });
     
@@ -255,7 +255,7 @@ router.post("/endmembership", (req, res) => {
               console.error('there was an error: ', err);
             } else {
               console.log('here is the res: ', response);
-              res.status(200).json('recovery email sent');
+              res.status(200).json('email sent');
             }
           });
     
@@ -313,7 +313,7 @@ router.post("/pickupaccept", (req, res) => {
               console.error('there was an error: ', err);
             } else {
               console.log('here is the res: ', response);
-              res.status(200).json('recovery email sent');
+              res.status(200).json('email sent');
             }
           });
     
@@ -371,7 +371,7 @@ router.post("/pickupreject", (req, res) => {
               console.error('there was an error: ', err);
             } else {
               console.log('here is the res: ', response);
-              res.status(200).json('recovery email sent');
+              res.status(200).json('email sent');
             }
           });
     
@@ -425,7 +425,7 @@ router.post("/volunteeraccept", (req, res) => {
               console.error('there was an error: ', err);
             } else {
               console.log('here is the res: ', response);
-              res.status(200).json('recovery email sent');
+              res.status(200).json('email sent');
             }
           });
     
@@ -479,7 +479,7 @@ router.post("/volunteerreject", (req, res) => {
               console.error('there was an error: ', err);
             } else {
               console.log('here is the res: ', response);
-              res.status(200).json('recovery email sent');
+              res.status(200).json('email sent');
             }
           });
     
