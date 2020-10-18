@@ -28,6 +28,7 @@ const memberShipMap = (membershipList, self) => {
             <br/>
             <Card.Subtitle className="mb-2 text-muted"><i class="material-icons" style={{ color: "grey", opacity: "90%" }}>phone</i>{data.contactNo}</Card.Subtitle>
             <Card.Text>
+            <p class="text-uppercase blue-text"><strong>Gender: {data.gender}</strong></p>
           <p class="text-uppercase blue-text"><strong>Major: {data.major}</strong></p>
           <p class="text-uppercase blue-text"><strong>Email:  {data.email}</strong></p>
           <p class="text-uppercase blue-text"><strong>Membership Status:  {data.status}</strong></p>
