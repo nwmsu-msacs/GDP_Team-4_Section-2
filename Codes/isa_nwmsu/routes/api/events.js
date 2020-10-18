@@ -4,22 +4,72 @@ const router = express.Router();
 const Event=require('../../models/Event');
 const validateEventInput = require("../../validation/createEvent");
 const keys = require("../../config/keys");
+const { NativeDate } = require('mongoose');
 
 
 // @route GET api/events/
 // @desc  Get all events
 // @access public
-router.get("/eventsData",(req,res) => {
 
-    Event.find({}).then((upcomingeventdata) => {
-        if(upcomingeventdata == null){
-            console.error('No pickup data retrieved');
-            res.status(403).send('No pickup data retrieved');
+//get upcoming events
+router.get("/upcomingEventsData",(req,res) => {
+
+    Event.find({eventdate :{$gte:Date.now()}}).then((eventdata) => {
+        if(eventdata == null){
+            console.error('No event data retrieved');
+            res.status(403).send('No event data retrieved');
         }else{
-            res.status(200).json({upcomingeventdata})
+            res.status(200).json({eventdata})
         }
     })
 });
+
+//get past events
+
+router.get("/pastEventsData",(req,res) => {
+
+    Event.find({eventdate :{$lt:Date.now()}}).then((eventdata) => {
+        if(eventdata == null){
+            console.error('No event data retrieved');
+            res.status(403).send('No event data retrieved');
+        }else{
+            res.status(200).json({eventdata})
+        }
+    })
+});
+
+//get single event for modify
+
+router.get("/getEvent/:eventId",(req,res) => {
+
+    Event.find({_id: req.params.eventId}).then((event) => {
+        if(event == null){
+            console.error('No event data retrieved');
+            res.status(403).send('No event data retrieved');
+        }else{
+            res.status(200).json({event})
+        }
+    })
+});
+//delete event
+
+router.post("/deleteEvent", (req, res) => {
+
+    let data = req.body;
+
+    console.log("-----------data in service", data);
+
+
+          Event.findOneAndDelete({ _id: data._id })
+            .then(res.status(200).json({ response: "event cancelled" }));
+    
+    
+    
+});
+
+
+
+
 
 
 
@@ -61,7 +111,9 @@ router.post('/createEvent',
 // @desc  update an event
 // @access private
 
-router.post('/updateEvent/:eventname',  async (req,res) =>
+
+
+router.put('/modify/:eventId',  async (req,res) =>
 {
   
         const { errors, isValid } = validateEventInput(req.body);
@@ -69,28 +121,23 @@ router.post('/updateEvent/:eventname',  async (req,res) =>
             return res.status(400).json({errors});
         }
         else{
-            
+
             try{
                 //console.log();
        
-                await Event.findOne({eventname: req.params.eventname }).then(
-                    (event)=> {
-                        //const updatedEvent=new Event({
-                            event.eventname=req.body.eventname;
-                            event.eventdate=req.body.eventdate;
-                            event.eventvenue= req.body.eventvenue;
-                            event.description= req.body.description;
-                    
-                           //});
-                        event.save().then(event=>res.json(event));
-                        res.status(201).json({
-                            message: 'Event updated Successfully'
-                        });
-                    }
-                )
+                Event.findByIdAndUpdate({ _id: req.params.eventId },
+                    { $set: { eventname: req.body.eventname,
+                                eventdate: req.body.eventdate,
+                                eventvenue: req.body.eventvenue,
+                                description:req.body.description,
+                                sponsor:req.body.sponsor} },
+                                { useFindAndModify: false })
+                    .then(res.status(200).json({ response: "event modified" }));
+            
+                
                 }
                 catch(err){
-                    //console.error(`{req.params.eventname}`);
+                    console.error(err);
                    res.status(500).send('Server Error');
                 }
                 
