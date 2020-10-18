@@ -98,7 +98,7 @@ class AdminNavbar extends React.Component {
                                     Admin Functionalities
         </a>
                                 <div class="dropdown-menu" style={{borderRadius:"15%"}} aria-labelledby="navbarDropdownMenuLink">
-                                    <a class="dropdown-item" href="/createEvent">Manage Events</a>
+                                    <a class="dropdown-item" href="/manageEvents">Manage Events</a>
                                     <a class="dropdown-item" href ="/pickupManagement">Pickup Management</a>
                                     <a class="dropdown-item" href="/volunteerManagement">Volunteer Management</a>
                                     <a class="dropdown-item" href="/accommodationManagement">Manage Accommodation</a>
