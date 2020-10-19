@@ -14,7 +14,11 @@ const ForumSchema = new Schema({
   },
   createdBy: {
       type: String,
-      required:true,
+      required:true
+  },
+  userEmail:{
+    type:String,
+    required:true
   }
 });
 
