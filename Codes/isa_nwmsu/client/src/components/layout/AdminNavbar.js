@@ -64,7 +64,7 @@ class AdminNavbar extends React.Component {
                                 <a class="nav-link dropdown-toggle" href="/" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                     Events
         </a>
-                                <div class="dropdown-menu" style={{borderRadius:"15%"}} aria-labelledby="navbarDropdownMenuLink">
+                                <div class="dropdown-menu"  aria-labelledby="navbarDropdownMenuLink">
                                     <a class="dropdown-item" href="/upcomingEvents">Upcoming Events</a>
                                     <a class="dropdown-item" href="/pastEvents">Past Events</a>
                                 </div>
@@ -73,7 +73,7 @@ class AdminNavbar extends React.Component {
                                 <a class="nav-link dropdown-toggle" href="/" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                     Services
         </a>
-                                <div class="dropdown-menu" style={{borderRadius:"15%"}} aria-labelledby="navbarDropdownMenuLink">
+                                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                                 <a class="dropdown-item" href="/membership">Membership</a>
                                     <a class="dropdown-item" href="/pickup">Pickup</a>
                                     <a class="dropdown-item" href="/accommodation">Temporary Accommodation</a>
@@ -86,7 +86,7 @@ class AdminNavbar extends React.Component {
                                 <a class="nav-link dropdown-toggle" href="/" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                     Help
         </a>
-                                <div class="dropdown-menu" style={{borderRadius:"15%"}} aria-labelledby="navbarDropdownMenuLink">
+                                <div class="dropdown-menu"  aria-labelledby="navbarDropdownMenuLink">
                                     <a class="dropdown-item" href="/contact">Contact Us</a>
                                     <a class="dropdown-item" href ="/isaForum">ISA Forum</a>
                                     <a class="dropdown-item" href="/faq">FAQ?</a>
@@ -97,7 +97,7 @@ class AdminNavbar extends React.Component {
                                 <a class="nav-link dropdown-toggle" href="/" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                     Admin Functionalities
         </a>
-                                <div class="dropdown-menu" style={{borderRadius:"15%"}} aria-labelledby="navbarDropdownMenuLink">
+                                <div class="dropdown-menu"  aria-labelledby="navbarDropdownMenuLink">
                                     <a class="dropdown-item" href="/manageEvents">Manage Events</a>
                                     <a class="dropdown-item" href ="/pickupManagement">Pickup Management</a>
                                     <a class="dropdown-item" href="/volunteerManagement">Volunteer Management</a>
