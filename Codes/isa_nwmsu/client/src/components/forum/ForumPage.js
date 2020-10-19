@@ -19,6 +19,7 @@ class ForumPage extends Component {
             title:"",
             description:"",
             createdBy:localStorage.getItem("name"),
+            userEmail:localStorage.getItem("email"),
             errors: {}
         };
     }
@@ -50,7 +51,8 @@ class ForumPage extends Component {
 
             title: this.state.title,
             description: this.state.description,
-            createdBy: this.state.createdBy
+            createdBy: this.state.createdBy,
+            userEmail: this.state.userEmail
 
         };
 
@@ -59,6 +61,7 @@ class ForumPage extends Component {
         axios.post('http://localhost:5000/api/forum/newForum', forumData)
             .then(res => console.log(res.data))
             .then(this.props.history.push("/isaForum"))
+            window.location.reload(false)
     };
 
     render() {
