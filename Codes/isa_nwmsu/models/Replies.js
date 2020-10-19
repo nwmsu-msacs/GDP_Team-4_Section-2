@@ -20,6 +20,10 @@ const ReplySchema = new Schema({
     replyTime:{
         type: Date,
         default: Date.now()
+    },
+    userEmail:{
+        type:String,
+        required:true
     }
 });
 
