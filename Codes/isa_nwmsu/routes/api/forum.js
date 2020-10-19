@@ -18,7 +18,8 @@ router.post('/newForum', async(req,res) => {
 
         title: data.title,
         description: data.description,
-        createdBy: data.createdBy
+        createdBy: data.createdBy,
+        userEmail: data.userEmail
     });
 
     forum.save();
@@ -35,12 +36,51 @@ router.post('/reply', async (req,res)=>{
         forumId: data.forumId,
         replyBy: data.replyBy,
         replyContent: data.replyContent,
+        userEmail: data.userEmail
 
     });
 
     newReply.save();
     console.log(res.json(newReply))
     
+});
+
+
+//delete forum
+
+router.post("/deleteForum",(req,res) => {
+
+    let data= req.body;
+    console.log("-----------data in delete forum", data);
+
+    // Replies.deleteMany({forumId: data._id})
+    Forum.findOneAndDelete({_id: data._id})
+    
+    .then(res.status(200).json({ response: "forum discussion deleted" }));
+});
+
+//delete replies associated with fourm when forum is deleted 
+router.post("/deleteReplies",(req,res) => {
+
+    let data= req.body;
+    console.log("-----------data in delete replies", data);
+
+    Replies.deleteMany({forumId: data._id})
+    // Forum.findOneAndDelete({_id: data._id})
+    
+    .then(res.status(200).json({ response: "forum discussion replies deleted" }));
+});
+
+//delete single reply
+
+router.post("/deleteSingleReply",(req,res) => {
+
+    let data= req.body;
+    console.log("-----------data in delete single reply", data);
+
+    Replies.findOneAndDelete({_id: data._id})
+    
+    .then(res.status(200).json({ response: "reply deleted" }));
 });
 
 
