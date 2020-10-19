@@ -108,7 +108,11 @@ class MembershipManagement extends Component {
         {navbar}
         <div>
         <br/>
-        <h2 class="text-center" style={{fontFamily:"Arial"}}>Membership Management</h2>
+        <h2 class="text-center" style={{fontFamily:"Arial",
+                                        fontStyle:"Italic", 
+                                        textShadow:"2px 2px #A9A9A9", 
+                                        color:"#585858",
+                                        }}>Membership Management</h2>
           <div class="container" style={{ columns: "3", width:"100%"}}>
         <p>{memberShipMap(this.state.memberShipdata, this.state.self)}</p>
         </div>
