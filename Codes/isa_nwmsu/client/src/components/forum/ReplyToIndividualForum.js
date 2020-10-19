@@ -78,7 +78,8 @@ class ReplyToIndividualForum extends Component {
 
         replyContent: this.state.replyContent,
         replyBy: localStorage.getItem("name"),
-        forumId: localStorage.getItem("discussionId")
+        forumId: localStorage.getItem("discussionId"),
+        userEmail: localStorage.getItem("email")
 
     }
 
@@ -145,7 +146,8 @@ class ReplyToIndividualForum extends Component {
 
           <Replies/>
         
-        <div>                    
+        <div class ="row">                    
+        <div class="col-md-12">
                     <Form onSubmit={this.onSubmit}>
                         
                         {/* Title description */}
@@ -164,7 +166,9 @@ class ReplyToIndividualForum extends Component {
                             
                         />
                         </Form.Field>
+                        
                         {/* submit  */}
+                        
                         <p class="h4 text-center mb-4">
                           <Button
 
@@ -179,6 +183,7 @@ class ReplyToIndividualForum extends Component {
                     </Form>
                 </div>
                 </div>
+      </div>
       </div>
     );
   }
