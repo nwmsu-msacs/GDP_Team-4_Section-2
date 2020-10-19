@@ -128,7 +128,11 @@ class PickupManagement extends Component {
         {navbar}
         <div>
         <br/>
-        <h2 class="text-center" style={{fontFamily:"Arial"}}>Pickup Management</h2>
+        <h2 class="text-center" style={{fontFamily:"Arial",
+                                        fontStyle:"Italic", 
+                                        textShadow:"2px 2px #A9A9A9", 
+                                        color:"#585858",
+                                        }}>Pickup Management</h2>
           <div class="container" style={{ columns: "3", width:"100%" }}>
         <p>{pickUpMap(this.state.pickUpdata, this.state.self)}</p>
         </div>
