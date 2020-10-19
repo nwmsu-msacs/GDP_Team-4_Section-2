@@ -45,9 +45,9 @@ class Navbar extends Component {
             <div className="navbar-fixed">
                 <nav class="navbar navbar-expand-lg " style={{backgroundColor:"#0099FF"}}>
                     <a class="navbar-brand" href="#"><img src={IsaLogo} style={{height:"1.5em",}}></img></a>
-                    {/* <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
-                    </button> */}
+                    </button>
                     <div class="collapse navbar-collapse" id="navbarNavDropdown">
                     {this.state.loggedIn === true ?
                         <ul class=" navbar-nav">
@@ -70,7 +70,7 @@ class Navbar extends Component {
                                 <a class="nav-link dropdown-toggle" href="/" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                     Events
         </a>
-                                <div class="dropdown-menu" style={{borderRadius:"15%"}} aria-labelledby="navbarDropdownMenuLink">
+                                <div class="dropdown-menu"   aria-labelledby="navbarDropdownMenuLink">
                                     <a class="dropdown-item" href="/upcomingEvents">Upcoming Events</a>
                                     <a class="dropdown-item" href="/pastEvents">Past Events</a>
                                 </div>
@@ -79,7 +79,7 @@ class Navbar extends Component {
                                 <a class="nav-link dropdown-toggle" href="/" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                     Services
         </a>
-                                <div class="dropdown-menu" style={{borderRadius:"15%"}} aria-labelledby="navbarDropdownMenuLink">
+                                <div class="dropdown-menu"  aria-labelledby="navbarDropdownMenuLink">
                                 <a class="dropdown-item" href="/membership">Membership</a>
                                     <a class="dropdown-item" href="/pickup">Pickup</a>
                                     <a class="dropdown-item" href="/accommodation">Temporary Accommodation</a>
@@ -92,7 +92,7 @@ class Navbar extends Component {
                                 <a class="nav-link dropdown-toggle" href="/" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                     Help
         </a>
-                                <div class="dropdown-menu" style={{borderRadius:"15%"}} aria-labelledby="navbarDropdownMenuLink">
+                                <div class="dropdown-menu"  aria-labelledby="navbarDropdownMenuLink">
                                     <a class="dropdown-item" href="/contact">Contact Us</a>
                                     <a class="dropdown-item" href ="/isaForum">ISA Forum</a>
                                     <a class="dropdown-item" href="/faq">FAQ?</a>
