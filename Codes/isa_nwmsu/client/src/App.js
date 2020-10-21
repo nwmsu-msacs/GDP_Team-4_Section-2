@@ -25,8 +25,6 @@ import AdminHome from "./components/home/AdminHome";
 import Membership from "./components/services/membership";
 import Accommodation from "./components/services/accommodation";
 import Volunteer from "./components/services/volunteer";
-import ClientChat from "./components/chat/Client";
-import AdminChat from "./components/chat/Admin";
 import PickupManagement from "./components/adminViews/PickupManagement";
 import MembershipManagement from "./components/adminViews/MembershipManagement";
 import AccommodationManagement from "./components/adminViews/AccommodationManagement";
@@ -74,7 +72,7 @@ class App extends Component {
         <Router>
           <div className="App">
             {/* {navbar} */}
-            <ClientChat />
+            
             {/* {<Navbar auth={store.getState()}/>} */}
             <Switch>
 
@@ -96,8 +94,6 @@ class App extends Component {
               <Route exact path="/membership" component={Membership} />
               <Route exact path="/accommodation" component={Accommodation} />
               <Route exact path="/volunteer" component={Volunteer} />
-              <Route exact path="/userChat" component={ClientChat} />
-              <Route exact path="/adminChat" component={AdminChat} />
               <Route exact path="/pickupManagement" component={PickupManagement} />
               <Route exact path="/accommodationManagement" component={AccommodationManagement} />
               <Route exact path="/volunteerManagement" component={VolunteerManagement} />
