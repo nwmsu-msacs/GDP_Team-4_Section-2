@@ -1,11 +1,9 @@
 const express = require('express');
 const router = express.Router();
-//const {check, validationresult }=require('express-validator/check');
 const Forum =require('../../models/Forum');
 const validateEventInput = require("../../validation/createEvent");
 const keys = require("../../config/keys");
 const Replies = require('../../models/replies');
-// const Forum = require("../../models/Forum");
 
 
 //route for creating new forum
@@ -52,10 +50,8 @@ router.post("/deleteForum",(req,res) => {
 
     let data= req.body;
     console.log("-----------data in delete forum", data);
-
-    // Replies.deleteMany({forumId: data._id})
-    Forum.findOneAndDelete({_id: data._id})
     
+    Forum.findOneAndDelete({_id: data._id})
     .then(res.status(200).json({ response: "forum discussion deleted" }));
 });
 
@@ -66,8 +62,6 @@ router.post("/deleteReplies",(req,res) => {
     console.log("-----------data in delete replies", data);
 
     Replies.deleteMany({forumId: data._id})
-    // Forum.findOneAndDelete({_id: data._id})
-    
     .then(res.status(200).json({ response: "forum discussion replies deleted" }));
 });
 
