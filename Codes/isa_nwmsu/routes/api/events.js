@@ -86,6 +86,7 @@ router.post('/createEvent',
        return res.status(400).json({errors});
    }
    else{
+       
        const newEvent=new Event({
         eventname: req.body.eventname,
         eventdate: req.body.eventdate,

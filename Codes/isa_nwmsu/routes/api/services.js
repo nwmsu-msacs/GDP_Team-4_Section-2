@@ -12,6 +12,7 @@ const nodemailer = require('nodemailer');
 
 // post the data of pickup 
 router.post("/pickup", async (req, res) => {
+  
     const { errors, isValid } = validatePickupInput(req.body)
 
     if (!isValid) {

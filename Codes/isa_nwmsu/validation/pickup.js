@@ -50,8 +50,10 @@ module.exports = function validatePickupInput(data) {
   if (Validator.isEmpty(data.airline)) {
     errors.airline = "Airline field is required";
   }
+  console.log("in pickup validation", errors)
 return {
+
     errors,
-    isValid: isEmpty(errors)
+    isValid: isEmpty(errors),
   };
 };
