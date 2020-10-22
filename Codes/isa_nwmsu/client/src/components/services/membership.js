@@ -8,7 +8,19 @@ import Navbar from "../layout/Navbar";
 import AdminNavbar from "../layout/AdminNavbar";
 import { Input, Button, Form } from 'semantic-ui-react'
 
+const Validator = require("validator");
+const isEmpty = require("is-empty");
+
 let navbar = undefined;
+
+const initialErrorState = {
+    firstnameError:"",
+    lastnameError:"",
+    majorError:"",
+    genderError:"",
+    contactnoError:"",
+    emailError:"",
+}
 
 class Membership extends Component {
 
@@ -48,9 +60,62 @@ class Membership extends Component {
             navbar = <AdminNavbar />
         }
     }
+
+    validateForm = () =>{
+        let firstnameError="";
+    let lastnameError="";
+    let majorError="";
+    let genderError="";
+    let contactnoError="";
+    let emailError="";
+     
+         //name errors
+     
+         if(isEmpty(this.state.firstName)){
+           firstnameError= "First name field is required"
+         }
+         if(isEmpty(this.state.lastName)){
+            lastnameError= "Last name field is required"
+          }
+     
+       
+         if(isEmpty(this.state.email)){
+           emailError= "Email field is required"
+         }else if(!Validator.isEmail(this.state.email)){
+           emailError= "Email entered is invalid"
+         }
+     
+         if(isEmpty(this.state.contactNo)){
+           contactnoError= "Cell field is required"
+         }else if(this.state.contactNo.length != 10){
+           contactnoError= "Phone number is invalid"
+         }
+     
+         if(isEmpty(this.state.gender)){
+           genderError= "Error selecting gender"
+         }
+     
+         if(isEmpty(this.state.major)){
+           majorError= "To field is required"
+         }
+     
+         
+     
+     
+         if(firstnameError || lastnameError || emailError || contactnoError|| majorError|| genderError){
+           this.setState({firstnameError, lastnameError, emailError, contactnoError, majorError,genderError});
+           return false;
+         }
+     
+         return true;
+     
+       }
+    
     onSubmit = e => {
         e.preventDefault();
 
+        const isFormValid = this.validateForm();
+        if (isFormValid){
         const membershipData = {
 
             firstName: this.state.firstName,
@@ -63,11 +128,16 @@ class Membership extends Component {
         };
 
 
-
+        this.setState(initialErrorState);
+        
         axios.post('http://localhost:5000/api/services/membership', membershipData)
             .then(res => console.log(res.data))
-            .then(this.props.history.push("/home"))
-    };
+            .then(this.props.history.push("/individualUser"))
+            .then(window.location.reload(false))
+    }
+
+    
+};
 
     render() {
         const { errors } = this.state;
@@ -99,7 +169,10 @@ class Membership extends Component {
                                     value={this.state.firstName}
                                     onChange={this.onChange}
                                     placeholder="Enter first name"
-                                />
+                                    />
+                                    <div style={{ fontSize: 12, color: "red" }}>
+                                    {this.state.firstnameError}
+                                  </div>
                             </Form.Field>
                             {/* last name */}
                             <Form.Field>
@@ -111,7 +184,10 @@ class Membership extends Component {
                                     value={this.state.lastName}
                                     onChange={this.onChange}
                                     placeholder="Enter last name"
-                                />
+                                    />
+                                    <div style={{ fontSize: 12, color: "red" }}>
+                                    {this.state.lastnameError}
+                                  </div>
                             </Form.Field>
                             </Form.Group>
                             {/* email */}
@@ -124,7 +200,10 @@ class Membership extends Component {
                                     value={this.state.email}
                                     onChange={this.onChange}
                                     placeholder="Enter email"
-                                />
+                                    />
+                                    <div style={{ fontSize: 12, color: "red" }}>
+                                    {this.state.emailError}
+                                  </div>
                             </Form.Field>
 
                             {/* Gender */}
@@ -136,6 +215,10 @@ class Membership extends Component {
                                     <option value="female">Female</option>
                                     <option value="other">Other</option>
                                 </select>
+                                
+                            <div style={{ fontSize: 12, color: "red" }}>
+                            {this.state.genderError}
+                          </div>
                             </Form.Field>
                             
                             <br />
@@ -149,7 +232,10 @@ class Membership extends Component {
                                 value={this.state.major}
                                 onChange={this.onChange}
                                 placeholder="Enter Major"
-                            />
+                                />
+                                <div style={{ fontSize: 12, color: "red" }}>
+                                {this.state.majorError}
+                              </div>
                             </Form.Field>
                             {/* contact no */}
                             <Form.Field>
@@ -161,7 +247,10 @@ class Membership extends Component {
                                 value={this.state.contactNo}
                                 onChange={this.onChange}
                                 placeholder="Enter Cell number"
-                            />
+                                />
+                                <div style={{ fontSize: 12, color: "red" }}>
+                                {this.state.contactnoError}
+                              </div>
                             </Form.Field>
 
 
