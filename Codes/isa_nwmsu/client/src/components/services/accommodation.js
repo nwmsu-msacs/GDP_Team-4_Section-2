@@ -8,7 +8,22 @@ import Navbar from "../layout/Navbar";
 import AdminNavbar from "../layout/AdminNavbar";
 import { Redirect } from "react-router-dom";
 import { Input, Button, Form } from 'semantic-ui-react'
+
+const Validator = require("validator");
+const isEmpty = require("is-empty");
+
 let navbar = undefined;
+
+const initialErrorState = {
+    firstnameError:"",
+    lastnameError:"",
+    nonError:"",
+    daysrequiredError:"",
+    genderError:"",
+    contactnoError:"",
+    emailError:"",
+}
+
 class Accommodation extends Component {
 
     constructor() {
@@ -39,6 +54,67 @@ class Accommodation extends Component {
           }
     }
 
+    validateForm = () =>{
+        let firstnameError="";
+    let lastnameError="";
+    let nonError="";
+    let daysrequiredError="";
+    let genderError="";
+    let contactnoError="";
+    let emailError="";
+     
+         //name errors
+     
+         if(isEmpty(this.state.firstName)){
+           firstnameError= "First name field is required"
+         }
+         if(isEmpty(this.state.lastName)){
+            lastnameError= "Last name field is required"
+          }
+     
+       
+         if(isEmpty(this.state.email)){
+           emailError= "Email field is required"
+         }else if(!Validator.isEmail(this.state.email)){
+           emailError= "Email entered is invalid"
+         }
+     
+         if(isEmpty(this.state.contactNo)){
+           contactnoError= "Cell field is required"
+         }else if(this.state.contactNo.length != 10 || isNaN(this.state.contactNo)){
+           contactnoError= "Phone number is invalid"
+         }
+     
+         if(isEmpty(this.state.daysRequired)){
+           daysrequiredError= "No of days field is required"
+         }else if(this.state.daysRequired <=0 ){
+             daysrequiredError="No of days required should be atleast 1"
+         }
+     
+         if(isEmpty(this.state.gender)){
+           genderError= "Error selecting gender"
+         }
+     
+         if(isEmpty(this.state.non)){
+           nonError= "To field is required"
+         }else if(this.state.non.length != 9 || isNaN(this.state.non)){
+            nonError= "Enter full valid 919#"
+          }
+
+     
+         
+     
+     
+         if(firstnameError || lastnameError || emailError || contactnoError|| daysrequiredError|| nonError|| genderError){
+           this.setState({firstnameError, lastnameError, emailError, contactnoError, daysrequiredError, nonError,genderError});
+           return false;
+         }
+     
+         return true;
+     
+       }
+     
+
     onChange = e => {
         this.setState({ [e.target.id]: e.target.value });
     };
@@ -47,6 +123,8 @@ class Accommodation extends Component {
     onSubmit = e => {
         e.preventDefault();
 
+        const isFormValid = this.validateForm();
+    if (isFormValid){
         const accommodationData = {
 
             firstName: this.state.firstName,
@@ -61,11 +139,18 @@ class Accommodation extends Component {
         };
 
         
+        this.setState(initialErrorState);
 
         axios.post('http://localhost:5000/api/services/accommodation', accommodationData)
             .then(res => console.log(res.data))
-            .then(this.props.history.push("/home"))
-    };
+            .then(this.props.history.push("/individualUser"))
+            .then(window.location.reload(false))
+
+            
+    }
+
+    
+};
 
     render() {
         const { errors } = this.state;
@@ -92,7 +177,10 @@ class Accommodation extends Component {
                             value={this.state.firstName}
                             onChange={this.onChange}
                             placeholder="Enter first name"
-                        />
+                            />
+                            <div style={{ fontSize: 12, color: "red" }}>
+                            {this.state.firstnameError}
+                          </div>
                         </Form.Field>
                         {/* last name */}
                         <Form.Field>
@@ -104,7 +192,10 @@ class Accommodation extends Component {
                             value={this.state.lastName}
                             onChange={this.onChange}
                             placeholder="Enter last name"
-                        />
+                            />
+                            <div style={{ fontSize: 12, color: "red" }}>
+                            {this.state.lastnameError}
+                          </div>
                         </Form.Field>
                         </Form.Group>
                         {/* email */}
@@ -117,7 +208,10 @@ class Accommodation extends Component {
                             value={this.state.email}
                             onChange={this.onChange}
                             placeholder="Enter email"
-                        />
+                            />
+                            <div style={{ fontSize: 12, color: "red" }}>
+                            {this.state.emailError}
+                          </div>
                         </Form.Field>
                         {/* NON */}
 
@@ -130,7 +224,10 @@ class Accommodation extends Component {
                             value={this.state.non}
                             onChange={this.onChange}
                             placeholder="Enter 919#"
-                        />
+                            />
+                            <div style={{ fontSize: 12, color: "red" }}>
+                            {this.state.nonError}
+                          </div>
                         </Form.Field>
                         
 
@@ -143,6 +240,10 @@ class Accommodation extends Component {
                                     <option value="female">Female</option>
                                     <option value="other">Other</option>
                                 </select>
+                                
+            <div style={{ fontSize: 12, color: "red" }}>
+            {this.state.genderError}
+          </div>
                         </Form.Field>
 
 
@@ -157,7 +258,10 @@ class Accommodation extends Component {
                             value={this.state.daysRequired}
                             onChange={this.onChange}
                             placeholder="Number of days"
-                        />
+                            />
+                            <div style={{ fontSize: 12, color: "red" }}>
+                            {this.state.daysrequiredError}
+                          </div>
                         </Form.Field>
                         {/* contact no */}
                         <Form.Field>
@@ -169,7 +273,10 @@ class Accommodation extends Component {
                             value={this.state.contactNo}
                             onChange={this.onChange}
                             placeholder="Enter Cell number"
-                        />
+                            />
+                            <div style={{ fontSize: 12, color: "red" }}>
+                            {this.state.contactnoError}
+                          </div>
                         </Form.Field>
                         {/* submit  */}
                         <p class="h4 text-center mb-4">
