@@ -8,16 +8,12 @@ import {Button} from 'react-bootstrap'
 let navbar = undefined;
 let forumData = undefined
 
-function reply(data, self) {
+const Validator = require("validator");
+const isEmpty = require("is-empty");
 
-  
-};
-
-
-
-const discussionTitle = axios.get()
-
-
+const initialErrorState = {
+    replyError:"",
+}
 
 const ForumMap = (ForumList, self) => {
   console.log("-----ForumList", ForumList);
@@ -70,10 +66,30 @@ class ReplyToIndividualForum extends Component {
     this.setState({ [e.target.id]: e.target.value });
 };
 
+validateForm = () =>{
+  let replyError="";
+   //reply errors
+
+   if(isEmpty(this.state.replyContent)){
+     replyError= "reply cannot be empty"
+   }
+         
+
+
+   if(replyError){
+     this.setState({replyError});
+     return false;
+   }
+
+   return true;
+
+ }
+
   onSubmit = e => {
     e.preventDefault();
     
-
+    const isFormValid = this.validateForm();
+    if (isFormValid){
     const newReply = {
 
         replyContent: this.state.replyContent,
@@ -85,11 +101,13 @@ class ReplyToIndividualForum extends Component {
 
     console.log("reply content in submit --> ", newReply)
 
+    this.setState(initialErrorState);
     axios.post('http://localhost:5000/api/forum/reply', newReply)
             .then(res => console.log(res.data))
             .then(this.props.history.go())
             // .then(this.props.history.push("/individualReply"))
-    };
+    }
+  };
     
 
 
@@ -164,7 +182,9 @@ class ReplyToIndividualForum extends Component {
                             rows="4"
                             cols="50"
                             
-                        />
+                        /><div style={{ fontSize: 12, color: "red" }}>
+                        {this.state.replyError}
+                      </div>
                         </Form.Field>
                         
                         {/* submit  */}
