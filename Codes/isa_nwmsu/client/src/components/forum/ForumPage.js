@@ -10,7 +10,18 @@ import { Redirect } from "react-router-dom";
 import { Input, TextArea, Form } from 'semantic-ui-react'
 import {Button} from 'react-bootstrap'
 
+const Validator = require("validator");
+const isEmpty = require("is-empty");
+
 let navbar = undefined;
+
+const initialErrorState = {
+    titleError:"",
+    descriptionError:"",
+}
+
+
+
 class ForumPage extends Component {
 
     constructor() {
@@ -42,11 +53,33 @@ class ForumPage extends Component {
         this.setState({ [e.target.id]: e.target.value });
     };
 
-    
+    validateForm = () =>{
+        let titleError="";
+    let descriptionError=""; 
+         //title errors
+     
+         if(isEmpty(this.state.title)){
+           titleError= "Title field cannot be empty"
+         }
+         if(isEmpty(this.state.description)){
+            descriptionError= "description field cannot be empty"
+          }       
+     
+     
+         if(titleError || descriptionError){
+           this.setState({titleError, descriptionError});
+           return false;
+         }
+     
+         return true;
+     
+       }
 
     onSubmit = e => {
         e.preventDefault();
 
+        const isFormValid = this.validateForm();
+    if (isFormValid){
         const forumData = {
 
             title: this.state.title,
@@ -56,13 +89,14 @@ class ForumPage extends Component {
 
         };
 
-        
+        this.setState(initialErrorState);
 
         axios.post('http://localhost:5000/api/forum/newForum', forumData)
             .then(res => console.log(res.data))
             .then(this.props.history.push("/isaForum"))
             window.location.reload(false)
-    };
+    }
+};
 
     render() {
         const { errors } = this.state;
@@ -88,6 +122,9 @@ class ForumPage extends Component {
                             onChange={this.onChange}
                             placeholder="Enter a title for the discussion"
                         />
+                        <div style={{ fontSize: 12, color: "red" }}>
+                            {this.state.titleError}
+                          </div>
                         </Form.Field>
                         {/* Title description */}
                         <Form.Field>
@@ -102,6 +139,9 @@ class ForumPage extends Component {
                             rows="4"
                             cols="50"
                         />
+                        <div style={{ fontSize: 12, color: "red" }}>
+                            {this.state.descriptionError}
+                          </div>
                         </Form.Field>
 
                         {/* submit  */}
