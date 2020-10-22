@@ -7,7 +7,20 @@ import classnames from "classnames";
 import {Button} from 'react-bootstrap';
 
 
+const Validator = require("validator");
+const isEmpty = require("is-empty");
+
 let navbar = undefined;
+
+const initialErrorState = {
+    eventnameError:"",
+    eventdateError:"",
+    eventvenueError:"",
+    descriptionError:"",
+    sponsorError:"",
+    
+}
+
 class CreateEvent extends React.Component {
 
   constructor() {
@@ -40,9 +53,57 @@ class CreateEvent extends React.Component {
     }
   }
 
+  validateForm = () =>{
+    let eventnameError="";
+let eventdateError="";
+let eventvenueError="";
+let descriptionError="";
+let sponsorError="";
+
+ 
+     //name errors
+ 
+     if(isEmpty(this.state.eventname)){
+       eventnameError= "Event name field is required"
+     }
+     if(isEmpty(this.state.eventvenue)){
+        eventvenueError= "Event venue field is required"
+      }
+ 
+     if(isEmpty(this.state.description)){
+       descriptionError= "Event description is required"
+     }
+ 
+     if(isEmpty(this.state.sponsor)){
+       sponsorError= "Sponsor field is required"
+     }
+
+     const formdate = new Date(this.state.eventdate)
+    const milli = formdate.getTime();
+    if(isEmpty(this.state.eventdate)){
+      eventdateError="Select a date for event"
+    }else if(milli < Date.now()){
+      eventdateError = "Event cannot be in the past..!!"
+    }
+
+
+ 
+     
+ 
+ 
+     if(eventnameError || eventvenueError || eventdateError || descriptionError|| sponsorError){
+       this.setState({eventdateError, eventnameError, eventvenueError, descriptionError, sponsorError});
+       return false;
+     }
+ 
+     return true;
+ 
+   }
+
   onSubmit = (e) => {
     e.preventDefault();
-
+    const isFormValid = this.validateForm();
+    if (isFormValid){
     const newevent = {
       eventname: this.state.eventname,
       eventdate: this.state.eventdate,
@@ -51,10 +112,13 @@ class CreateEvent extends React.Component {
       sponsor: this.state.sponsor
 
     };
+
+    this.setState(initialErrorState);
     axios.post('http://localhost:5000/api/events/createEvent', newevent)
       .then(res => console.log(res.data))
       .then(this.props.history.push("/upcomingEvents"))
   }
+};
 
   render() {
     const { errors } = this.state;
@@ -81,15 +145,10 @@ class CreateEvent extends React.Component {
             value={this.state.eventname}
             onChange={this.onChange}
             placeholder="Enter event name"
-            error={errors.eventname}
-                  className={classnames("", {
-                    invalid: errors.eventname
-                  })}
-                />
-                
-                <span className="red-text">
-                  {errors.eventname}
-                </span>
+            />
+            <div style={{ fontSize: 12, color: "red" }}>
+                            {this.state.eventnameError}
+                          </div>
                 </Form.Field>
 
           {/* Date */}
@@ -102,15 +161,10 @@ class CreateEvent extends React.Component {
             value={this.state.date}
             onChange={this.onChange}
             placeholder="Select a date"
-            error={errors.eventdate}
-                  className={classnames("", {
-                    invalid: errors.eventdate
-                  })}
-                />
-                
-                <span className="red-text">
-                  {errors.eventdate}
-                </span>
+            />
+            <div style={{ fontSize: 12, color: "red" }}>
+                            {this.state.eventdateError}
+                          </div>
                 </Form.Field>
           {/* event venue */}
           <Form.Field>
@@ -122,15 +176,10 @@ class CreateEvent extends React.Component {
             value={this.state.eventvenue}
             onChange={this.onChange}
             placeholder="Enter venue details"
-            error={errors.eventvenue}
-                  className={classnames("", {
-                    invalid: errors.eventvenue
-                  })}
-                />
-                
-                <span className="red-text">
-                  {errors.eventvenue}
-                </span>
+            />
+            <div style={{ fontSize: 12, color: "red" }}>
+                            {this.state.eventvenueError}
+                          </div>
                 </Form.Field>
 
                 {/* Event sponsor */}
@@ -143,15 +192,10 @@ class CreateEvent extends React.Component {
             value={this.state.sponsor}
             onChange={this.onChange}
             placeholder="Enter sponsor details"
-            error={errors.eventvenue}
-                  className={classnames("", {
-                    invalid: errors.sponsor
-                  })}
-                />
-                
-                <span className="red-text">
-                  {errors.sponsor}
-                </span>
+            />
+            <div style={{ fontSize: 12, color: "red" }}>
+                            {this.state.sponsorError}
+                          </div>
                 </Form.Field>
           {/* Event description */}
           <Form.Field>
@@ -165,15 +209,10 @@ class CreateEvent extends React.Component {
                             placeholder="Enter your thoughts here..!!"
                             rows="4"
                             cols="50"
-            error={errors.description}
-                  className={classnames("", {
-                    invalid: errors.description
-                  })}
-                />
-                
-                <span className="red-text">
-                  {errors.description}
-                </span>
+                            />
+                            <div style={{ fontSize: 12, color: "red" }}>
+                            {this.state.descriptionError}
+                          </div>
                 </Form.Field>
                 {/* <Form.Field>
                 <label htmlFor="eventimage">Event Image</label>
