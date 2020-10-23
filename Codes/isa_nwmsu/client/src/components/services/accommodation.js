@@ -22,6 +22,8 @@ const initialErrorState = {
     genderError:"",
     contactnoError:"",
     emailError:"",
+    fromDateError:"",
+    toDateError:"",
 }
 
 class Accommodation extends Component {
@@ -36,6 +38,8 @@ class Accommodation extends Component {
             gender: "Male",
             contactNo: "",
             email: "",
+            fromDate:"",
+            toDate:"",
             errors: {}
         };
     }
@@ -62,6 +66,8 @@ class Accommodation extends Component {
     let genderError="";
     let contactnoError="";
     let emailError="";
+    let fromDateError="";
+    let toDateError="";
      
          //name errors
      
@@ -78,6 +84,26 @@ class Accommodation extends Component {
          }else if(!Validator.isEmail(this.state.email)){
            emailError= "Email entered is invalid"
          }
+
+         const formFromdate = new Date(this.state.fromDate)
+    const fromMilli = formFromdate.getTime();
+    if(isEmpty(this.state.fromDate)){
+      fromDateError="Select a date for accommodation start"
+    }else if(fromMilli < Date.now()+43200000){
+      fromDateError = "Accommodation needs to be atleast 12 hrs from now to process"
+    }
+
+    const formToDate = new Date(this.state.toDate)
+    const toMilli = formToDate.getTime();
+    if(isEmpty(this.state.toDate)){
+      toDateError="Select a date for accommodation end"
+    }else if(toMilli < fromMilli) {
+      toDateError = "To date in the past, select a future date than from date"
+    }else if(toMilli < fromMilli+(86400000 * Number(this.state.daysRequired))){
+        toDateError="To date is invalid, select a valid to date or change days required"
+        daysrequiredError= "Days required is invalid please check to date or change days required"
+    }
+
      
          if(isEmpty(this.state.contactNo)){
            contactnoError= "Cell field is required"
@@ -105,8 +131,8 @@ class Accommodation extends Component {
          
      
      
-         if(firstnameError || lastnameError || emailError || contactnoError|| daysrequiredError|| nonError|| genderError){
-           this.setState({firstnameError, lastnameError, emailError, contactnoError, daysrequiredError, nonError,genderError});
+         if(firstnameError || lastnameError || emailError || contactnoError|| daysrequiredError|| nonError|| genderError||fromDateError||toDateError){
+           this.setState({firstnameError, lastnameError, emailError, contactnoError, daysrequiredError, nonError,genderError,fromDateError,toDateError});
            return false;
          }
      
@@ -134,7 +160,8 @@ class Accommodation extends Component {
             gender: this.state.gender,
             contactNo: this.state.contactNo,
             email: this.state.email,
-            accommodationId: this.state.accommodationId,
+            fromDate: this.state.fromDate,
+            toDate: this.state.toDate
 
         };
 
@@ -248,7 +275,7 @@ class Accommodation extends Component {
 
 
                         
-                        {/* major */}
+                        {/* Days Required */}
                         <Form.Field>
                         <label htmlFor="daysRequired">Days Required</label>
                         <Input transparent
@@ -263,6 +290,39 @@ class Accommodation extends Component {
                             {this.state.daysrequiredError}
                           </div>
                         </Form.Field>
+                        {/* from date */}
+                        <Form.Group>
+                        <Form.Field>
+          <label htmlFor="fromDate">From Date</label>
+          <Input transparent
+            type="datetime-local"
+            name="fromDate"
+            id="fromDate"
+            value={this.state.fromDate}
+            onChange={this.onChange}
+            placeholder="Select a date"
+            />
+            <div style={{ fontSize: 12, color: "red" }}>
+            {this.state.fromDateError}
+          </div>
+                </Form.Field>
+          {/* To date */}
+          <Form.Field>
+          <label htmlFor="toDate">To Date</label>
+          <Input transparent
+            type="datetime-local"
+            name="toDate"
+            id="toDate"
+            value={this.state.toDate}
+            onChange={this.onChange}
+            placeholder="Select a date"
+            />
+            <div style={{ fontSize: 12, color: "red" }}>
+            {this.state.toDateError}
+          </div>
+                </Form.Field>
+                </Form.Group>
+          
                         {/* contact no */}
                         <Form.Field>
                         <label htmlFor="contactNo">Contact Number</label>

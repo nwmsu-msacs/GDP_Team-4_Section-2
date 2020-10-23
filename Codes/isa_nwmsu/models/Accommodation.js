@@ -33,6 +33,14 @@ const AccommodationSchema = new Schema({
   email:{
     type:String,
     required:true
+  },
+  fromDate:{
+    type:Date,
+    required:true
+  },
+  toDate:{
+    type:Date,
+    required:true
   }
 });
 module.exports = Accommodation = mongoose.model("accommodation", AccommodationSchema);

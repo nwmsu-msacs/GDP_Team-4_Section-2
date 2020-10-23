@@ -12,7 +12,7 @@ const nodemailer = require('nodemailer');
 
 // post the data of pickup 
 router.post("/pickup", async (req, res) => {
-  
+
     const { errors, isValid } = validatePickupInput(req.body)
 
     if (!isValid) {
@@ -48,6 +48,8 @@ router.post("/accommodation", (req, res) => {
         gender: req.body.gender,
         contactNo: req.body.contactNo,
         email: req.body.email,
+        fromDate: req.body.fromDate,
+        toDate: req.body.toDate
     });
 
     accommodationData.save();
@@ -122,6 +124,8 @@ router.post("/accommodationaccept", (req, res) => {
               + 'Name: '+`${data.firstName}`+' '+`${data.lastName}`+'\n'
               +'919#: '+`${data.non}`+'\n'
               +'Days Required: '+`${data.daysRequired}`+'\n'
+              +'From: '+`${data.fromDate.substring(0,10)}`+'\n'
+              +'To: '+`${data.toDate.substring(0,10)}`+'\n'
               +'Gender: '+`${data.gender}`+'\n'
               +'Contact No: '+`${data.contactNo}`+'\n\n'
               + 'Contact ISA team for any other information or queries\n'
@@ -177,22 +181,13 @@ router.post("/accommodationreject", (req, res) => {
               + 'Name: '+`${data.firstName}`+' '+`${data.lastName}`+'\n'
               +'919#: '+`${data.non}`+'\n'
               +'Days Required: '+`${data.daysRequired}`+'\n'
+              +'From: '+`${data.fromDate.substring(0,10)}`+'\n'
+              +'To: '+`${data.toDate.substring(0,10)}`+'\n'
               +'Gender: '+`${data.gender}`+'\n'
               +'Contact No: '+`${data.contactNo}`+'\n\n'
               + 'Contact ISA team for any other information or queries\n'
               +'\n\nRegards,\nTeam ISA.',
           
-
-              name: req.body.name,
-            email: req.body.email,
-            cell: req.body.cell,
-            luggage: req.body.luggage,
-            from: req.body.from,
-            to: req.body.to,
-            date: req.body.date,
-            airline: req.body.airline,
-            flightNo: req.body.flightNo,
-            pickupId: req.body.pickupId
           };
     
           console.log('sending mail');
