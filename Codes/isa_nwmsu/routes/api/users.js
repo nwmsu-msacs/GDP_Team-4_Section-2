@@ -55,7 +55,9 @@ router.post("/register", (req, res) => {
 // @access Public
 router.post("/login", (req, res) => {
   // Form validation
+  
   const { errors, isValid } = validateLoginInput(req.body);
+  console.log(isValid)
   // Check validation
   if (!isValid) {
     return res.status(400).json(errors);
@@ -66,6 +68,7 @@ router.post("/login", (req, res) => {
   User.findOne({ email }).then(user => {
     // Check if user exists
     if (!user) {
+      console.log("Email not found")
       return res.status(404).json({ emailnotfound: "Email not found" });
     }
     // Check password
@@ -97,6 +100,7 @@ router.post("/login", (req, res) => {
           }
         );
       } else {
+        console.log("password incorrect")
         return res
           .status(400)
           .json({ passwordincorrect: "Password incorrect" });

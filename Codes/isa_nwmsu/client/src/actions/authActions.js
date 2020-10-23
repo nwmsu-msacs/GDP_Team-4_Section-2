@@ -68,11 +68,7 @@ export const logoutUser = () => dispatch => {
 
   console.log("---inside auth----")
   // Remove token from local storage
-  localStorage.removeItem("jwtToken");
-  localStorage.removeItem("email");
-  localStorage.removeItem("role");
-  localStorage.removeItem("name");
-  localStorage.removeItem("discussionId")
+  localStorage.clear();
   // Remove auth header for future requests
   setAuthToken(false);
   // Set current user to empty object {} which will set isAuthenticated to false

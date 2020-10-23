@@ -5,6 +5,16 @@ import { loginUser } from "../../actions/authActions";
 import image from "../layout/assets/carousel_image4.jpg"
 import classnames from "classnames";
 import Navbar from "../layout/Navbar";
+
+
+const Validator = require("validator");
+const isEmpty = require("is-empty");
+
+const initialErrorState = {
+  emailError:"",
+  passwordError:"",
+}
+
 class Login extends Component {
   constructor() {
     super();
@@ -43,9 +53,12 @@ class Login extends Component {
     }
 
     if (nextProps.errors) {
+      
       this.setState({
         errors: nextProps.errors
       });
+      console.log(this.state.errors)
+      this.state.passwordError="invalid Credentials, check your email/password "
     }
   }
 
@@ -53,16 +66,46 @@ class Login extends Component {
     this.setState({ [e.target.id]: e.target.value });
   };
 
+  validateForm = () =>{
+    let passwordError="";
+let emailError="";
+ 
+     //name errors 
+   
+     if(isEmpty(this.state.email)){
+       emailError= "Email field is required"
+     }else if(!Validator.isEmail(this.state.email)){
+       emailError= "Email entered is invalid"
+     }
+ 
+     
+     if(isEmpty(this.state.password)){
+       passwordError= "Password cannot be empty"
+     }
+
+     if(emailError || passwordError){
+       this.setState({emailError, passwordError});
+       return false;
+     }
+ 
+     return true;
+ 
+   }
+
+
   onSubmit = e => {
     e.preventDefault();
-
+    const isFormValid = this.validateForm();
+    if (isFormValid){
     const userData = {
       email: this.state.email,
       password: this.state.password
     };
-
+    
+    this.setState(initialErrorState);
     this.props.loginUser(userData);
-  };
+  }
+};
 
   render() {
     const { errors } = this.state;
@@ -102,6 +145,9 @@ class Login extends Component {
                     {errors.email}
                     {errors.emailnotfound}
                   </span>
+                  <div style={{ fontSize: 12, color: "red" }}>
+                            {this.state.emailError}
+                          </div>
                 </div>
                 <div className="input-field col s12">
                   <label htmlFor="password">Password</label>
@@ -120,6 +166,9 @@ class Login extends Component {
                     {errors.password}
                     {errors.passwordincorrect}
                   </span>
+                  <div style={{ fontSize: 12, color: "red" }}>
+                            {this.state.passwordError}
+                          </div>
                 </div>
                 <div className="col s12"><a href="/forgotPassword">Forgot Password?</a></div>
                 <div className="col s12" style={{ paddingLeft: "11.250px" }}>
@@ -153,7 +202,6 @@ Login.propTypes = {
 
 const mapStateToProps = state => ({
   auth: state.auth,
-
   errors: state.errors
 });
 
