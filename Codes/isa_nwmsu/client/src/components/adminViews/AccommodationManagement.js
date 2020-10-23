@@ -20,13 +20,16 @@ function accept(data, self) {
     .catch(err => console.log(err));
 };
 
+//pending cards
+
 const AccommodationMap = (accommodationList, self) => {
   console.log("-----accommodationList", accommodationList);
 
   let res = accommodationList.map((data) => {
     return (
 
-
+<div>
+    {data.status === "Pending"?
       <div class="row" key={data._id}>
 
         {/* <!-- Grid column --> */}
@@ -42,6 +45,8 @@ const AccommodationMap = (accommodationList, self) => {
           <p class="text-uppercase blue-text"><strong>919#: {data.non}</strong></p>
           <p class="text-uppercase blue-text"><strong>Gender: {data.gender}</strong></p>
           <p class="text-uppercase blue-text"><strong>Days Required:  {data.daysRequired}</strong></p>
+          <p class="text-uppercase blue-text"><strong>From Date: {data.fromDate.substring(0,10)}</strong></p>
+            <p class="text-uppercase blue-text"><strong>To Date: {data.toDate.substring(0,10)}</strong></p>
           <p class="text-uppercase blue-text"><strong>Status:  {data.status}</strong></p>
     </Card.Text>
     <p class="h4 text-center mb-4">
@@ -65,10 +70,11 @@ const AccommodationMap = (accommodationList, self) => {
           </Card.Body>
         </Card>
         {/* </Card.Group> */}
-        
-
-      </div>
-
+</div>        
+:
+null
+    }
+    </div>
     );
   });
 
@@ -76,6 +82,53 @@ const AccommodationMap = (accommodationList, self) => {
 
   return res;
 }
+
+//Accept and reject cards
+const ARAccommodationMap = (accommodationList, self) => {
+  console.log("-----accommodationList", accommodationList);
+
+  let res = accommodationList.map((data) => {
+    return (
+
+<div>
+    {data.status === "Accepted" || data.status === "Rejected"?
+      <div class="row" key={data._id}>
+
+        {/* <!-- Grid column --> */}
+
+        {/* <Card.Group> */}
+        <Card style={{ width: '50rem'}}>
+          <Card.Body>
+            <Card.Title>{data.firstName}&nbsp;{data.lastName}</Card.Title>
+            <br/>
+            <Card.Subtitle className="mb-2 text-muted"><i class="material-icons" style={{ color: "grey", opacity: "90%" }}>phone</i>{data.contactNo}</Card.Subtitle>
+            <Card.Text>
+            <p class="text-uppercase blue-text"><strong>Email: {data.email}</strong></p>
+          <p class="text-uppercase blue-text"><strong>919#: {data.non}</strong></p>
+          <p class="text-uppercase blue-text"><strong>Gender: {data.gender}</strong></p>
+          <p class="text-uppercase blue-text"><strong>Days Required:  {data.daysRequired}</strong></p>
+          <p class="text-uppercase blue-text"><strong>From Date: {data.fromDate.substring(0,10)}</strong></p>
+            <p class="text-uppercase blue-text"><strong>To Date: {data.toDate.substring(0,10)}</strong></p>
+          <p class="text-uppercase blue-text"><strong>Status:  {data.status}</strong></p>
+    </Card.Text>
+    
+          </Card.Body>
+        </Card>
+        {/* </Card.Group> */}
+</div>        
+:
+null
+    }
+    </div>
+    );
+  });
+
+  console.log(res);
+
+  return res;
+}
+
+
 
 class AccommodationManagement extends Component {
 
@@ -130,9 +183,27 @@ class AccommodationManagement extends Component {
                                         textShadow:"2px 2px #A9A9A9", 
                                         color:"#585858",
                                         }}>Accommodation Management</h2>
+<hr style={{border:"1px dotted #0099FF", width:"83%"}}/>
+<h4 class="text-center" style={{fontFamily:"Arial",
+                                        fontStyle:"Italic", 
+                                        textShadow:"2px 2px #A9A9A9", 
+                                        color:"#585858",
+                                        }}>Accommodations pending action</h4>
+                                     
           <div class="container" style={{ columns: "3", width:"100%" }}>
             <p>{AccommodationMap(this.state.AccommodationData, this.state.self)}</p>
           </div>
+
+          <hr style={{border:"1px dotted #0099FF", width:"83%"}}/>
+        <h4 class="text-center" style={{fontFamily:"Arial",
+                                        fontStyle:"Italic", 
+                                        textShadow:"2px 2px #A9A9A9", 
+                                        color:"#585858",
+                                        }}>Accepted &amp; Rejected accommodations</h4>
+
+        <div class="container" style={{ columns: "3", width:"100%" }}>
+        <p>{ARAccommodationMap(this.state.AccommodationData, this.state.self)}</p>
+        </div>
         </div>
       </div>
     );

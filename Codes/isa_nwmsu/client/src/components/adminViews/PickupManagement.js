@@ -26,7 +26,8 @@ const pickUpMap = (pickupList, self) => {
   let res = pickupList.map((data) => {
     return (
 
-
+<div>
+  {data.status === "Pending"?
       <div class="row" key = {data._id}>
 
 <Card style={{ width: '50rem'}}>
@@ -63,15 +64,66 @@ const pickUpMap = (pickupList, self) => {
                 </Button></p>
           </Card.Body>
         </Card>
-
+        </div>
+:
+null
+}
         
         
-
+        
       </div>
       
     );
   });
 
+  console.log(res);
+
+  return res;
+}
+
+
+  //Send accepted and rejeted requests
+
+  const ARpickUpMap = (pickupList, self) => {
+    console.log("-----pickupList", pickupList);
+    
+    let res = pickupList.map((data) => {
+      return (
+  
+  <div>
+    {data.status === "Rejected" || data.status === "Accepted"?
+        <div class="row" key = {data._id}>
+  
+        <Card style={{ width: '50rem'}}>
+                  <Card.Body>
+                    <Card.Title>{data.name}</Card.Title>
+                    <br/>
+                    <Card.Subtitle className="mb-2 text-muted"><i class="material-icons" style={{ color: "grey", opacity: "90%" }}>phone</i>{data.cell}</Card.Subtitle>
+                    <Card.Text>
+                    <p class="text-uppercase blue-text"><strong>Pickup Date: {data.date.substring(0,10)}</strong></p>
+                  <p class="text-uppercase blue-text"><strong>Pickup Time: {data.date.substring(11,19)}</strong></p>
+                  <p class="text-uppercase blue-text"><strong>Email:  {data.email}</strong></p>
+                  <p class="text-uppercase blue-text"><strong>From:  {data.from} &nbsp; &nbsp; To: {data.to}</strong></p>
+                  <p class="text-uppercase blue-text"><strong>Airline:  {data.airline} &nbsp;&nbsp; FlightNo: {data.flightNo}</strong></p>
+                  <p class="text-uppercase blue-text"><strong>Luggage:  {data.luggage}</strong></p>
+                  <p class="text-uppercase blue-text"><strong>Status:  {data.status}</strong></p>
+            </Card.Text>
+            
+                  </Card.Body>
+                </Card>
+                </div>
+  :
+  null
+  
+  }
+          
+          
+          
+        </div>
+        
+      );
+    });
+  
   console.log(res);
 
   return res;
@@ -133,8 +185,25 @@ class PickupManagement extends Component {
                                         textShadow:"2px 2px #A9A9A9", 
                                         color:"#585858",
                                         }}>Pickup Management</h2>
+<hr style={{border:"1px dotted #0099FF", width:"83%"}}/>
+<h4 class="text-center" style={{fontFamily:"Arial",
+                                        fontStyle:"Italic", 
+                                        textShadow:"2px 2px #A9A9A9", 
+                                        color:"#585858",
+                                        }}>Pickups pending action</h4>
+
           <div class="container" style={{ columns: "3", width:"100%" }}>
         <p>{pickUpMap(this.state.pickUpdata, this.state.self)}</p>
+        </div>
+        <hr style={{border:"1px dotted #0099FF", width:"83%"}}/>
+        <h4 class="text-center" style={{fontFamily:"Arial",
+                                        fontStyle:"Italic", 
+                                        textShadow:"2px 2px #A9A9A9", 
+                                        color:"#585858",
+                                        }}>Accepted &amp; Rejected pickups</h4>
+
+        <div class="container" style={{ columns: "3", width:"100%" }}>
+        <p>{ARpickUpMap(this.state.pickUpdata, this.state.self)}</p>
         </div>
         </div>
       </div>

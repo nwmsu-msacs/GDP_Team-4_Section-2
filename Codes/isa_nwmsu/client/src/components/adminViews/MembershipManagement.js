@@ -18,8 +18,8 @@ const memberShipMap = (membershipList, self) => {
   console.log("-----membershipList", membershipList);
   let res = membershipList.map((data) => {
     return (
-
-        
+<div>
+        {data.status === "Active"?
       <div class="row" key = {data._id}>
 
 <Card style={{ width: '70rem'}}>
@@ -49,7 +49,8 @@ const memberShipMap = (membershipList, self) => {
 
         
       </div>
-      
+      :null}
+      </div>
     );
   });
 

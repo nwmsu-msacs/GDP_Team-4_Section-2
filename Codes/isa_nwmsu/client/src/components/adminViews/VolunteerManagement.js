@@ -20,13 +20,16 @@ function accept(data, self) {
     .catch(err => console.log(err));
 };
 
+
+//pending data
 const VolunteerMap = (volunteerList, self) => {
   console.log("-----volunteerList", volunteerList);
   
   let res = volunteerList.map((data) => {
     return (
 
-
+<div>
+{data.status === "Pending"?
       <div class="row" key={data._id}>
 
 <Card style={{ width: '50rem'}}>
@@ -60,8 +63,48 @@ const VolunteerMap = (volunteerList, self) => {
                 </Button></p>
           </Card.Body>
         </Card>
+</div>
+      :null}
 
         
+
+      </div>
+      
+    );
+  });
+
+  console.log(res);
+
+  return res;
+}
+
+//accepted rejected data
+const ARVolunteerMap = (volunteerList, self) => {
+  console.log("-----volunteerList", volunteerList);
+  
+  let res = volunteerList.map((data) => {
+    return (
+
+<div>
+{data.status === "Accepted" || data.status === "Rejected"?
+      <div class="row" key={data._id}>
+
+<Card style={{ width: '50rem'}}>
+          <Card.Body>
+            <Card.Title>{data.firstName}&nbsp;{data.lastName}</Card.Title>
+            <br/>
+            <Card.Subtitle className="mb-2 text-muted"><i class="material-icons" style={{ color: "grey", opacity: "90%" }}>phone</i>{data.contactNo}</Card.Subtitle>
+            <Card.Text>
+            <p class="text-uppercase blue-text"><strong>Email: {data.email}</strong></p>
+          <p class="text-uppercase blue-text"><strong>919# : {data.non}</strong></p>
+          <p class="text-uppercase blue-text"><strong>car Type:  {data.carType}</strong></p>
+          <p class="text-uppercase blue-text"><strong>Status:  {data.status}</strong></p>
+    </Card.Text>
+          </Card.Body>
+        </Card>
+</div>
+      :null}
+
         
 
       </div>
@@ -128,8 +171,25 @@ class VolunteerManagement extends Component {
                                         textShadow:"2px 2px #A9A9A9", 
                                         color:"#585858",
                                         }}>Volunteer Management</h2>
+<hr style={{border:"1px dotted #0099FF", width:"83%"}}/>
+<h4 class="text-center" style={{fontFamily:"Arial",
+                                        fontStyle:"Italic", 
+                                        textShadow:"2px 2px #A9A9A9", 
+                                        color:"#585858",
+                                        }}>Volunteer's pending action</h4>
           <div class="container" style={{ columns: "3", width:"100%" }}>
         <p>{VolunteerMap(this.state.volunteerData, this.state.self)}</p>
+        </div>
+
+        <hr style={{border:"1px dotted #0099FF", width:"83%"}}/>
+        <h4 class="text-center" style={{fontFamily:"Arial",
+                                        fontStyle:"Italic", 
+                                        textShadow:"2px 2px #A9A9A9", 
+                                        color:"#585858",
+                                        }}>Accepted &amp; Rejected volunteer's</h4>
+
+        <div class="container" style={{ columns: "3", width:"100%" }}>
+        <p>{ARVolunteerMap(this.state.volunteerData, this.state.self)}</p>
         </div>
         </div>
       </div>
