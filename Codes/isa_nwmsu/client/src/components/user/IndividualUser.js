@@ -149,6 +149,8 @@ const pickUpMap = (pickupList, self) => {
             <p class="text-uppercase blue-text"><strong>919#: {data.non}</strong></p>
             <p class="text-uppercase blue-text"><strong>Gender: {data.gender}</strong></p>
             <p class="text-uppercase blue-text"><strong>Days Required:  {data.daysRequired}</strong></p>
+            <p class="text-uppercase blue-text"><strong>From Date: {data.fromDate.substring(0,10)}</strong></p>
+            <p class="text-uppercase blue-text"><strong>To Date: {data.toDate.substring(0,10)}</strong></p>
             <p class="text-uppercase blue-text"><strong>Status:  {data.status}</strong></p>
       </Card.Text>
       <p class="h4 text-center mb-4">
