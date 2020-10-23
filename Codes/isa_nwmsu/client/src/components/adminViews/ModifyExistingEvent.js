@@ -152,7 +152,7 @@ let sponsorError="";
                         </div>
         
         <div class="col-md-4" >
-        <p class="h3 text-center mb-4">Add an event</p>
+        <p class="h3 text-center mb-4">Modify Event</p>
         <Form class onSubmit={this.onSubmit}>
           
           {/* event Name */}
