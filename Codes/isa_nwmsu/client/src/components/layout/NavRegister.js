@@ -13,7 +13,7 @@ class NavRegister extends Component {
             <ul>
                 <li>
                     <a className='nav-link' href='/register'>
-                        Resister
+                        Register
                     </a>
                 </li>
             </ul>
