@@ -36,7 +36,9 @@ const VolunteerMap = (volunteerList, self) => {
     return (
 
         
-
+<div>
+  {data.status!="Rejected"?
+  
 
       <div class="row" key={data._id}>
 
@@ -67,6 +69,9 @@ const VolunteerMap = (volunteerList, self) => {
         
 
       </div>
+      :
+      null}
+      </div>
       
     );
   });
@@ -82,9 +87,13 @@ const pickUpMap = (pickupList, self) => {
     console.log("-----pickupList", pickupList);
     
     let res = pickupList.map((data) => {
+      let itemDate = new Date(data.date);
+      let milli = itemDate.getTime()
+
       return (
   
-  
+  <div>
+{milli > Date.now() && data.status != "Rejected"?
         <div class="row" key = {data._id}>
   
   <Card style={{ width: '50rem'}}>
@@ -115,7 +124,11 @@ const pickUpMap = (pickupList, self) => {
   
           
           
-  
+          </div>
+
+          :
+          null}
+        
         </div>
         
       );
@@ -131,9 +144,14 @@ const pickUpMap = (pickupList, self) => {
     console.log("-----accommodationList", accommodationList);
   
     let res = accommodationList.map((data) => {
+
+      let itemDate = new Date(data.toDate);
+      let milli = itemDate.getTime();
       return (
+  <div>
+    {milli > Date.now() && data.status != "Rejected"?
   
-  
+        
         <div class="row" key={data._id}>
   
           {/* <!-- Grid column --> */}
@@ -167,6 +185,9 @@ const pickUpMap = (pickupList, self) => {
           {/* </Card.Group> */}
           
   
+        </div>
+        :
+        null}
         </div>
   
       );
