@@ -8,7 +8,7 @@ const Volunteer = require("../../models/Volunteer");
 
 router.get("/pickupManagement",(req,res) => {
 
-    Pickup.find({}).then((pickupdata) => {
+    Pickup.find({date :{$gte:Date.now()}}).then((pickupdata) => {
         if(pickupdata == null){
             console.error('No pickup data retrieved');
             res.status(403).send('No pickup data retrieved');
@@ -32,7 +32,7 @@ router.get("/membershipManagement",(req,res) => {
 
 router.get("/accommodationManagement",(req,res) => {
 
-    Accommodation.find({}).then((accommodationdata) => {
+    Accommodation.find({toDate :{$gte:Date.now()}}).then((accommodationdata) => {
         if(accommodationdata == null){
             console.error('No accommodation data retrieved');
             res.status(403).send('No accommodation data retrieved');
