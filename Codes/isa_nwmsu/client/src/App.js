@@ -37,6 +37,9 @@ import RepliesView from "./components/forum/Replies"
 import IndividualUser from "./components/user/IndividualUser";
 import ManageEvents from "./components/adminViews/ManageEvent";
 import ModifyEvent from "./components/adminViews/ModifyExistingEvent";
+import AddFAQ from "./components/adminViews/AddFAQ";
+import ManageFAQ from "./components/adminViews/FAQManagement";
+import ModifyFAQ from "./components/adminViews/ModifyFAQ";
 // import { route } from "../../routes/api/users";
 // Check for token to keep user logged in
 if (localStorage.jwtToken) {
@@ -106,7 +109,9 @@ class App extends Component {
               <Route exact path="/individualUser" component={IndividualUser} />
               <Route exact path="/manageEvents" component={ManageEvents} />
               <Route exact path="/modifyEvent" component={ModifyEvent} />
-
+              <Route exact path="/addFaq" component={AddFAQ} />
+              <Route exact path="/manageFaq" component={ManageFAQ} />
+              <Route exact path="/modifyFaq" component={ModifyFAQ} />
 
               {this.state.loggedIn === true ? <Route exact path='/logout' component={developmentInProgress} /> : null}
             </Switch>
