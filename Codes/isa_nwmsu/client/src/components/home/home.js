@@ -60,7 +60,7 @@ class Home extends Component {
         {navbar}
         
         <div class="row"> 
-        <img src = {adminBlock} alt="background image" style={{width:"100%", filter:"brightness(55%)"}}/>
+        <img src = {adminBlock} alt="background" style={{width:"100%", filter:"brightness(55%)"}}/>
         <div class="container" style={{textAlign:'right', position:"absolute",marginLeft:"6rem",marginTop:"13rem"}}>
         <h1 style={{fontFamily:"Times New Roman", 
                     fontSize:"8rem",color:"white", 
