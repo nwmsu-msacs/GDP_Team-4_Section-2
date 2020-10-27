@@ -53,7 +53,6 @@ class ModifyFAQ extends React.Component {
     axios
       .get("http://localhost:5000/api/admin/getFaq/"+localStorage.getItem("faqId"))
       .then(res => {
-        console.log(res.data.faq)
         this.setState({
             question: res.data.faq[0].question,
             answer: res.data.faq[0].answer,
