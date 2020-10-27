@@ -48,7 +48,6 @@ class ForgotPassword extends Component {
             email: this.state.email,
           },
         );
-        console.log(response.data);
         if (response.data === 'recovery email sent') {
           this.setState({
             showError: false,
@@ -57,7 +56,6 @@ class ForgotPassword extends Component {
           });
         }
       } catch (error) {
-        console.error(error.response.data);
         if (error.response.data === 'email not in database') {
           this.setState({
             showError: true,
