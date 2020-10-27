@@ -8,9 +8,6 @@ const loading = {
     fontSize: '24px',
 };
 
-const title = {
-    pageTitle: 'Password Reset Screen',
-};
 
 
 class ResetPassword extends Component {
