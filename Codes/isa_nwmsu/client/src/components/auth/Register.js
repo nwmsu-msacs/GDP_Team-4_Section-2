@@ -5,7 +5,6 @@ import { connect } from "react-redux";
 import { registerUser } from "../../actions/authActions";
 import classnames from "classnames";
 import image from "../layout/assets/carousel_image4.jpg";   
-import home from "../layout/assets/home.svg"; 
 import Navbar from "../layout/Navbar";
 
 class Register extends Component {
