@@ -5,10 +5,6 @@ import classnames from "classnames";
 import image from "../layout/assets/carousel_image4.jpg"
 import Navbar from "../layout/Navbar";
 
-const title = {
-  pageTitle: 'Forgot Password Screen',
-};
-
 
 class ForgotPassword extends Component {
   constructor() {
