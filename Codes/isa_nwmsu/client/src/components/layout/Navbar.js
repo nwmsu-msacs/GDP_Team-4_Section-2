@@ -29,7 +29,6 @@ class Navbar extends Component {
 
     
     render(props) {
-        console.log(`From NAVBAR${this.props.auth}`);
         return (
             <div className="navbar-fixed">
                 <nav class="navbar navbar-expand-lg " style={{backgroundColor:"#0099FF"}}>
