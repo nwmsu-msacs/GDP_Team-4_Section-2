@@ -113,9 +113,7 @@ const ARVolunteerMap = (volunteerList, self) => {
 
 class VolunteerManagement extends Component {
 
-  constructor(props){
-    super(props)
-  }
+
 
   state = {
     volunteerData: [],
