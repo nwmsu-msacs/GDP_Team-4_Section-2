@@ -1,8 +1,4 @@
 import React, { Component } from "react";
-import PropTypes from "prop-types";
-import { connect } from "react-redux";
-import classnames from "classnames";
-import image from "../layout/assets/carousel_image4.jpg"
 import axios from 'axios';
 import Navbar from "../layout/Navbar";
 import AdminNavbar from "../layout/AdminNavbar";
@@ -81,7 +77,7 @@ class Volunteer extends Component {
      
          if(isEmpty(this.state.contactNo)){
            contactnoError= "Cell field is required"
-         }else if(this.state.contactNo.length != 10 || isNaN(this.state.contactNo)){
+         }else if(this.state.contactNo.length !== 10 || isNaN(this.state.contactNo)){
            contactnoError= "Phone number is invalid"
          }
      
@@ -91,7 +87,7 @@ class Volunteer extends Component {
      
          if(isEmpty(this.state.non)){
            nonError= "To field is required"
-         }else if(this.state.non.length != 9 || isNaN(this.state.non)){
+         }else if(this.state.non.length !== 9 || isNaN(this.state.non)){
             nonError= "Enter full valid 919#"
           }
      
@@ -128,7 +124,6 @@ class Volunteer extends Component {
 };
 
     render() {
-        const { errors } = this.state;
 
         return (
             <div>
