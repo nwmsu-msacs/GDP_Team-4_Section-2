@@ -6,10 +6,6 @@ import {connect} from "react-redux";
 class NavLogout extends Component {
 
 
-    constructor(props) {
-        super(props)
-    }
-
     onLogoutClick = e => {
         this.props.logoutUser();
         this.setState({loggedIn: false}); 
