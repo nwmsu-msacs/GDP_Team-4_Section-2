@@ -15,7 +15,6 @@ function endMembership(data, self) {
 };
 
 const memberShipMap = (membershipList, self) => {
-  console.log("-----membershipList", membershipList);
   let res = membershipList.map((data) => {
     return (
 <div>
@@ -54,8 +53,6 @@ const memberShipMap = (membershipList, self) => {
     );
   });
 
-  console.log(res);
-
   return res;
 }
 
@@ -79,7 +76,6 @@ class MembershipManagement extends Component {
     axios
       .get("http://localhost:5000/api/admin/membershipManagement")
       .then(res => {
-        console.log(res.data.memberShipdata)
         this.setState({
           memberShipdata: res.data.membershipdata
         });
