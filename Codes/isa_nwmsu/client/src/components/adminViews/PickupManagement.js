@@ -126,9 +126,6 @@ null
 
 class PickupManagement extends Component {
 
-  constructor(props) {
-    super(props);
-  }
 
   state = {
     pickUpdata: [],
