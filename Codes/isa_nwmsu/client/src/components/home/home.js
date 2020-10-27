@@ -38,6 +38,7 @@ class Home extends Component {
     this.setState({
       self:this.props.history
     });
+  }
 
   componentWillMount() {
     if (localStorage.getItem('jwtToken') != null) {
