@@ -7,7 +7,6 @@ const Accommodation = require("../../models/Accommodation");
 const Volunteer = require("../../models/Volunteer");
 const FAQ = require("../../models/FAQ");
 const { json } = require("body-parser");
-// const { default: Faq } = require("../../client/src/components/adminViews/AddFAQ");
 
 
 router.get("/pickupManagement",(req,res) => {
