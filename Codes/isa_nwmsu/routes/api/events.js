@@ -1,6 +1,5 @@
 const express = require('express');
 const router = express.Router();
-//const {check, validationresult }=require('express-validator/check');
 const Event=require('../../models/Event');
 const validateEventInput = require("../../validation/createEvent");
 const keys = require("../../config/keys");
@@ -124,7 +123,6 @@ router.put('/modify/:eventId',  async (req,res) =>
         else{
 
             try{
-                //console.log();
        
                 Event.findByIdAndUpdate({ _id: req.params.eventId },
                     { $set: { eventname: req.body.eventname,
@@ -165,16 +163,6 @@ router.delete('/deleteEvent/:eventname',async (req,res)=> {
         
        
     });
-
-
-
-
-
-
-
-
-
-
 
 
 
