@@ -126,9 +126,6 @@ null
 
 class AccommodationManagement extends Component {
 
-  constructor(props) {
-    super(props);
-  }
   state = {
     AccommodationData: [],
     self: null,
