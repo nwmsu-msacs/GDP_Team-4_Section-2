@@ -4,10 +4,6 @@ import { connect } from "react-redux";
 import { logoutUser } from "../../actions/authActions";
 import Navbar from "../layout/Navbar";
 import AdminNavbar from "../layout/AdminNavbar";
-import { Redirect } from "react-router-dom";
-import {Button} from 'react-bootstrap';
-import {Card} from 'semantic-ui-react';
-import axios from "axios";
 import image from "./adminblock.jpg"
 import isa from "../layout/assets/isa.jpg"
 import n from "../layout/assets/N.png"
@@ -20,11 +16,6 @@ let navbar = undefined;
 
 
 class Home extends Component {
-
-
-  constructor(props){
-    super(props)
-  }
 
   state = {
     userVolunteerData: [],
@@ -62,14 +53,14 @@ class Home extends Component {
   
 
   render() {
-    const { user } = this.props.auth;
+    
 
     return (
       <div>
         {navbar}
         
         <div class="row"> 
-        <img src = {image} style={{width:"100%", filter:"brightness(55%)"}}/>
+        <img src = {image} alt="background image" style={{width:"100%", filter:"brightness(55%)"}}/>
         <div class="container" style={{textAlign:'right', position:"absolute",marginLeft:"6rem",marginTop:"13rem"}}>
         <h1 style={{fontFamily:"Times New Roman", 
                     fontSize:"8rem",color:"white", 
@@ -124,7 +115,7 @@ class Home extends Component {
             </div>
           </div>
         <div class="col-md-4">
-          <img src={isa} style={{borderRadius:"50%", height:"30rem",position:"absolute", marginTop:"4rem"}}/>
+          <img src={isa} alt="ISA-Logo"  style={{borderRadius:"50%", height:"30rem",position:"absolute", marginTop:"4rem"}}/>
         </div>
         </div>
         <br/>
@@ -160,9 +151,9 @@ class Home extends Component {
             </div>
             <div class="col-md-3">
             <h5 style={{color:"white"}}>Connect with us</h5>
-            <p> <a href="https://www.instagram.com/isa_nwmsu/"><img src = {instagram} style={{height:"2em"}}></img></a>
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="https://www.facebook.com/Indian-Student-AssociationISA-of-Northwest-Missouri-State-University-203948312972686/"><img src = {facebook} style={{height:"2em"}}></img></a>
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="https://nwmissouri.presence.io/organization/indian-student-association"><img src = {n} style={{height:"2em"}}></img></a></p>
+            <p> <a href="https://www.instagram.com/isa_nwmsu/"><img src = {instagram} alt="northwest-instagram" style={{height:"2em"}}></img></a>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="https://www.facebook.com/Indian-Student-AssociationISA-of-Northwest-Missouri-State-University-203948312972686/"><img src = {facebook} alt = "northwest-facebook" style={{height:"2em"}}></img></a>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="https://nwmissouri.presence.io/organization/indian-student-association"><img src = {n} alt = "Northwest-Icon" style={{height:"2em"}}></img></a></p>
             </div>
 
           </div>
