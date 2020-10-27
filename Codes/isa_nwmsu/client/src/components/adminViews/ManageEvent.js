@@ -23,7 +23,6 @@ function DeleteEvent(data, self) {
   };
 
 const EventMap = (eventList, self) => {
-  console.log("-----eventList", eventList);
 
   let res = eventList.map((data) => {
 
@@ -74,8 +73,6 @@ const EventMap = (eventList, self) => {
 
   });
 
-  console.log(res);
-
   return res;
 }
 
@@ -97,7 +94,6 @@ class ManageEvent extends Component {
     axios
       .get("http://localhost:5000/api/events/UpcomingEventsData")
       .then(res => {
-        console.log(res.data.eventdata)
         this.setState({
           EventData: res.data.eventdata
         });
