@@ -145,7 +145,6 @@ class ResetPassword extends Component {
                             width: "250px",
                             borderRadius: "3px",
                             letterSpacing: "1.5px",
-                            // marginTop: "1rem"
                         }}
                         type="submit"
                         className="btn btn-large waves-effect waves-light hoverable blue accent-3"
