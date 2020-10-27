@@ -15,7 +15,6 @@ function deleteReply(data, self){
 }
 
 const ReplyMap = (replyList, self, role, user) => {
-  console.log("-----replyList", replyList);
 
   let res = replyList.map((data) => {
     return (
@@ -82,7 +81,6 @@ const ReplyMap = (replyList, self, role, user) => {
     );
   });
 
-  console.log(res);
 
   return res;
 }
@@ -109,7 +107,6 @@ class ReplyView extends Component {
     axios
       .get("http://localhost:5000/api/forum/replies/"+localStorage.getItem("discussionId"))
       .then(res => {
-        console.log(res.data.replyData)
         this.setState({
           ReplyData: res.data.replyData
         });

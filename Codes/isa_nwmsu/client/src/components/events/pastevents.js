@@ -8,7 +8,6 @@ let navbar = undefined;
 
 
 const pastEventMap = (eventList, self) => {
-  console.log("-----eventList", eventList);
 
   let res = eventList.map((data) => {
 
@@ -41,8 +40,6 @@ const pastEventMap = (eventList, self) => {
 
   });
 
-  console.log(res);
-
   return res;
 }
 
@@ -64,7 +61,6 @@ class PastEvents extends Component {
     axios
       .get("http://localhost:5000/api/events/pastEventsData")
       .then(res => {
-        console.log(res.data.eventdata)
         this.setState({
           PastEventData: res.data.eventdata
         });

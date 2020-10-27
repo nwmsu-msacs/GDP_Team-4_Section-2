@@ -16,7 +16,6 @@ const initialErrorState = {
 }
 
 const ForumMap = (ForumList, self) => {
-  console.log("-----ForumList", ForumList);
   
   let res = ForumList.map((data) => {
     return (
@@ -42,8 +41,6 @@ const ForumMap = (ForumList, self) => {
       
     );
   });
-
-  console.log(res);
 
   return res;
 }
@@ -99,8 +96,6 @@ validateForm = () =>{
 
     }
 
-    console.log("reply content in submit --> ", newReply)
-
     this.setState(initialErrorState);
     axios.post('http://localhost:5000/api/forum/reply', newReply)
             .then(res => console.log(res.data))
@@ -119,7 +114,6 @@ validateForm = () =>{
     axios
       .get("http://localhost:5000/api/forum/singleForum/"+localStorage.getItem("discussionId"))
       .then(res => {
-        console.log("--->> in front",res.data.individualForum)
         this.setState({
           ForumData: res.data.individualForum
         });

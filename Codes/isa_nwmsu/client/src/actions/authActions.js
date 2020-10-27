@@ -24,7 +24,6 @@ export const registerUser = (userData, history) => dispatch => {
 
 // Login - get user token
 export const loginUser = userData => dispatch => {
-  // console.log(`actions${userData}`)
   axios
     .post("/api/users/login", userData)
     .then(res => {
@@ -66,7 +65,6 @@ export const setUserLoading = () => {
 // Log user out
 export const logoutUser = () => dispatch => {
 
-  console.log("---inside auth----")
   // Remove token from local storage
   localStorage.clear();
   // Remove auth header for future requests

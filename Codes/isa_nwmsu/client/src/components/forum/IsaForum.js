@@ -28,7 +28,6 @@ function deleteDiscussion(data, self){
 
 
 const discussionMap = (discussionList, self,role,user) => {
-  console.log("-----discussionList", discussionList);
 
   let res = discussionList.map((data) => {
     return (
@@ -123,9 +122,7 @@ const discussionMap = (discussionList, self,role,user) => {
     );
   });
 
-  console.log(res);
-
-  return res;
+return res;
 }
 
 class ISAForum extends Component {
@@ -150,8 +147,6 @@ class ISAForum extends Component {
     axios
       .get("http://localhost:5000/api/forum/forumDiscussions")
       .then(res => {
-        console.log(res.data.forumData)
-        console.log(this.state.role)
         this.setState({
           ForumData: res.data.forumData,
           

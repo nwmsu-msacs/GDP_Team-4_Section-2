@@ -21,7 +21,6 @@ function accept(data, self) {
 };
 
 const pickUpMap = (pickupList, self) => {
-  console.log("-----pickupList", pickupList);
   
   let res = pickupList.map((data) => {
     return (
@@ -76,8 +75,6 @@ null
     );
   });
 
-  console.log(res);
-
   return res;
 }
 
@@ -85,8 +82,7 @@ null
   //Send accepted and rejeted requests
 
   const ARpickUpMap = (pickupList, self) => {
-    console.log("-----pickupList", pickupList);
-    
+
     let res = pickupList.map((data) => {
       return (
   
@@ -124,7 +120,6 @@ null
       );
     });
   
-  console.log(res);
 
   return res;
 }
@@ -150,7 +145,6 @@ class PickupManagement extends Component {
     axios
       .get("http://localhost:5000/api/admin/pickupManagement")
       .then(res => {
-        console.log(res.data.pickupdata)
         this.setState({
           pickUpdata: res.data.pickupdata
         });

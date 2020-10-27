@@ -23,7 +23,6 @@ function accept(data, self) {
 
 //pending data
 const VolunteerMap = (volunteerList, self) => {
-  console.log("-----volunteerList", volunteerList);
   
   let res = volunteerList.map((data) => {
     return (
@@ -73,14 +72,11 @@ const VolunteerMap = (volunteerList, self) => {
     );
   });
 
-  console.log(res);
-
   return res;
 }
 
 //accepted rejected data
 const ARVolunteerMap = (volunteerList, self) => {
-  console.log("-----volunteerList", volunteerList);
   
   let res = volunteerList.map((data) => {
     return (
@@ -112,8 +108,6 @@ const ARVolunteerMap = (volunteerList, self) => {
     );
   });
 
-  console.log(res);
-
   return res;
 }
 
@@ -136,7 +130,6 @@ class VolunteerManagement extends Component {
     axios
       .get("http://localhost:5000/api/admin/volunteerManagement")
       .then(res => {
-        console.log(res.data.volunteerData)
         this.setState({
           volunteerData: res.data.volunteerdata
         });

@@ -24,7 +24,6 @@ class AdminNavbar extends React.Component {
     }
 
     onLogoutClick = e => {
-        console.log("---nav logout---")
         e.preventDefault();
         this.props.logoutUser();
         this.setState({loggedIn: false}); 

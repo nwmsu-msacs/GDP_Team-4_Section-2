@@ -29,7 +29,6 @@ function cancelVolunteer(data, self) {
 
 //get individual volunteer 
 const VolunteerMap = (volunteerList, self) => {
-  console.log("-----volunteerList", volunteerList);
   
   let res = volunteerList.map((data) => {
       
@@ -76,7 +75,6 @@ const VolunteerMap = (volunteerList, self) => {
     );
   });
 
-  console.log(res);
 
   return res;
 }
@@ -84,7 +82,6 @@ const VolunteerMap = (volunteerList, self) => {
 //get pickup data for single user
 
 const pickUpMap = (pickupList, self) => {
-    console.log("-----pickupList", pickupList);
     
     let res = pickupList.map((data) => {
       let itemDate = new Date(data.date);
@@ -134,14 +131,11 @@ const pickUpMap = (pickupList, self) => {
       );
     });
   
-    console.log(res);
-  
     return res;
   }
 
   //get individual accommodation
   const accommodationMap = (accommodationList, self) => {
-    console.log("-----accommodationList", accommodationList);
   
     let res = accommodationList.map((data) => {
 
@@ -193,8 +187,6 @@ const pickUpMap = (pickupList, self) => {
       );
     });
   
-    console.log(res);
-  
     return res;
   }
   
@@ -221,7 +213,6 @@ class individualUser extends Component {
     axios
       .get("http://localhost:5000/api/home/userVolunteer/"+localStorage.getItem("email"))
       .then(res => {
-        console.log(res.data.uservolunteerdata)
         this.setState({
           volunteerData: res.data.uservolunteerdata
         });
@@ -234,7 +225,6 @@ class individualUser extends Component {
       axios
       .get("http://localhost:5000/api/home/userPickups/"+localStorage.getItem("email"))
       .then(res => {
-        console.log(res.data.userpickupdata)
         this.setState({
           pickupData: res.data.userpickupdata
         });
@@ -248,7 +238,6 @@ class individualUser extends Component {
       axios
       .get("http://localhost:5000/api/home/userAccommodation/"+localStorage.getItem("email"))
       .then(res => {
-        console.log(res.data.useraccommodationdata)
         this.setState({
           accommodationData: res.data.useraccommodationdata
         });

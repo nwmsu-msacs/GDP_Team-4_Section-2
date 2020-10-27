@@ -45,7 +45,6 @@ class Login extends Component {
       this.setState({
         errors: nextProps.errors
       });
-      console.log(this.state.errors)
       this.state.passwordError="invalid Credentials, check your email/password "
     }
   }

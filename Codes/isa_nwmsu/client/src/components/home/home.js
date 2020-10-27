@@ -55,7 +55,6 @@ class Home extends Component {
   onLogoutClick = e => {
     e.preventDefault();
     this.props.logoutUser();
-    // this.setState({loggedIn: false}); 
 
   };
 

@@ -11,7 +11,6 @@ class NavLogout extends Component {
     }
 
     onLogoutClick = e => {
-        console.log("---nav logout---")
         this.props.logoutUser();
         this.setState({loggedIn: false}); 
         
