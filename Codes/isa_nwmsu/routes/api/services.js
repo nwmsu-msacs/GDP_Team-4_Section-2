@@ -234,7 +234,7 @@ router.post("/endmembership", (req, res) => {
             subject: 'Your membership with ISA has come to an end..!!',
             text:
               'You are receiving this email because your membership has ended .\n\n'
-              + 'Menmership Details --> \n\n'
+              + 'Membership Details --> \n\n'
               + 'Name: '+`${data.firstName}`+' '+`${data.lastName}`+'\n'
               +'Major: '+`${data.major}`+'\n'
               +'Gender: '+`${data.gender}`+'\n'
