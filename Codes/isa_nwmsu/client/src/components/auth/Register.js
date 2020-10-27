@@ -14,7 +14,6 @@ class Register extends Component {
         this.state = {
             name: "",
             email: "",
-            // gender: "Male",
             password: "",
             password2: "",
             errors: {}
@@ -38,11 +37,6 @@ class Register extends Component {
         this.setState({ [e.target.id]: e.target.value });
     };
 
-    // onRadioChange = (e) => {
-    //     this.setState({
-    //       gender: e.target.value
-    //     });
-    //   }
 
     onSubmit = e => {
         e.preventDefault();
@@ -55,7 +49,6 @@ class Register extends Component {
 
         };
         this.props.registerUser(newUser, this.props.history);
-        // console.log("------>> register errors",errors.email);
     };
     render() {
         const { errors } = this.state;
