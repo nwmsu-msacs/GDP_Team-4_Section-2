@@ -48,14 +48,11 @@ class ModifyExistingEvent extends React.Component {
     axios
       .get("http://localhost:5000/api/events/getEvent/"+localStorage.getItem("eventId"))
       .then(res => {
-        console.log(res.data.event)
-        console.log(res.data.event[0].description)
         this.setState({
             eventname: res.data.event[0].eventname,
             eventdate: res.data.event[0].eventdate,
             eventvenue: res.data.event[0].eventvenue,
             description: res.data.event[0].description,
-            // eventimage:"",
             sponsor:res.data.event[0].sponsor,
         });
       })
