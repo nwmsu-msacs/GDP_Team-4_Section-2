@@ -32,10 +32,6 @@ class Navbar extends Component {
         e.preventDefault();
         this.props.logoutUser();
         this.setState({loggedIn: false}); 
-        // localStorage.removeItem("jwtToken");
-        // localStorage.removeItem("email");
-        // localStorage.removeItem("role");
-        
       };
 
     
@@ -63,9 +59,6 @@ class Navbar extends Component {
                         </ul>
                         }
                         <ul class="navbar-nav">
-                            {/* <li class="nav-item">
-                                <a class="nav-link" href="/home">Home <span class="sr-only">(current)</span></a>
-                            </li> */}
                             <li class="nav-item px-3 dropdown">
                                 <a class="nav-link dropdown-toggle" href="/" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                     Events
@@ -110,14 +103,6 @@ class Navbar extends Component {
                             <li></li>}
                             </ul>
 
-                            {/* {(this.state.loggedIn) ?
-                            <ul><li>
-                                <a className='nav-link' href='/home'>
-                                    <i className='fa fa-user'></i> 
-                                </a>
-                                </li>
-                                </ul>
-                            : null } */}
 
                             {(this.state.loggedIn === true) ?
                             <ul class="navbar-nav ml-auto">
@@ -139,33 +124,12 @@ class Navbar extends Component {
                            
                             }
                             
-                            {/* <ul class="navbar-nav ml-auto" >
-                            <li class="nav-item ">
-                            <a class="nav-link" href="/login">Login</a>
-                            </li>
-                        </ul> */}
                     </div>
                 </nav>
       </div >
     );
     }
 }
-
-// const mapStateToProps = state => {
-//     return {auth:state.auth}
-// };
-// Navbar.propTypes = {
-//     logoutUser: PropTypes.func.isRequired,
-//     auth: PropTypes.object.isRequired
-//   };
-//   const mapStateToProps = state => ({
-//     auth: state.auth
-//   });
-//   export default connect(
-//     mapStateToProps,
-//     { logoutUser }
-//   )(Navbar);
-// export default Navbar;
 
 Navbar.propTypes = {
     logoutUser: PropTypes.func.isRequired,
