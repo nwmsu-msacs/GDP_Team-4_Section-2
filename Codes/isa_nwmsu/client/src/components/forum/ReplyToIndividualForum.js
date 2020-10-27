@@ -6,9 +6,7 @@ import Replies from "../forum/Replies";
 import {Form, TextArea, Item} from 'semantic-ui-react'
 import {Button} from 'react-bootstrap'
 let navbar = undefined;
-let forumData = undefined
 
-const Validator = require("validator");
 const isEmpty = require("is-empty");
 
 const initialErrorState = {
