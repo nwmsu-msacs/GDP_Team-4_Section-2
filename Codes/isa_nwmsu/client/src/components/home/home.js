@@ -4,7 +4,7 @@ import { connect } from "react-redux";
 import { logoutUser } from "../../actions/authActions";
 import Navbar from "../layout/Navbar";
 import AdminNavbar from "../layout/AdminNavbar";
-import image from "./adminblock.jpg"
+import adminBlock from "./adminblock.jpg"
 import isa from "../layout/assets/isa.jpg"
 import n from "../layout/assets/N.png"
 import facebook from "../layout/assets/facebook.png"
@@ -60,7 +60,7 @@ class Home extends Component {
         {navbar}
         
         <div class="row"> 
-        <img src = {image} alt="background image" style={{width:"100%", filter:"brightness(55%)"}}/>
+        <img src = {adminBlock} alt="background image" style={{width:"100%", filter:"brightness(55%)"}}/>
         <div class="container" style={{textAlign:'right', position:"absolute",marginLeft:"6rem",marginTop:"13rem"}}>
         <h1 style={{fontFamily:"Times New Roman", 
                     fontSize:"8rem",color:"white", 
