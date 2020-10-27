@@ -1,9 +1,8 @@
 import axios from 'axios';
 import React, { Component } from 'react';
-import AdminNavbar from "../layout/AdminNavbar";
 import { Button, Comment, Header } from 'semantic-ui-react'
 import image from "./user.png"
-let navbar = undefined;
+
 
 function deleteReply(data, self){
   axios.post('http://localhost:5000/api/forum/deleteSingleReply', data)
@@ -121,11 +120,10 @@ class ReplyView extends Component {
     
     if (localStorage.getItem('role') === null || localStorage.getItem('role') === '50') {
       this.setState({role: false})
-      navbar = <Navbar />
+
     }
     if (localStorage.getItem('role') === '100') {
       this.setState({role:true})
-      navbar = <AdminNavbar />
     }
     if(localStorage.getItem('email')!= null){
       this.setState({user: localStorage.getItem('email')})
