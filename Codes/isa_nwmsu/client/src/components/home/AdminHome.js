@@ -28,8 +28,7 @@ class AdminHome extends Component {
 
 render() {
     console.log(this.props.auth);
-    // console.log("username",this.user.name);
-    //const { user } = this.props.auth;
+
 return (
     <div>
         
@@ -43,7 +42,6 @@ return (
                 
               </p>
             <b>Indian Student Association</b> welcomes, 
-            {/* {this.user.name.split(" ")[0]} */}
             {this.getUser()}
               
             </h4>
@@ -55,7 +53,6 @@ return (
                 marginTop: "1rem"
               }}
              onClick={this.onLogoutClick}
-            //  onClick={this.props.logoutUser()}
               className="btn btn-large waves-effect waves-light hoverable blue accent-3"
             >
               Logout
