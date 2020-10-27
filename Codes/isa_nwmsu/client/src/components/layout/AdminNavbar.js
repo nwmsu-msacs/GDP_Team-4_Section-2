@@ -28,10 +28,6 @@ class AdminNavbar extends React.Component {
         e.preventDefault();
         this.props.logoutUser();
         this.setState({loggedIn: false}); 
-        // localStorage.removeItem("jwtToken");
-        // localStorage.removeItem("email");
-        // localStorage.removeItem("role");
-        
       };
 
     render() {
@@ -39,9 +35,6 @@ class AdminNavbar extends React.Component {
             <div className="navbar-fixed">
                 <nav class="navbar navbar-expand-lg " style={{backgroundColor:"#0099FF"}}>
                     <a class="navbar-brand" href="#"><img src={IsaLogo} style={{height:"1.5em",}}></img></a>
-                    {/* <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"></span>
-                    </button> */}
                     <div class="collapse navbar-collapse" id="navbarNavDropdown">
                         {this.state.loggedIn === true ?
                         <ul class="navbar-nav">
@@ -57,9 +50,6 @@ class AdminNavbar extends React.Component {
                         </ul>
                         }
                         <ul class="navbar-nav">
-                            {/* <li class="nav-item ">
-                                <a class="nav-link" href="/home">Home <span class="sr-only">(current)</span></a>
-                            </li> */}
                             <li class="nav-item px-3 dropdown">
                                 <a class="nav-link dropdown-toggle" href="/" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                     Events
@@ -126,12 +116,7 @@ class AdminNavbar extends React.Component {
                            </ul>
                            
                             }
-                            {/* </ul>
-                            <ul class="navbar-nav ml-auto" >
-                            <li class="nav-item ">
-                            <a class="nav-link" href="/login">Login</a>
-                            </li>
-                        </ul> */}
+
                     </div>
                 </nav>
       </div >
