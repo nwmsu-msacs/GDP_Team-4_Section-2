@@ -3,9 +3,7 @@ import React, { Component } from "react";
 class NavLogin extends Component {
 
 
-    constructor(props) {
-        super(props)
-    }
+
     render() {
 
         return (
