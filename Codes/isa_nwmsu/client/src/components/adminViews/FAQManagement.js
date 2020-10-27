@@ -22,8 +22,6 @@ function modify(data, self) {
   };
   
 const FaqMap = (FaqList, self) => {
-  console.log("-----FaqList", FaqList);
-
   let count = 0;
   let res = FaqList.map((data) => {
     return (
@@ -68,7 +66,6 @@ const FaqMap = (FaqList, self) => {
     );
   });
 
-  console.log(res);
 
   return res;
 }
@@ -94,7 +91,6 @@ class Faq extends Component {
       axios
         .get("http://localhost:5000/api/admin/getFaq")
         .then(res => {
-          console.log(res.data.allFaq)
           this.setState({
             FAQData: res.data.allFaq
           });
