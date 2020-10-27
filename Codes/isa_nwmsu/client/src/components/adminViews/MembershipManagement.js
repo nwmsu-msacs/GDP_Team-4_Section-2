@@ -58,9 +58,7 @@ const memberShipMap = (membershipList, self) => {
 
 class MembershipManagement extends Component {
 
-  constructor(props){
-    super(props);
-  }
+
 
   state = {
     memberShipdata: [],
