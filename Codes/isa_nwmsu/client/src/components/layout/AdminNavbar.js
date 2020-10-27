@@ -1,5 +1,4 @@
-import React, { Component } from "react";
-import { Link } from "react-router-dom";
+import React from "react";
 import IsaLogo from "../layout/assets/ISA.png"
 import NavLogin from "../layout/NavLogin";
 import NavLogout from "../layout/NavLogout";
@@ -9,10 +8,6 @@ import {connect} from "react-redux";
 import { logoutUser } from "../../actions/authActions";
 class AdminNavbar extends React.Component {
 
-    constructor(props) {
-        super(props);
-        
-    }
 
     componentWillMount(){
         if(localStorage.getItem('jwtToken') != null){
@@ -33,7 +28,7 @@ class AdminNavbar extends React.Component {
         return (
             <div className="navbar-fixed">
                 <nav class="navbar navbar-expand-lg " style={{backgroundColor:"#0099FF"}}>
-                    <a class="navbar-brand" href="#"><img src={IsaLogo} style={{height:"1.5em",}}></img></a>
+                    <a class="navbar-brand" href="/home"><img src={IsaLogo} alt="isalogo" style={{height:"1.5em",}}></img></a>
                     <div class="collapse navbar-collapse" id="navbarNavDropdown">
                         {this.state.loggedIn === true ?
                         <ul class="navbar-nav">
