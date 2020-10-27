@@ -43,11 +43,13 @@ class Login extends Component {
     if (nextProps.errors) {
       
       this.setState({
-        errors: nextProps.errors
+        errors: nextProps.errors,
+        passwordError:"invalid Credentials, check your email/password "
       });
-      this.state.passwordError="invalid Credentials, check your email/password "
-    }
+      
   }
+
+}
 
   onChange = e => {
     this.setState({ [e.target.id]: e.target.value });
