@@ -2,8 +2,7 @@ import axios from 'axios';
 import React, { Component } from 'react';
 import AdminNavbar from "../layout/AdminNavbar";
 import Navbar from "../layout/Navbar";
-import CreateForum from "../forum/ForumPage";
-import {  Card, Table } from 'react-bootstrap'
+import {  Card } from 'react-bootstrap'
 import {Button} from 'semantic-ui-react'
 
 let navbar = undefined;
@@ -127,9 +126,7 @@ return res;
 
 class ISAForum extends Component {
 
-  constructor(props) {
-    super(props);
-  }
+ 
   state = {
     ForumData: [],
     role: null,
