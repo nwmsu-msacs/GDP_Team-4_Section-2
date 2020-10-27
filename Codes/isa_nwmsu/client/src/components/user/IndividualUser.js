@@ -36,7 +36,7 @@ const VolunteerMap = (volunteerList, self) => {
 
         
 <div>
-  {data.status!="Rejected"?
+  {data.status!== "Rejected"?
   
 
       <div class="row" key={data._id}>
@@ -90,7 +90,7 @@ const pickUpMap = (pickupList, self) => {
       return (
   
   <div>
-{milli > Date.now() && data.status != "Rejected"?
+{milli > Date.now() && data.status !== "Rejected"?
         <div class="row" key = {data._id}>
   
   <Card style={{ width: '50rem'}}>
@@ -143,7 +143,7 @@ const pickUpMap = (pickupList, self) => {
       let milli = itemDate.getTime();
       return (
   <div>
-    {milli > Date.now() && data.status != "Rejected"?
+    {milli > Date.now() && data.status !== "Rejected"?
   
         
         <div class="row" key={data._id}>
@@ -193,10 +193,6 @@ const pickUpMap = (pickupList, self) => {
   
 
 class individualUser extends Component {
-
-  constructor(props){
-    super(props)
-  }
 
   state = {
     volunteerData: [],
