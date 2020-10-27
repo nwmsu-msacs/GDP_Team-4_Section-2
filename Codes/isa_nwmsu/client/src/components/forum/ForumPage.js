@@ -1,16 +1,10 @@
 import React, { Component } from "react";
-import PropTypes from "prop-types";
-import { connect } from "react-redux";
-import classnames from "classnames";
-import image from "../layout/assets/carousel_image4.jpg"
 import axios from 'axios';
 import Navbar from "../layout/Navbar";
 import AdminNavbar from "../layout/AdminNavbar";
-import { Redirect } from "react-router-dom";
 import { Input, TextArea, Form } from 'semantic-ui-react'
 import {Button} from 'react-bootstrap'
 
-const Validator = require("validator");
 const isEmpty = require("is-empty");
 
 let navbar = undefined;
@@ -99,7 +93,6 @@ class ForumPage extends Component {
 };
 
     render() {
-        const { errors } = this.state;
 
         return (
             <div>
