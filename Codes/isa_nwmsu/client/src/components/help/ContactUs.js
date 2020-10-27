@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import image from "../layout/assets/isa.jpg";
 import Navbar from "../layout/Navbar";
 import AdminNavbar from "../layout/AdminNavbar";
 import { Card, Icon, Image } from 'semantic-ui-react'
@@ -27,7 +26,6 @@ class ContactUs extends Component {
     }
 
     render() {
-        const { errors } = this.state;
 
         return (
             <div>
