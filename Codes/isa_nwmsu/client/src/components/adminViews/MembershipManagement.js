@@ -2,8 +2,7 @@ import axios from 'axios';
 import React, { Component } from 'react';
 import AdminNavbar from "../layout/AdminNavbar";
 import Navbar from "../layout/Navbar";
-import {  Card } from 'react-bootstrap'
-import {Button} from 'semantic-ui-react'
+import {Button, Table} from 'semantic-ui-react'
 
 let navbar = undefined;
 
@@ -21,20 +20,23 @@ const memberShipMap = (membershipList, self) => {
         {data.status === "Active"?
       <div class="row" key = {data._id}>
 
-<Card style={{ width: '70rem'}}>
-          <Card.Body>
-            <Card.Title>{data.firstName}&nbsp;{data.lastName}</Card.Title>
-            <br/>
-            <Card.Subtitle className="mb-2 text-muted"><i class="material-icons" style={{ color: "grey", opacity: "90%" }}>phone</i>{data.contactNo}</Card.Subtitle>
-            <Card.Text>
-            <p class="text-uppercase blue-text"><strong>Gender: {data.gender}</strong></p>
-          <p class="text-uppercase blue-text"><strong>Major: {data.major}</strong></p>
-          <p class="text-uppercase blue-text"><strong>Email:  {data.email}</strong></p>
-          <p class="text-uppercase blue-text"><strong>Membership Status:  {data.status}</strong></p>
-    </Card.Text>
-    <p class="h4 text-center mb-4">
+<Table celled style={{tableLayout:"fixed", width:"100%" , textAlign:"center"}}>
+  
+    <Table.Body>
+      <Table.Row >
+        <Table.Cell>
+        {data.firstName}&nbsp;{data.lastName}
+        </Table.Cell>
+        <Table.Cell>{data.gender}</Table.Cell>
+        <Table.Cell>{data.contactNo}</Table.Cell>
+        <Table.Cell style={{wordBreak:"break-all"}}>
+          <div style={{textJustify:"auto" }}>{data.email}</div>
+        </Table.Cell>
+        <Table.Cell>{data.major}</Table.Cell>
+        <Table.Cell>{data.status}</Table.Cell>
+        <Table.Cell><p class="h4 text-center mb-4">
     <Button
-            
+            style={{width:"11rem", height:"2.5rem"}}
             type="submit"
             className="btn btn-large waves-effect waves-light hoverable red accent-3"
             onClick={() => { endMembership(data, self) }}
@@ -42,10 +44,11 @@ const memberShipMap = (membershipList, self) => {
             End Membership
                 </Button>
 
-                </p>
-          </Card.Body>
-        </Card>
+                </p></Table.Cell>
+      </Table.Row>
 
+      </Table.Body>
+      </Table>
         
       </div>
       :null}
@@ -108,8 +111,25 @@ class MembershipManagement extends Component {
                                         textShadow:"2px 2px #A9A9A9", 
                                         color:"#585858",
                                         }}>Membership Management</h2>
-          <div class="container" style={{ columns: "3", width:"100%"}}>
+
+
+          <div class="container" style={{  width:"100%"}}>
+          <Table celled style={{tableLayout:"fixed", textAlign:"center"}}> 
+    <Table.Header>
+      <Table.Row >
+        <Table.HeaderCell>Name</Table.HeaderCell>
+        <Table.HeaderCell>Gender</Table.HeaderCell>
+        <Table.HeaderCell>Contact No</Table.HeaderCell>
+        <Table.HeaderCell>Email</Table.HeaderCell>
+        <Table.HeaderCell>Major</Table.HeaderCell>
+        <Table.HeaderCell>Membership Status</Table.HeaderCell>
+        <Table.HeaderCell>Take Action</Table.HeaderCell>
+      </Table.Row>
+    </Table.Header>
+    </Table>
+    <Table.Row>
         <p>{memberShipMap(this.state.memberShipdata, this.state.self)}</p>
+        </Table.Row>
         </div>
         </div>
       </div>
