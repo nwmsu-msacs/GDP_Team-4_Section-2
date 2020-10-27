@@ -1,8 +1,7 @@
 import axios from 'axios';
 import React, { Component } from 'react';
 import AdminNavbar from "../layout/AdminNavbar";
-import Navbar from "../layout/Navbar";
-import { Button, Comment, Form, Header } from 'semantic-ui-react'
+import { Button, Comment, Header } from 'semantic-ui-react'
 import image from "./user.png"
 let navbar = undefined;
 
@@ -87,9 +86,7 @@ const ReplyMap = (replyList, self, role, user) => {
 
 class ReplyView extends Component {
 
-  constructor(props) {
-    super(props);
-  }
+
   state = {
     ReplyData: [],
     role:null,
