@@ -126,10 +126,6 @@ class Accommodation extends Component {
          }else if(this.state.non.length != 9 || isNaN(this.state.non)){
             nonError= "Enter full valid 919#"
           }
-
-     
-         
-     
      
          if(firstnameError || lastnameError || emailError || contactnoError|| daysrequiredError|| nonError|| genderError||fromDateError||toDateError){
            this.setState({firstnameError, lastnameError, emailError, contactnoError, daysrequiredError, nonError,genderError,fromDateError,toDateError});
@@ -341,13 +337,6 @@ class Accommodation extends Component {
                         {/* submit  */}
                         <p class="h4 text-center mb-4">
                             <Button 
-                                // style={{
-                                //     width: "250px",
-                                //     borderRadius: "3px",
-                                //     letterSpacing: "1.5px",
-                                //     marginTop: "1rem"
-
-                                // }}
                                 type="submit"
                                 className="btn btn-large waves-effect waves-light hoverable blue accent-3"
                             >
