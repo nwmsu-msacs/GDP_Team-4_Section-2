@@ -8,7 +8,6 @@ let navbar = undefined;
 
 
 const upcomingEventMap = (eventList, self) => {
-  console.log("-----eventList", eventList);
 
   let res = eventList.map((data) => {
 
@@ -42,8 +41,6 @@ const upcomingEventMap = (eventList, self) => {
 
   });
 
-  console.log(res);
-
   return res;
 }
 
@@ -65,7 +62,6 @@ class UpcomingEvent extends Component {
     axios
       .get("http://localhost:5000/api/events/upcomingEventsData")
       .then(res => {
-        console.log(res.data.eventdata)
         this.setState({
           UpcomingEventData: res.data.eventdata
         });
