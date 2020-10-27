@@ -3,11 +3,8 @@ import axios from 'axios';
 import Navbar from "../layout/Navbar";
 import AdminNavbar from "../layout/AdminNavbar";
 import {Input, TextArea, Form} from 'semantic-ui-react';
-import classnames from "classnames";
 import {Button} from 'react-bootstrap';
 
-
-const Validator = require("validator");
 const isEmpty = require("is-empty");
 
 let navbar = undefined;
@@ -84,7 +81,6 @@ class Faq extends React.Component {
 };
 
   render() {
-    const { errors } = this.state;
     return (
       <div >
         {navbar}
