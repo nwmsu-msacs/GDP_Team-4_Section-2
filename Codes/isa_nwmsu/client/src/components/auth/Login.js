@@ -26,16 +26,10 @@ class Login extends Component {
   }
 
   componentDidMount() {
-    // this.props.history.go();
     // If logged in and user navigates to Login page, should redirect them to dashboard
     if (this.props.auth.isAuthenticated) {
 
       this.props.history.push("/home");
-      // if(this.props.auth.user.role===100)
-      // this.props.history.push("/adminHome");
-
-      // else
-      //   this.props.history.push("/home");
     }
   }
 
@@ -43,12 +37,6 @@ class Login extends Component {
     if (nextProps.auth.isAuthenticated) {
 
       this.props.history.push("/home")
-      // if(nextProps.auth.user.role===100)
-      // this.props.history.push("/adminHome");
-
-      // else
-      //   this.props.history.push("/home");
-
 
     }
 
@@ -109,7 +97,6 @@ let emailError="";
 
   render() {
     const { errors } = this.state;
-    // console.log(`errorsss${errors}`);
 
     return (
       <div >
