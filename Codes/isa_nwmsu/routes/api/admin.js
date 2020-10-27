@@ -91,8 +91,7 @@ router.put('/modifyFaq/:faqId',  async (req,res) =>
                     .then(res.status(200).json({ response: "FAQ modified" }));
                     
                     localStorage.removeItem("faqId");
-            
-        
+
     });
 
 

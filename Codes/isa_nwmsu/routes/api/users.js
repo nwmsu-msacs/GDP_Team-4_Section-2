@@ -25,13 +25,13 @@ router.post("/register", (req, res) => {
   if (!isValid) {
     return res.status(400).json(errors);
   }
-  User.findOne({ email: req.body.email }).then(user => {
+  User.findOne({ email: req.body.email.toLowerCase() }).then(user => {
     if (user) {
       return res.status(400).json({ email: "Email already exists" });
     } else {
       const newUser = new User({
         name: req.body.name,
-        email: req.body.email,
+        email: req.body.email.toLowerCase(),
         // gender: req.body.gender,
         password: req.body.password,
       });
@@ -62,7 +62,7 @@ router.post("/login", (req, res) => {
   if (!isValid) {
     return res.status(400).json(errors);
   }
-  const email = req.body.email;
+  const email = req.body.email.toLowerCase();
   const password = req.body.password;
   // Find user by email
   User.findOne({ email }).then(user => {
