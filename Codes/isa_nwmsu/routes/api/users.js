@@ -32,7 +32,6 @@ router.post("/register", (req, res) => {
       const newUser = new User({
         name: req.body.name,
         email: req.body.email.toLowerCase(),
-        // gender: req.body.gender,
         password: req.body.password,
       });
       // Hash password before saving in database
@@ -121,7 +120,6 @@ require('dotenv').config();
 
 const nodemailer = require('nodemailer');
 
-// module.exports = (app) => {
 router.post('/forgotPassword', (req, res) => {
 
   const reqBody = req.body;
@@ -136,11 +134,6 @@ router.post('/forgotPassword', (req, res) => {
       res.status(403).send('email not in database');
     } else {
       const token = crypto.randomBytes(20).toString('hex');
-      //old update
-      // user.update({email: reqBody.email,$set:{
-      //   resetPasswordToken: token,
-      //   resetPasswordExpires: Date.now() + 3600000}
-      //   });
       user.resetPasswordToken = token;
       user.resetPasswordExpires = Date.now() + 3600000;
       user.save();
@@ -229,11 +222,6 @@ router.put('/updatePasswordViaEmail', (req, res) => {
           user.resetPasswordToken = "";
           user.resetPasswordExpires = "";
           user.save();
-          // user.update({
-          //   password: hashedPassword,
-          //   resetPasswordToken: null,
-          //   resetPasswordExpires: null,
-          // });
         })
         .then(() => {
           console.log('password updated');
