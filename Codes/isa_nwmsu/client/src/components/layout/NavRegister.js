@@ -3,9 +3,6 @@ import React, { Component } from "react";
 class NavRegister extends Component {
 
 
-    constructor(props) {
-        super(props)
-    }
     render() {
 
         return (
