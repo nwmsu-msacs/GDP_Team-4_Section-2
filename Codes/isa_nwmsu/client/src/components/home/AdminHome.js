@@ -27,7 +27,6 @@ class AdminHome extends Component {
   }
 
 render() {
-    console.log(this.props.auth);
 
 return (
     <div>
