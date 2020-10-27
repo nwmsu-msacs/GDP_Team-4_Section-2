@@ -12,12 +12,8 @@ class NavLogout extends Component {
 
     onLogoutClick = e => {
         console.log("---nav logout---")
-        // e.preventDefault();
         this.props.logoutUser();
         this.setState({loggedIn: false}); 
-        // localStorage.removeItem("jwtToken");
-        // localStorage.removeItem("email");
-        // localStorage.removeItem("role");
         
       };
 
