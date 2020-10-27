@@ -151,9 +151,9 @@ class Home extends Component {
             </div>
             <div class="col-md-3">
             <h5 style={{color:"white"}}>Connect with us</h5>
-            <p> <a href="https://www.instagram.com/isa_nwmsu/"><img src = {instagram} alt="northwest-instagram" style={{height:"2em"}}></img></a>
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="https://www.facebook.com/Indian-Student-AssociationISA-of-Northwest-Missouri-State-University-203948312972686/"><img src = {facebook} alt = "northwest-facebook" style={{height:"2em"}}></img></a>
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="https://nwmissouri.presence.io/organization/indian-student-association"><img src = {n} alt = "Northwest-Icon" style={{height:"2em"}}></img></a></p>
+            <p> <a href="https://www.instagram.com/isa_nwmsu/" target="new"><img src = {instagram} alt="northwest-instagram" style={{height:"2em"}}></img></a>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a target="new" href="https://www.facebook.com/Indian-Student-AssociationISA-of-Northwest-Missouri-State-University-203948312972686/"><img src = {facebook} alt = "northwest-facebook" style={{height:"2em"}}></img></a>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a target="new" href="https://nwmissouri.presence.io/organization/indian-student-association"><img src = {n} alt = "Northwest-Icon" style={{height:"2em"}}></img></a></p>
             </div>
 
           </div>
