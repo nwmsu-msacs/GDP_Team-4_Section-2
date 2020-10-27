@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import image from "../layout/assets/isa.jpg";
 import Navbar from "../layout/Navbar";
 import AdminNavbar from "../layout/AdminNavbar";
+import { Card, Icon, Image } from 'semantic-ui-react'
 
 let navbar = undefined;
 
@@ -13,16 +14,16 @@ class ContactUs extends Component {
         };
     }
 
-    componentWillMount(){
+    componentWillMount() {
         if (localStorage.getItem('jwtToken') != null) {
             this.setState({ loggedIn: true });
-          }
-          if (localStorage.getItem('role') === null || localStorage.getItem('role') === '50') {
+        }
+        if (localStorage.getItem('role') === null || localStorage.getItem('role') === '50') {
             navbar = <Navbar />
-          }
-          if (localStorage.getItem('role') === '100') {
+        }
+        if (localStorage.getItem('role') === '100') {
             navbar = <AdminNavbar />
-          }
+        }
     }
 
     render() {
@@ -31,183 +32,268 @@ class ContactUs extends Component {
         return (
             <div>
                 {navbar}
-            <div>
-                
-                {/* <!-- Section: Team v.1 --> */}
-                <section class="team-section text-center my-5">
-
-                    {/* <!-- Section heading --> */}
-                    <h2 class="h1-responsive font-weight-bold my-5">Contact the Team</h2>
-                    {/* <!-- Section description --> */}
-                    <p class="grey-text w-responsive mx-auto mb-5">Meet the ISA team who are always ready to help</p>
-
-                    {/* <!-- Grid row --> */}
-                    <div class="row">
-
-                        {/* <!-- Grid column --> */}
-                        <div class="col-lg-3 col-md-6 mb-lg-0 mb-5" >
-                            <div class="avatar mx-auto">
-                                <img src={image} style={{ height: "15rem", width: "15rem" }} class="rounded-circle z-depth-1"
-                                    alt="member-1 pic" />
-                            </div>
-                            <h5 class="font-weight-bold mt-4 mb-3">Naga Sai Ram Narne</h5>
-                            <p class="text-uppercase blue-text"><strong>ISA Advisor</strong></p>
-                            <p class="grey-text">About Narne</p>
-                            <ul class="list-unstyled mb-0" style={{padding:"1em"}}>
-                                <li>
-                                    <p style={{ display: "inline-flex" }}><i class="material-icons" style={{ color: "#0080ff", opacity: "90%" }}>phone</i>&nbsp;+1 (123) 456 7890</p>
-                                </li>
-                                <li>
-                                    <p style={{ display: "inline-flex" }}><i class="material-icons" style={{ color: "#0080ff", opacity: "90%" }}>email</i>&nbsp;S123456@nwmissouri.edu</p>
-                                </li>
-                            </ul>
-                        </div>
-
-                        {/* member-2 */}
-                        <div class="col-lg-3 col-md-6 mb-lg-0 mb-5" >
-                            <div class="avatar mx-auto">
-                                <img src={image} style={{ height: "15rem", width: "15rem" }} class="rounded-circle z-depth-1"
-                                    alt="member-2 pic" />
-                            </div>
-                            <h5 class="font-weight-bold mt-4 mb-3">Naga Sai Ram Narne</h5>
-                            <p class="text-uppercase blue-text"><strong>ISA Advisor</strong></p>
-                            <p class="grey-text">About Narne</p>
-                            <ul class="list-unstyled mb-0">
-                            <li>
-                                    <p style={{ display: "inline-flex" }}><i class="material-icons" style={{ color: "#0080ff", opacity: "90%" }}>phone</i>&nbsp;+1 (123) 456 7890</p>
-                                </li>
-                                <li>
-                                    <p style={{ display: "inline-flex" }}><i class="material-icons" style={{ color: "#0080ff", opacity: "90%" }}>email</i>&nbsp;S123456@nwmissouri.edu</p>
-                                </li>
-                            </ul>
-                        </div>
-
-                        {/* member-3 */}
-                        <div class="col-lg-3 col-md-6 mb-lg-0 mb-5" >
-                            <div class="avatar mx-auto">
-                                <img src={image} style={{ height: "15rem", width: "15rem" }} class="rounded-circle z-depth-1"
-                                    alt="member-3 pic" />
-                            </div>
-                            <h5 class="font-weight-bold mt-4 mb-3">Naga Sai Ram Narne</h5>
-                            <p class="text-uppercase blue-text"><strong>ISA Advisor</strong></p>
-                            <p class="grey-text">About Narne</p>
-                            <ul class="list-unstyled mb-0">
-                            <li>
-                                    <p style={{ display: "inline-flex" }}><i class="material-icons" style={{ color: "#0080ff", opacity: "90%" }}>phone</i>&nbsp;+1 (123) 456 7890</p>
-                                </li>
-                                <li>
-                                    <p style={{ display: "inline-flex" }}><i class="material-icons" style={{ color: "#0080ff", opacity: "90%" }}>email</i>&nbsp;S123456@nwmissouri.edu</p>
-                                </li>
-                            </ul>
-                        </div>
-
-                        {/* member-4 */}
-
-                        <div class="col-lg-3 col-md-6 mb-lg-0 mb-5" >
-                            <div class="avatar mx-auto">
-                                <img src={image} style={{ height: "15rem", width: "15rem" }} class="rounded-circle z-depth-1"
-                                    alt="member-4 pic" />
-                            </div>
-                            <h5 class="font-weight-bold mt-4 mb-3">Naga Sai Ram Narne</h5>
-                            <p class="text-uppercase blue-text"><strong>ISA Advisor</strong></p>
-                            <p class="grey-text">About Narne</p>
-                            <ul class="list-unstyled mb-0">
-                            <li>
-                                    <p style={{ display: "inline-flex" }}><i class="material-icons" style={{ color: "#0080ff", opacity: "90%" }}>phone</i>&nbsp;+1 (123) 456 7890</p>
-                                </li>
-                                <li>
-                                    <p style={{ display: "inline-flex" }}><i class="material-icons" style={{ color: "#0080ff", opacity: "90%" }}>email</i>&nbsp;S123456@nwmissouri.edu</p>
-                                </li>
-                            </ul>
+                <br />
+                <div class="container">
+                    <div class="row text-center">
+                        <div class="col">
+                        <h2 class="h1-responsive font-weight-bold my-5">Contact Us</h2>
                         </div>
                     </div>
-                    {/* member-5 */}
+                    {/* row - 1 */}
                     <div class="row">
-                        <div class="col-lg-3 col-md-6 mb-lg-0 mb-5" >
-                            <div class="avatar mx-auto">
-                                <img src={image} style={{ height: "15rem", width: "15rem" }} class="rounded-circle z-depth-1"
-                                    alt="member-5 pic" />
-                            </div>
-                            <h5 class="font-weight-bold mt-4 mb-3">Naga Sai Ram Narne</h5>
-                            <p class="text-uppercase blue-text"><strong>ISA Advisor</strong></p>
-                            <p class="grey-text">About Narne</p>
-                            <ul class="list-unstyled mb-0">
+                        {/* col - 1,1/3 */}
+                        <div class="col-md-4">
+                            <Card>
+                                <Image src='https://react.semantic-ui.com/images/avatar/large/matthew.png' wrapped ui={false} />
+                                <Card.Content>
+                                    <Card.Header>Naga Sai Ram Narne</Card.Header>
+                                    <Card.Meta>
+                                        <span className='date'>ISA Advisor</span>
+                                    </Card.Meta>
+                                    <br/>
+                                    <Card.Description>
+                                    <ul class="list-unstyled mb-0">
                             <li>
-                                    <p style={{ display: "inline-flex" }}><i class="material-icons" style={{ color: "#0080ff", opacity: "90%" }}>phone</i>&nbsp;+1 (123) 456 7890</p>
+                            <Icon name='phone' /><p style={{ display: "inline-flex" }}>&nbsp;+1 (123) 456 7890</p>
                                 </li>
                                 <li>
-                                    <p style={{ display: "inline-flex" }}><i class="material-icons" style={{ color: "#0080ff", opacity: "90%" }}>email</i>&nbsp;S123456@nwmissouri.edu</p>
+                                <Icon name='mail' /><p style={{ display: "inline-flex" }}>&nbsp;S123456@nwmissouri.edu</p>
                                 </li>
                             </ul>
+      </Card.Description>
+                                </Card.Content>
+                                <Card.Content extra>
+                                    
+                                        <Icon name='home' />
+        NWMSU
+      
+                                </Card.Content>
+                            </Card>
                         </div>
-
-                        {/* member-6 */}
-
-                        <div class="col-lg-3 col-md-6 mb-lg-0 mb-5" >
-                            <div class="avatar mx-auto">
-                                <img src={image} style={{ height: "15rem", width: "15rem" }} class="rounded-circle z-depth-1"
-                                    alt="member-6 pic" />
-                            </div>
-                            <h5 class="font-weight-bold mt-4 mb-3">Naga Sai Ram Narne</h5>
-                            <p class="text-uppercase blue-text"><strong>ISA Advisor</strong></p>
-                            <p class="grey-text">About Narne</p>
-                            <ul class="list-unstyled mb-0">
+                        {/* col - 1,2/3 */}
+                        <div class="col-md-4">
+                            <Card>
+                                <Image src='https://react.semantic-ui.com/images/avatar/large/matthew.png' wrapped ui={false} />
+                                <Card.Content>
+                                    <Card.Header>Mahender Reddy Surkanti</Card.Header>
+                                    <Card.Meta>
+                                        <span className='date'>President</span>
+                                    </Card.Meta>
+                                    <br/>
+                                    <Card.Description>
+                                    <ul class="list-unstyled mb-0">
                             <li>
-                                    <p style={{ display: "inline-flex" }}><i class="material-icons" style={{ color: "#0080ff", opacity: "90%" }}>phone</i>&nbsp;+1 (123) 456 7890</p>
+                            <Icon name='phone' /><p style={{ display: "inline-flex" }}>&nbsp;+1 (660) 528-1069</p>
                                 </li>
                                 <li>
-                                    <p style={{ display: "inline-flex" }}><i class="material-icons" style={{ color: "#0080ff", opacity: "90%" }}>email</i>&nbsp;S123456@nwmissouri.edu</p>
+                                <Icon name='mail' /><p style={{ display: "inline-flex" }}>&nbsp;S537240@nwmissouri.edu</p>
                                 </li>
                             </ul>
+      </Card.Description>
+                                </Card.Content>
+                                <Card.Content extra>
+                                    
+                                        <Icon name='home' />
+        MS-ACS
+      
+                                </Card.Content>
+                            </Card>
+
                         </div>
-
-
-                        <div class="col-lg-3 col-md-6 mb-lg-0 mb-5" >
-                            <div class="avatar mx-auto">
-                                <img src={image} style={{ height: "15rem", width: "15rem" }} class="rounded-circle z-depth-1"
-                                    alt="member-7 pic" />
-                            </div>
-                            <h5 class="font-weight-bold mt-4 mb-3">Naga Sai Ram Narne</h5>
-                            <p class="text-uppercase blue-text"><strong>ISA Advisor</strong></p>
-                            <p class="grey-text">About Narne</p>
-                            <ul class="list-unstyled mb-0">
+                        {/* col - 1,3/3 */}
+                        <div class="col-md-4">
+                            <Card>
+                                <Image src='https://react.semantic-ui.com/images/avatar/large/matthew.png' wrapped ui={false} />
+                                <Card.Content>
+                                    <Card.Header>SaiPrasad Bobbilla</Card.Header>
+                                    <Card.Meta>
+                                        <span className='date'>Vice President</span>
+                                    </Card.Meta>
+                                    <br/>
+                                    <Card.Description>
+                                    <ul class="list-unstyled mb-0">
                             <li>
-                                    <p style={{ display: "inline-flex" }}><i class="material-icons" style={{ color: "#0080ff", opacity: "90%" }}>phone</i>&nbsp;+1 (123) 456 7890</p>
+                            <Icon name='phone' /><p style={{ display: "inline-flex" }}>&nbsp;+1 (660) 528-1091</p>
                                 </li>
                                 <li>
-                                    <p style={{ display: "inline-flex" }}><i class="material-icons" style={{ color: "#0080ff", opacity: "90%" }}>email</i>&nbsp;S123456@nwmissouri.edu</p>
+                                <Icon name='mail' /><p style={{ display: "inline-flex" }}>&nbsp;S536845@nwmissouri.edu</p>
                                 </li>
                             </ul>
+      </Card.Description>
+                                </Card.Content>
+                                <Card.Content extra>
+                                    
+                                        <Icon name='home' />
+        MS-ACS
+      
+                                </Card.Content>
+                            </Card>
                         </div>
-
-                        {/* member-8 */}
-
-                        <div class="col-lg-3 col-md-6 mb-lg-0 mb-5" >
-                            <div class="avatar mx-auto">
-                                <img src={image} style={{ height: "15rem", width: "15rem" }} class="rounded-circle z-depth-1"
-                                    alt="member-8 pic" />
-                            </div>
-                            <h5 class="font-weight-bold mt-4 mb-3">Naga Sai Ram Narne</h5>
-                            <p class="text-uppercase blue-text"><strong>ISA Advisor</strong></p>
-                            <p class="grey-text">About Narne</p>
-                            <ul class="list-unstyled mb-0">
+                    </div>
+                    <br /><br />
+                    {/* row - 2 */}
+                    <div class="row">
+                        {/* col 2,1/3 */}
+                        <div class="col-md-4">
+                            <Card>
+                                <Image src='https://react.semantic-ui.com/images/avatar/large/matthew.png' wrapped ui={false} />
+                                <Card.Content>
+                                    <Card.Header>Abilash Bollam</Card.Header>
+                                    <Card.Meta>
+                                        <span className='date'>Secretary</span>
+                                    </Card.Meta>
+                                    <br/>
+                                    <Card.Description>
+                                    <ul class="list-unstyled mb-0">
                             <li>
-                                    <p style={{ display: "inline-flex" }}><i class="material-icons" style={{ color: "#0080ff", opacity: "90%" }}>phone</i>&nbsp;+1 (123) 456 7890</p>
+                            <Icon name='phone' /><p style={{ display: "inline-flex" }}>&nbsp;+1 (660) 528-0786</p>
                                 </li>
                                 <li>
-                                    <p style={{ display: "inline-flex" }}><i class="material-icons" style={{ color: "#0080ff", opacity: "90%" }}>email</i>&nbsp;S123456@nwmissouri.edu</p>
+                                <Icon name='mail' /><p style={{ display: "inline-flex" }}>&nbsp;S536777@nwmissouri.edu</p>
                                 </li>
                             </ul>
+      </Card.Description>
+                                </Card.Content>
+                                <Card.Content extra>
+                                    
+                                        <Icon name='home' />
+        MS-IS
+      
+                                </Card.Content>
+                            </Card>
                         </div>
 
+                        {/* col 2,2/3 */}
+                        <div class="col-md-4">
+                            <Card>
+                                <Image src='https://react.semantic-ui.com/images/avatar/large/matthew.png' wrapped ui={false} />
+                                <Card.Content>
+                                    <Card.Header>Dheeraj Edupuganti</Card.Header>
+                                    <Card.Meta>
+                                        <span className='date'>Treasurer</span>
+                                    </Card.Meta>
+                                    <br/>
+                                    <Card.Description>
+                                    <ul class="list-unstyled mb-0">
+                            <li>
+                            <Icon name='phone' /><p style={{ display: "inline-flex" }}>&nbsp;+1 (479) 321-2727</p>
+                                </li>
+                                <li>
+                                <Icon name='mail' /><p style={{ display: "inline-flex" }}>&nbsp;S537151@nwmissouri.edu</p>
+                                </li>
+                            </ul>
+      </Card.Description>
+                                </Card.Content>
+                                <Card.Content extra>
+                                    
+                                        <Icon name='home' />
+        MS-ACS
+      
+                                </Card.Content>
+                            </Card>
+                        </div>
+
+                        {/* col 2,3/3 */}
+
+                        <div class="col-md-4">
+                            <Card>
+                                <Image src='https://react.semantic-ui.com/images/avatar/large/matthew.png' wrapped ui={false} />
+                                <Card.Content>
+                                    <Card.Header>Sushma Yedugani</Card.Header>
+                                    <Card.Meta>
+                                        <span className='date'>Publicist</span>
+                                    </Card.Meta>
+                                    <br/>
+                                    <Card.Description>
+                                    <ul class="list-unstyled mb-0">
+                            <li>
+                            <Icon name='phone' /><p style={{ display: "inline-flex" }}>&nbsp;+1 (660) 528-0691</p>
+                                </li>
+                                <li>
+                                <Icon name='mail' /><p style={{ display: "inline-flex" }}>&nbsp;S536846@nwmissouri.edu</p>
+                                </li>
+                            </ul>
+      </Card.Description>
+                                </Card.Content>
+                                <Card.Content extra>
+                                    
+                                        <Icon name='home' />
+        MS-ACS
+      
+                                </Card.Content>
+                            </Card>
+                        </div>
+                    </div>
+                    <br /><br />
+                    {/* row 3 */}
+                    <div class="row">
+                        {/* col 3,1/3 */}
+                        <div class="col-md-4">
+                            <Card>
+                                <Image src='https://react.semantic-ui.com/images/avatar/large/matthew.png' wrapped ui={false} />
+                                <Card.Content>
+                                    <Card.Header>Aparna Pallavaraja</Card.Header>
+                                    <Card.Meta>
+                                        <span className='date'>Cultural Organizer</span>
+                                    </Card.Meta>
+                                    <br/>
+                                    <Card.Description>
+                                    <ul class="list-unstyled mb-0">
+                            <li>
+                            <Icon name='phone' /><p style={{ display: "inline-flex" }}>&nbsp;+1 (475) 393-8740</p>
+                                </li>
+                                <li>
+                                <Icon name='mail' /><p style={{ display: "inline-flex" }}>&nbsp;S537490@nwmissouri.edu</p>
+                                </li>
+                            </ul>
+      </Card.Description>
+                                </Card.Content>
+                                <Card.Content extra>
+                                    
+                                        <Icon name='home' />
+        MS-IS
+      
+                                </Card.Content>
+                            </Card>
+                        </div>
+
+                        {/* col 3,2/3 */}
+                        <div class="col-md-4">
+                            <Card>
+                                <Image src='https://react.semantic-ui.com/images/avatar/large/matthew.png' wrapped ui={false} />
+                                <Card.Content>
+                                    <Card.Header>Jeevan Reddy Mure </Card.Header>
+                                    <Card.Meta>
+                                        <span className='date'>Sports</span>
+                                    </Card.Meta>
+                                    <br/>
+                                    <Card.Description>
+                                    <ul class="list-unstyled mb-0">
+                            <li>
+                            <Icon name='phone' /><p style={{ display: "inline-flex" }}>&nbsp;+1 (813) 629-3589</p>
+                                </li>
+                                <li>
+                                <Icon name='mail' /><p style={{ display: "inline-flex" }}>&nbsp;S536980@nwmissouri.edu</p>
+                                </li>
+                            </ul>
+      </Card.Description>
+                                </Card.Content>
+                                <Card.Content extra>
+                                    
+                                        <Icon name='home' />
+        MS-ACS
+      
+                                </Card.Content>
+                            </Card>
+                        </div>
                     </div>
 
-                </section>
+                </div>
             </div>
 
-            </div>
 
-            
+
+
         );
     }
 }
