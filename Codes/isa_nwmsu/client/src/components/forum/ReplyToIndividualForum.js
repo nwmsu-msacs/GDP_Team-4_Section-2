@@ -105,7 +105,6 @@ validateForm = () =>{
     axios.post('http://localhost:5000/api/forum/reply', newReply)
             .then(res => console.log(res.data))
             .then(this.props.history.go())
-            // .then(this.props.history.push("/individualReply"))
     }
   };
     
@@ -146,9 +145,6 @@ validateForm = () =>{
       navbar = <AdminNavbar />
     }
 
-    
-
-      // console.log("after axios -->.", forumData)
   }
 
   render() {
