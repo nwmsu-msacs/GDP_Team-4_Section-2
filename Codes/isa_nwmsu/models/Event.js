@@ -9,7 +9,6 @@ const EventSchema = new mongoose.Schema({
     },
     eventdate: {
         type: Date,
-
         required: true
 
     },
@@ -31,12 +30,6 @@ const EventSchema = new mongoose.Schema({
         required:true,
         default:"Team ISA"
     }
-
-    // eventimage:{
-    //     data:Buffer,
-    //     contentType:String
-    // }
-
 
 
 });
