@@ -62,7 +62,6 @@ class Home extends Component {
   
 
   render() {
-    console.log(this.props.auth);
     const { user } = this.props.auth;
 
     return (
