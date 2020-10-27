@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
-// import pickup from "../../../../models/Pickup";
 import classnames from "classnames";
 import image from "../layout/assets/carousel_image4.jpg"
 import axios from 'axios';
@@ -154,20 +153,14 @@ class Pickup extends Component {
     axios.post('http://localhost:5000/api/services/pickup', pickupData)
             .then(res => console.log(res.data))
             .then(this.props.history.push("/individualUser"))
-            .then(window.location.reload(false))
-  //   // this.props.pickup(pickupData);
-  // console.log("errors---->",this.state.errors)
-    
+            .then(window.location.reload(false))    
   }
 };
 
   render() {
 
-    //getting random id for form
-
    
     const { errors } = this.state;
-// function
     return (
       <div >
         {navbar}
