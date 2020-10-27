@@ -29,7 +29,6 @@ class ModifyExistingEvent extends React.Component {
       eventdate: "",
       eventvenue: "",
       description: "",
-      // eventimage:"",
       sponsor:"",
       errors:{}
 
@@ -234,16 +233,7 @@ let sponsorError="";
                             {this.state.descriptionError}
                           </div>
                 </Form.Field>
-                {/* <Form.Field>
-                <label htmlFor="eventimage">Event Image</label>
-                  <Input 
-                  type="file"
-                  name="eventimage"
-                  id="eventimage"
-                  value={this.state.eventimage}
-                  onChange={this.onChange}
-                  />
-                </Form.Field> */}
+
 
           {/* Submit  */}
           <p class="h4 text-center mb-4">
