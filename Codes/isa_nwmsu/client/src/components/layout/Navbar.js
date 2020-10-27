@@ -1,8 +1,6 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
 import IsaLogo from "../layout/assets/ISA.png"
 import {connect} from "react-redux";
-import {loginUser} from "../../actions/authActions";
 import { logoutUser } from "../../actions/authActions";
 import PropTypes from "prop-types";
 import NavLogin from "../layout/NavLogin";
@@ -11,10 +9,6 @@ import NavRegister from "../layout/NavRegister";
 
 class Navbar extends Component {
 
-    constructor(props) {
-        super(props);
-        
-    }
 
     componentWillMount(){
         if(localStorage.getItem('jwtToken') != null){
@@ -39,7 +33,7 @@ class Navbar extends Component {
         return (
             <div className="navbar-fixed">
                 <nav class="navbar navbar-expand-lg " style={{backgroundColor:"#0099FF"}}>
-                    <a class="navbar-brand" href="#"><img src={IsaLogo} style={{height:"1.5em",}}></img></a>
+                    <a class="navbar-brand" href="/home"><img src={IsaLogo} alt="ISA-logo" style={{height:"1.5em",}}></img></a>
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
                     </button>
