@@ -152,16 +152,6 @@ class ModifyFAQ extends React.Component {
                             {this.state.answerError}
                           </div>
                 </Form.Field>
-                {/* <Form.Field>
-                <label htmlFor="eventimage">Event Image</label>
-                  <Input 
-                  type="file"
-                  name="eventimage"
-                  id="eventimage"
-                  value={this.state.eventimage}
-                  onChange={this.onChange}
-                  />
-                </Form.Field> */}
 
           {/* Submit  */}
           <p class="h4 text-center mb-4">
