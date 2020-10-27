@@ -40,7 +40,7 @@ import ModifyEvent from "./components/adminViews/ModifyExistingEvent";
 import AddFAQ from "./components/adminViews/AddFAQ";
 import ManageFAQ from "./components/adminViews/FAQManagement";
 import ModifyFAQ from "./components/adminViews/ModifyFAQ";
-// import { route } from "../../routes/api/users";
+
 // Check for token to keep user logged in
 if (localStorage.jwtToken) {
   // Set auth token header auth
@@ -60,7 +60,6 @@ if (localStorage.jwtToken) {
   }
 }
 
-// let navbar = <Navbar />
 class App extends Component {
   //logging test
   constructor(props) {
@@ -76,11 +75,9 @@ class App extends Component {
           <div className="App">
             {/* {navbar} */}
             
-            {/* {<Navbar auth={store.getState()}/>} */}
             <Switch>
 
               <PrivateRoute exact path="/home" component={Home} />
-              {/* <PrivateRoute exact path="/adminHome" component={AdminHome}/> */}
 
               <Route exact path="/" component={Landing} />
               <Route exact path="/register" component={Register} />
@@ -116,11 +113,6 @@ class App extends Component {
               {this.state.loggedIn === true ? <Route exact path='/logout' component={developmentInProgress} /> : null}
             </Switch>
 
-            {/* <Switch>
-
-              <PrivateRoute exact path="/home" component={Home} />
-              <PrivateRoute exact path="/adminHome" component={AdminHome}/>
-              </Switch> */}
 
           </div>
         </Router>
