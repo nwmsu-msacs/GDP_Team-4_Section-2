@@ -1,8 +1,4 @@
 import React, { Component } from "react";
-import PropTypes from "prop-types";
-import { connect } from "react-redux";
-import classnames from "classnames";
-import image from "../layout/assets/carousel_image4.jpg"
 import axios from 'axios';
 import Navbar from "../layout/Navbar";
 import AdminNavbar from "../layout/AdminNavbar";
@@ -79,7 +75,7 @@ class Pickup extends Component {
 
     if(isEmpty(this.state.cell)){
       cellError= "Cell field is required"
-    }else if(this.state.cell.length != 10){
+    }else if(this.state.cell.length !== 10){
       cellError= "Phone number is invalid"
     }
 
@@ -160,7 +156,6 @@ class Pickup extends Component {
   render() {
 
    
-    const { errors } = this.state;
     return (
       <div >
         {navbar}
