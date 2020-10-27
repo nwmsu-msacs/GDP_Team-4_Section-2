@@ -6,7 +6,6 @@ import {
   SET_CURRENT_USER,
   USER_LOADING
 } from "./types";
-import { Redirect } from "react-router-dom";
 
 // Register User
 export const registerUser = (userData, history) => dispatch => {
