@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
 import Navbar from "../layout/Navbar";
 import AdminNavbar from "../layout/AdminNavbar";
 import axios from "axios";
@@ -72,10 +71,7 @@ const FaqMap = (FaqList, self) => {
 
 
 class Faq extends Component {
-    constructor() {
-        super();
-        
-    }
+
 
     state = {
       FAQData: [],
@@ -114,7 +110,6 @@ class Faq extends Component {
     }
 
     render() {
-        const { errors } = this.state;
 
         return (
           <div>
