@@ -94,10 +94,6 @@ class Volunteer extends Component {
          }else if(this.state.non.length != 9 || isNaN(this.state.non)){
             nonError= "Enter full valid 919#"
           }
-
-     
-         
-     
      
          if(firstnameError || lastnameError || emailError || contactnoError|| cartypeError|| nonError){
            this.setState({firstnameError, lastnameError, emailError, contactnoError, cartypeError, nonError});
