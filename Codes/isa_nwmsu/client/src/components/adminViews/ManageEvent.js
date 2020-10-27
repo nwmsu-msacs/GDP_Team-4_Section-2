@@ -2,8 +2,8 @@ import axios from 'axios';
 import React, { Component } from 'react';
 import AdminNavbar from "../layout/AdminNavbar";
 import Navbar from "../layout/Navbar";
-import {  Card, Image } from 'react-bootstrap'
-import {Button, FeedDate, Item} from 'semantic-ui-react'
+import {  Card } from 'react-bootstrap'
+import {Button} from 'semantic-ui-react'
 
 let navbar = undefined;
 
@@ -78,9 +78,7 @@ const EventMap = (eventList, self) => {
 
 class ManageEvent extends Component {
 
-  constructor(props) {
-    super(props);
-  }
+
   state = {
     EventData: [],
     self: null,
