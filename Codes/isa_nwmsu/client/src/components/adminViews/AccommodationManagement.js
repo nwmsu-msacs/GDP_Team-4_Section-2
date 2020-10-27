@@ -23,7 +23,6 @@ function accept(data, self) {
 //pending cards
 
 const AccommodationMap = (accommodationList, self) => {
-  console.log("-----accommodationList", accommodationList);
 
   let res = accommodationList.map((data) => {
     return (
@@ -78,14 +77,11 @@ null
     );
   });
 
-  console.log(res);
-
   return res;
 }
 
 //Accept and reject cards
 const ARAccommodationMap = (accommodationList, self) => {
-  console.log("-----accommodationList", accommodationList);
 
   let res = accommodationList.map((data) => {
     return (
@@ -123,8 +119,6 @@ null
     );
   });
 
-  console.log(res);
-
   return res;
 }
 
@@ -148,7 +142,6 @@ class AccommodationManagement extends Component {
     axios
       .get("http://localhost:5000/api/admin/accommodationManagement")
       .then(res => {
-        console.log(res.data.accommodationdata)
         this.setState({
           AccommodationData: res.data.accommodationdata
         });
