@@ -57,7 +57,7 @@ class UpcomingEvent extends Component {
     });
 
     axios
-      .get("http://localhost:5000/api/events/upcomingEventsData")
+      .get("/api/events/upcomingEventsData")
       .then(res => {
         this.setState({
           UpcomingEventData: res.data.eventdata
@@ -90,7 +90,7 @@ class UpcomingEvent extends Component {
           <br />
           <h2 class="text-center" style={{fontFamily:"Arial",fontStyle:"Italic", textShadow:"2px 2px #A9A9A9", color:"#585858"}}>Events Being Hosted</h2>
           <hr style={{width:"50%"}}/>
-          <div class="container" style={{ columns: "3", width:"100%" }}>
+          <div class="container" style={{ columns: "2", width:"100%" }}>
             <p>{upcomingEventMap(this.state.UpcomingEventData, this.state.self)}</p>
           </div>
         </div>
