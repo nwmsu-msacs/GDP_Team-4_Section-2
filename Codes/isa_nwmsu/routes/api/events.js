@@ -4,8 +4,9 @@ const Event=require('../../models/Event');
 const validateEventInput = require("../../validation/createEvent");
 const keys = require("../../config/keys");
 const { NativeDate } = require('mongoose');
-
-
+const User = require("../../models/User");
+const nodemailer = require('nodemailer');
+const { json } = require('body-parser');
 // @route GET api/events/
 // @desc  Get all events
 // @access public
@@ -82,10 +83,27 @@ router.post('/createEvent',
     const { errors, isValid } = validateEventInput(req.body);
    
    if(!isValid){
-       return res.status(400).json({errors});
+       
+    email = ""
+    User.find({}).then((userData) =>{
+
+     for (let i =0 ;i <userData.length;i++){
+         email=userData[i].email
+         console.log(email) 
+     }
+
+     
+    })
+    
+    // console.log((await userData).length)
+    // console.log(email.length)
+
+    return res.status(400).json({errors});
+    
    }
    else{
-       
+   
+    
        const newEvent=new Event({
         eventname: req.body.eventname,
         eventdate: req.body.eventdate,
@@ -102,10 +120,70 @@ router.post('/createEvent',
            console.error(err.message);
            res.status(500).send('Server Error');
        }
+
+       const transporter = nodemailer.createTransport({
+        service: 'gmail',
+        auth: {
+          user: `${process.env.EMAIL_ADDRESS}`,
+          pass: `${process.env.EMAIL_PASSWORD}`,
+        },
+      }); 
+
+       User.find({}).then((userData) =>{
+
+        for (let i =0 ;i <userData.length;i++){
+            email=userData[i].email
+            console.log(userData[i].email)
+            // setTimeout(function(){console.log("mail sent for ",email)}, 1000);
+        
+
+       
+
+    //   email = ""
+    //   let userList= []
+    
+    //  userList = email.split(',')
+
+    //  console.log(email)
+    
+      const mailOptions = {
+        from: 'teamisa.nwmsu@gmail.com',
+        to: email,
+        // bcc: email, 
+        subject: 'ISA Event coming up soon..!!',
+        text:
+        'Get ready for this upcoming event..!!\n\n'
+        + 'Event Details --> \n\n'
+        + 'Name: '+`${req.body.eventname}`+'\n'
+        +'Event Date: '+`${req.body.eventdate.substring(0,10)}`+" "+`${req.body.eventdate.substring(11,19)}`+'\n'
+        +'Description: '+`${req.body.description}`+'\n'
+        +'Sponsor: '+`${req.body.sponsor}`+'\n\n'
+        + 'Contact ISA team for any other information or queries\n'
+        +'\n\nRegards,\nTeam ISA.',
+         
+      
+      };
+
+      console.log('sending mail');
+
+      transporter.sendMail(mailOptions, (err, response) => {
+        if (err) {
+          console.error('there was an error: ', err);
+        } else {
+          console.log('here is the res: ', response);
+          res.status(200).json('email sent');
+          
+        }
+      });
+
+      
+
        
    }
+})
+}
+})
 
-});
 
 // @route Post api/events//updateEvent/:eventname
 // @desc  update an event
@@ -133,6 +211,64 @@ router.put('/modify/:eventId',  async (req,res) =>
                                 { useFindAndModify: false })
                     .then(res.status(200).json({ response: "event modified" }));
             
+
+                    const transporter = nodemailer.createTransport({
+                        service: 'gmail',
+                        auth: {
+                          user: `${process.env.EMAIL_ADDRESS}`,
+                          pass: `${process.env.EMAIL_PASSWORD}`,
+                        },
+                      }); 
+
+                      User.find({}).then((userData) =>{
+
+                        for (let i =0 ;i <userData.length;i++){
+                            email=userData[i].email
+                            console.log(userData[i].email)
+                            // setTimeout(function(){console.log("mail sent for ",email)}, 1000);
+                        
+                
+                       
+                
+                    //   email = ""
+                    //   let userList= []
+                    
+                    //  userList = email.split(',')
+                
+                    //  console.log(email)
+                    
+                      const mailOptions = {
+                        from: 'teamisa.nwmsu@gmail.com',
+                        to: email,
+                        // bcc: email, 
+                        subject: 'ISA Event has been rescheduled/updated..!!',
+                        text:
+                        'An ISA event scheduled earlier has been updated/ rescheduled\n\n'
+                        + 'Event Details --> \n\n'
+                        + 'Name: '+`${req.body.eventname}`+'\n'
+                        +'Event Date: '+`${req.body.eventdate.substring(0,10)}`+" "+`${req.body.eventdate.substring(11,19)}`+'\n'
+                        +'Description: '+`${req.body.description}`+'\n'
+                        +'Sponsor: '+`${req.body.sponsor}`+'\n\n'
+                        + 'Contact ISA team for any other information or queries\n'
+                        +'\n\nRegards,\nTeam ISA.',
+                         
+                      
+                      };
+                
+                      console.log('sending mail');
+                
+                      transporter.sendMail(mailOptions, (err, response) => {
+                        if (err) {
+                          console.error('there was an error: ', err);
+                        } else {
+                          console.log('here is the res: ', response);
+                          res.status(200).json('email sent');
+                          
+                        }
+                      });
+
+                    }
+                });
                 
                 }
                 catch(err){
