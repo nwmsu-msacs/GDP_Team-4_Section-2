@@ -317,7 +317,15 @@ class Pickup extends Component {
                                 className="btn btn-large waves-effect waves-light hoverable blue accent-3"
                             >
                                 Submit
-                </Button></p>
+                </Button>
+                &nbsp;&nbsp;
+                <a href="/home"><Button 
+                                
+                                type="button"
+                                className="btn btn-large waves-effect waves-light hoverable red accent-3"
+                            >
+                                Cancel
+                </Button></a></p>
         </Form>
       </div>
       <div class="col-md-3"></div>
