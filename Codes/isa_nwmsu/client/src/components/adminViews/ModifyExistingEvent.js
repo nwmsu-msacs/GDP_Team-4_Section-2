@@ -145,6 +145,7 @@ let sponsorError="";
                         </div>
         
         <div class="col-md-4" >
+          
         <p class="h3 text-center mb-4">Modify Event</p>
         <Form class onSubmit={this.onSubmit}>
           
@@ -237,7 +238,15 @@ let sponsorError="";
                                 className="btn btn-large waves-effect waves-light hoverable blue accent-3"
                             >
                                 Modify Event
-                </Button></p>
+                </Button>&nbsp;&nbsp;
+                <a href="/manageEvents"><Button 
+                                
+                                type="button"
+                                className="btn btn-large waves-effect waves-light hoverable red accent-3"
+                            >
+                                Cancel
+                </Button></a>
+                </p>
         </Form>
       </div>
       <div class="col-md-3"></div>
