@@ -128,7 +128,7 @@ class Membership extends Component {
         
         axios.post('http://localhost:5000/api/services/membership', membershipData)
             .then(res => console.log(res.data))
-            .then(this.props.history.push("/individualUser"))
+            .then(this.props.history.push("/home"))
             .then(window.location.reload(false))
     }
 
@@ -257,7 +257,14 @@ class Membership extends Component {
                                 className="btn btn-large waves-effect waves-light hoverable blue accent-3"
                             >
                                 Submit
-                </Button></p>
+                </Button>&nbsp;&nbsp;
+                <a href="/home"><Button 
+                                
+                                type="button"
+                                className="btn btn-large waves-effect waves-light hoverable red accent-3"
+                            >
+                                Cancel
+                </Button></a></p>
                 
                         </Form>
                     </div>
