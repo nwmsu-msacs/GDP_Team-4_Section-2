@@ -71,6 +71,14 @@ class Navbar extends Component {
                                     <a class="dropdown-item" href="https://www.nwmissouri.edu/admissions/apply/admitted/checklist.htm" target="new">Pre-arrival Checklist</a>
                                     <a class="dropdown-item" href="https://www.nwmissouri.edu/admissions/apply/admitted/checklist.htm" target="new">Post-arrival Checklist</a>
                                     <a class="dropdown-item" href="/volunteer">Volunteer</a>
+                                    {this.state.loggedIn===true?    
+                            
+                            <a class="dropdown-item" href="/individualUser" >
+                                    Cancel Request
+        </a>
+
+                            :
+                            null}
                                 </div>
                             </li>
                             <li class="nav-item px-3 dropdown">
@@ -84,7 +92,7 @@ class Navbar extends Component {
                                     <a class="dropdown-item" href="/alumni">Alumni</a>
                                 </div>
                             </li>
-                            {this.state.loggedIn===true?    
+                            {/* {this.state.loggedIn===true?    
                             <li>
                             
                             <a class="nav-link" href="/individualUser" >
@@ -92,7 +100,7 @@ class Navbar extends Component {
         </a>
 
                             </li>:
-                            <li></li>}
+                            <li></li>} */}
                             </ul>
 
 
