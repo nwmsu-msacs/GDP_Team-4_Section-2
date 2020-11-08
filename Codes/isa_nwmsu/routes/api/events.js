@@ -57,7 +57,7 @@ router.post("/deleteEvent", (req, res) => {
 
     let data = req.body;
 
-    console.log("-----------data in service", data);
+    console.log("-----------data in delete event", data);
 
     const transporter = nodemailer.createTransport({
       service: 'gmail',
@@ -72,17 +72,6 @@ router.post("/deleteEvent", (req, res) => {
       for (let i =0 ;i <userData.length;i++){
           email=userData[i].email
           console.log(userData[i].email)
-          // setTimeout(function(){console.log("mail sent for ",email)}, 1000);
-      
-
-     
-
-  //   email = ""
-  //   let userList= []
-  
-  //  userList = email.split(',')
-
-  //  console.log(email)
   
     const mailOptions = {
       from: 'teamisa.nwmsu@gmail.com',
@@ -178,18 +167,7 @@ router.post('/createEvent',
         for (let i =0 ;i <userData.length;i++){
             email=userData[i].email
             console.log(userData[i].email)
-            // setTimeout(function(){console.log("mail sent for ",email)}, 1000);
-        
-
-       
-
-    //   email = ""
-    //   let userList= []
-    
-    //  userList = email.split(',')
-
-    //  console.log(email)
-    
+            
       const mailOptions = {
         from: 'teamisa.nwmsu@gmail.com',
         to: email,
@@ -269,17 +247,7 @@ router.put('/modify/:eventId',  async (req,res) =>
                         for (let i =0 ;i <userData.length;i++){
                             email=userData[i].email
                             console.log(userData[i].email)
-                            // setTimeout(function(){console.log("mail sent for ",email)}, 1000);
-                        
-                
-                       
-                
-                    //   email = ""
-                    //   let userList= []
-                    
-                    //  userList = email.split(',')
-                
-                    //  console.log(email)
+                            
                     
                       const mailOptions = {
                         from: 'teamisa.nwmsu@gmail.com',
