@@ -263,19 +263,19 @@ class individualUser extends Component {
         {navbar}
         <div>
         <br/>
-        <h2 class="text-center" style={{fontFamily:"Arial", fontStyle:"oblique"}}>Request's You have created</h2>
+        <h2 class="text-center" style={{fontFamily:"Arial", fontStyle:"oblique"}}>Requests You have created</h2>
         <hr style={{border:"1px dotted #0099FF", width:"45%"}}/>
-        <h4 style={{fontFamily:"Arial", marginLeft:"8.5rem", fontStyle:"oblique"}}>Volunteer Requests's</h4>
+        <h4 style={{fontFamily:"Arial", marginLeft:"8.5rem", fontStyle:"oblique"}}>Volunteer Requests</h4>
           <div class="container" style={{ columns: "3", width:"100%" }}>
         <p>{VolunteerMap(this.state.volunteerData, this.state.self)}</p>
         </div>
         <hr style={{border:"1px dotted #0099FF", width:"83%"}}/>
-        <h4 style={{fontFamily:"Arial", marginLeft:"8.5rem", fontStyle:"oblique"}}>Pickup Request's</h4>
+        <h4 style={{fontFamily:"Arial", marginLeft:"8.5rem", fontStyle:"oblique"}}>Pickup Requests</h4>
         <div class="container" style={{ columns: "3", width:"100%" }}>
         <p>{pickUpMap(this.state.pickupData, this.state.self)}</p>
         </div>
         <hr style={{border:"1px dotted #0099FF", width:"83%"}}/>
-        <h4 style={{fontFamily:"Arial", marginLeft:"8.5rem", fontStyle:"oblique"}}>Accommodation Request's</h4>
+        <h4 style={{fontFamily:"Arial", marginLeft:"8.5rem", fontStyle:"oblique"}}>Accommodation Requests</h4>
         <div class="container" style={{ columns: "3", width:"100%" }}>
         <p>{accommodationMap(this.state.accommodationData, this.state.self)}</p>
         </div>
