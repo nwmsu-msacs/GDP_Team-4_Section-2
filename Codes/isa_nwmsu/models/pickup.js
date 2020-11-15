@@ -41,6 +41,10 @@ const PickupSchema = new Schema({
   status:{
     type:String,
     default:"Pending"
+  },
+  createdBy:{
+    type:String,
+    required:true,
   }
 
 });
