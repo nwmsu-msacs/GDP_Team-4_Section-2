@@ -35,6 +35,7 @@ class Accommodation extends Component {
             email: "",
             fromDate:"",
             toDate:"",
+            createdBy:localStorage.getItem("email"),
             errors: {}
         };
     }
@@ -152,7 +153,8 @@ class Accommodation extends Component {
             contactNo: this.state.contactNo,
             email: this.state.email,
             fromDate: this.state.fromDate,
-            toDate: this.state.toDate
+            toDate: this.state.toDate,
+            createdBy:this.state.createdBy
 
         };
 
