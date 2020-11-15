@@ -11,7 +11,7 @@ const Volunteer = require("../../models/Volunteer");
 
 router.get("/userPickups/:email", async (req,res) => {
 
-    Pickup.find({email:req.params.email}).then((userpickupdata) => {
+    Pickup.find({createdBy:req.params.email}).then((userpickupdata) => {
         if(userpickupdata == null){
             console.error('No pickup data retrieved');
             res.status(403).send('No pickup data retrieved');
@@ -25,7 +25,7 @@ router.get("/userPickups/:email", async (req,res) => {
 
 router.get("/userAccommodation/:email", async (req,res) => {
 
-    Accommodation.find({email:req.params.email}).then((useraccommodationdata) => {
+    Accommodation.find({createdBy:req.params.email}).then((useraccommodationdata) => {
         if(useraccommodationdata == null){
             console.error('No accommodation data retrieved');
             res.status(403).send('No accommodation data retrieved');
@@ -37,7 +37,7 @@ router.get("/userAccommodation/:email", async (req,res) => {
 
 router.get("/userVolunteer/:email", async (req,res) => {
 
-    Volunteer.find({email:req.params.email}).then((uservolunteerdata) => {
+    Volunteer.find({createdBy:req.params.email}).then((uservolunteerdata) => {
         if(uservolunteerdata == null){
             console.error('No volunteer data retrieved');
             res.status(403).send('No volunteer data retrieved');
