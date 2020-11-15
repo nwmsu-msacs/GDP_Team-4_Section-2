@@ -29,6 +29,10 @@ const VolunteerSchema = new Schema({
   email:{
     type:String,
     required:true
+  },
+  createdBy:{
+    type:String,
+    required:true
   }
 });
 module.exports = Volunteer = mongoose.model("volunteer", VolunteerSchema);
