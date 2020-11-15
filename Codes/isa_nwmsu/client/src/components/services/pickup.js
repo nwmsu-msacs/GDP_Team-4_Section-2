@@ -37,6 +37,7 @@ class Pickup extends Component {
       to: "",
       airline: "",
       flightNo: "",
+      createdBy:localStorage.getItem("email"),
       errors: {}
     };
   }
@@ -142,7 +143,8 @@ class Pickup extends Component {
       to: this.state.to,
       airline: this.state.airline,
       flightNo: this.state.flightNo,
-      pickupId: this.state.pickupId
+      pickupId: this.state.pickupId,
+      createdBy:this.state.createdBy
     };
     this.setState(initialErrorState);
 // port for the service
