@@ -30,6 +30,7 @@ router.post("/pickup", async (req, res) => {
             date: req.body.date,
             airline: req.body.airline,
             flightNo: req.body.flightNo,
+            createdBy: req.body.createdBy
         });
         // method to save data in database
         pickupData.save();
@@ -49,7 +50,8 @@ router.post("/accommodation", (req, res) => {
         contactNo: req.body.contactNo,
         email: req.body.email,
         fromDate: req.body.fromDate,
-        toDate: req.body.toDate
+        toDate: req.body.toDate,
+        createdBy: req.body.createdBy
     });
 
     accommodationData.save();
@@ -81,7 +83,8 @@ router.post("/volunteer", (req, res) => {
         non: req.body.non,
         carType: req.body.carType,
         contactNo: req.body.contactNo,
-        email: req.body.email
+        email: req.body.email,
+        createdBy: req.body.createdBy
     });
 
     volunteerData.save();
