@@ -29,6 +29,7 @@ class Volunteer extends Component {
             carType:"sedan",
             contactNo: "",
             email: "",
+            createdBy:localStorage.getItem("email"),
             errors: {}
         };
     }
@@ -111,7 +112,8 @@ class Volunteer extends Component {
             non: this.state.non,
             carType: this.state.carType,
             contactNo: this.state.contactNo,
-            email: this.state.email
+            email: this.state.email,
+            createdBy:this.state.createdBy
         };
 
         this.setState(initialErrorState);
