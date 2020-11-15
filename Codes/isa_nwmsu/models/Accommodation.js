@@ -41,6 +41,10 @@ const AccommodationSchema = new Schema({
   toDate:{
     type:Date,
     required:true
+  },
+  createdBy:{
+    type:String,
+    required:true
   }
 });
 module.exports = Accommodation = mongoose.model("accommodation", AccommodationSchema);
